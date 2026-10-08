@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Search, ShoppingCart, User, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 const NavLink = ({ href, children, active = false }) => (
   <Link
@@ -32,17 +33,22 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    // Initial check
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 z-[99] w-full transition-all duration-500 py-4 ${
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} // smooth spring-like cubic bezier
+      className={`fixed top-0 z-[99] w-full transition-all duration-500 ${
         isScrolled
-          ? "bg-[#f4f2e9] shadow-md border-b border-[#e5e3da]"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-[#f4f2e9] shadow-md border-b border-[#e5e3da] py-2"
+          : "bg-transparent border-b border-transparent py-8"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -56,7 +62,9 @@ export default function Navbar() {
           </nav>
 
           {/* Center Logo */}
-          <div className="flex justify-center flex-shrink-0">
+          <div className={`flex justify-center flex-shrink-0 transition-all duration-500 origin-center ${
+            isScrolled ? "scale-90" : "scale-110"
+          }`}>
             <Link
               href="/"
               className="hover:opacity-80 transition-opacity duration-300 flex items-center justify-center"
@@ -108,7 +116,9 @@ export default function Navbar() {
           {/* Logo Mobile */}
           <Link
             href="/"
-            className="hover:opacity-80 transition-opacity duration-300 flex items-center justify-center"
+            className={`hover:opacity-80 transition-all duration-500 flex items-center justify-center origin-center ${
+              isScrolled ? "scale-90" : "scale-105"
+            }`}
             aria-label="Vishva Setu Exim Home"
           >
             <Image
@@ -150,6 +160,6 @@ export default function Navbar() {
           </nav>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

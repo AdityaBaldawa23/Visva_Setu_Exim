@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section id="about" className="relative min-h-[85vh] w-full flex items-center overflow-hidden">
+    <section id="about" className="relative min-h-screen w-full flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

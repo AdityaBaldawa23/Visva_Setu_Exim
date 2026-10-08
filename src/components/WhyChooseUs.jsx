@@ -146,20 +146,27 @@ const WhyChooseUs = () => {
                     )}
                   </div>
 
-                  {/* Icon */}
-                  <div className={`mb-5 transition-transform duration-500 ${isActive ? 'scale-110 text-[#0e3b2c]' : 'text-[#5a6259]'}`}>
-                    <Icon strokeWidth={1.5} size={32} />
+                  {/* Card Container for Icon, Title, and Description */}
+                  <div className={`flex flex-col items-center p-6 rounded-2xl transition-all duration-500 w-full ${
+                    isActive 
+                      ? 'bg-[#f4f2e9]/95 backdrop-blur-sm shadow-xl border border-[#a68a56]/20' 
+                      : 'bg-transparent border border-transparent'
+                  }`}>
+                    {/* Icon */}
+                    <div className={`mb-5 transition-transform duration-500 ${isActive ? 'scale-110 text-[#0e3b2c]' : 'text-[#5a6259]'}`}>
+                      <Icon strokeWidth={1.5} size={32} />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className={`font-playfair text-xl md:text-2xl font-semibold mb-3 transition-colors duration-500 ${isActive ? 'text-[#0e3b2c]' : 'text-[#0e3b2c]/80'}`}>
+                      {feature.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className={`font-inter text-sm leading-relaxed max-w-[200px] transition-colors duration-500 ${isActive ? 'text-[#3a3f3a]' : 'text-[#3a3f3a]/80'}`}>
+                      {feature.desc}
+                    </p>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="font-playfair text-xl md:text-2xl text-[#0e3b2c] font-semibold mb-3">
-                    {feature.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="font-inter text-sm text-[#3a3f3a] leading-relaxed max-w-[200px]">
-                    {feature.desc}
-                  </p>
                 </div>
               );
             })}

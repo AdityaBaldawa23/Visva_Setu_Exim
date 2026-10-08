@@ -52,7 +52,7 @@ const Products = () => {
   };
 
   return (
-    <section id="products" className="relative min-h-[85vh] w-full flex flex-col items-center justify-center overflow-hide py-8">
+    <section id="products" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hide py-8">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

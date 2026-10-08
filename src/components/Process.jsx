@@ -50,7 +50,7 @@ const processes = [
 
 const Process = () => {
   return (
-    <section id="process" className="relative min-h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden py-32">
+    <section id="process" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden py-32">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -100,7 +100,7 @@ const Process = () => {
                 
                 {/* Step Card */}
                 <motion.div 
-                  className="relative flex flex-col items-center w-full lg:w-[240px] shrink-0"
+                  className="relative flex flex-col items-center w-full lg:w-[240px] shrink-0 group cursor-pointer"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
@@ -108,7 +108,7 @@ const Process = () => {
                 >
                   
                   {/* Top Icon overlapping the top arch */}
-                  <div className="relative z-20 -mb-6 w-12 h-12 bg-[#103728] rounded-full flex items-center justify-center text-white border-[3px] border-[#f4f2e9] shadow-sm">
+                  <div className="relative z-20 -mb-6 w-12 h-12 bg-[#103728] rounded-full flex items-center justify-center text-white border-[3px] border-[#f4f2e9] shadow-sm transition-transform duration-300 group-hover:scale-110">
                     <Icon size={20} strokeWidth={1.5} />
                   </div>
 
@@ -117,18 +117,18 @@ const Process = () => {
                     <img 
                       src={process.image}
                       alt={process.title}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
 
                   {/* Number Circle overlapping the bottom of the image */}
-                  <div className="relative z-20 -mt-6 w-12 h-12 bg-[#f4f2e9] rounded-full flex items-center justify-center text-[#103728] border border-[#a68a56] font-playfair text-lg shadow-sm">
+                  <div className="relative z-20 -mt-6 w-12 h-12 bg-[#f4f2e9] rounded-full flex items-center justify-center text-[#103728] border border-[#a68a56] font-playfair text-lg shadow-sm transition-colors duration-300 group-hover:bg-[#0e3b2c] group-hover:text-white">
                     {process.num}
                   </div>
 
                   {/* Text Content */}
-                  <div className="mt-6 text-center px-2">
-                    <h3 className="font-playfair text-xl text-[#0e3b2c] mb-3 font-semibold">
+                  <div className="mt-2 text-center p-4 rounded-2xl transition-all duration-300 border border-transparent group-hover:bg-[#f4f2e9]/95 group-hover:backdrop-blur-md group-hover:border-[#a68a56]/30 group-hover:shadow-xl w-full">
+                    <h3 className="font-playfair text-xl text-[#0e3b2c] mb-2 font-semibold">
                       {process.title}
                     </h3>
                     <p className="font-inter text-xs text-[#5a6259] leading-relaxed max-w-[200px] mx-auto">

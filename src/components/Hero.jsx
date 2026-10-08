@@ -24,7 +24,7 @@ const Hero = () => {
           quality={100}
         />
         {/* Subtle overlay for the left side to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f4f2e9]/60 via-[#f4f2e9]/30 to-transparent"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-[#f4f2e9]/60 via-[#f4f2e9]/30 to-transparent"></div> */}
         {/* Bottom blend gradient to seamlessly merge with About section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#f4f2e9]"></div>
       </motion.div>
