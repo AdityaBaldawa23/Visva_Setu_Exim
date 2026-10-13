@@ -139,20 +139,35 @@ const productList = [
 
 export default function ProductPage() {
   return (
-    <div className="relative min-h-screen selection:bg-[#a68a56] selection:text-white bg-[#f4f2e9]">
+    <div className="relative min-h-[100svh] selection:bg-[#a68a56] selection:text-white bg-[#f4f2e9]">
       {/* =========================================================================
-          FIXED ARTISTIC CANVAS BACKGROUND
-          Reusing "product page.png" / "product page background.png"
+          FIXED ARTISTIC CANVAS BACKGROUND WITH MOBILE PLACEHOLDER
           ========================================================================= */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <Image
-          src="/product page.png"
-          alt="Vishva Setu Exim Background Pattern"
-          fill
-          priority
-          className="object-cover object-center"
-          quality={90}
-        />
+        {/* Desktop Background Image (hidden on mobile) */}
+        <div className="hidden md:block absolute inset-0">
+          <Image
+            src="/product page.png"
+            alt="Vishva Setu Exim Background Pattern Desktop"
+            fill
+            priority
+            className="object-cover object-center"
+            quality={90}
+          />
+        </div>
+
+        {/* Mobile Background Image Placeholder (Replace /product-page-mobile-bg.png with your mobile design) */}
+        <div className="block md:hidden absolute inset-0">
+          <Image
+            src="/product-page-mobile-bg.png"
+            alt="Vishva Setu Exim Background Pattern Mobile"
+            fill
+            priority
+            className="object-cover object-center"
+            quality={90}
+          />
+        </div>
+
         {/* Soft atmospheric gradient wash ensuring perfect contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#f4f2e9]/70 via-[#f4f2e9]/40 to-[#f4f2e9]/80 backdrop-blur-[2px]"></div>
       </div>
@@ -161,25 +176,25 @@ export default function ProductPage() {
       <Navbar />
 
       {/* Main Body */}
-      <main className="relative z-10 w-full pt-32 pb-24">
+      <main className="relative z-10 w-full pt-28 sm:pt-32 md:pt-36 pb-20 sm:pb-24">
         
         {/* =========================================================================
             HERO INTRO SECTION
             ========================================================================= */}
-        <section className="w-full max-w-7xl mx-auto px-6 lg:px-10 pt-8 pb-16 flex flex-col items-center text-center">
+        <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-4 sm:pt-8 pb-12 sm:pb-16 flex flex-col items-center text-center">
           
           {/* Breadcrumb Pill */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-[#a68a56]/40 shadow-sm mb-8"
+            className="inline-flex items-center gap-2 sm:gap-3 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/75 backdrop-blur-md border border-[#a68a56]/40 shadow-xs mb-6 sm:mb-8"
           >
-            <Link href="/" className="text-xs font-inter font-medium text-[#5a6259] hover:text-[#0e3b2c] transition-colors">
+            <Link href="/" className="text-[11px] sm:text-xs font-inter font-medium text-[#5a6259] hover:text-[#0e3b2c] transition-colors">
               Home
             </Link>
             <span className="text-[#a68a56] text-xs font-semibold">•</span>
-            <span className="text-xs font-inter font-bold tracking-widest text-[#0e3b2c] uppercase">
+            <span className="text-[11px] sm:text-xs font-inter font-bold tracking-widest text-[#0e3b2c] uppercase">
               Export Catalogue
             </span>
           </motion.div>
@@ -192,33 +207,33 @@ export default function ProductPage() {
             className="flex flex-col items-center"
           >
             {/* Gold Rule */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-[1px] w-14 bg-[#8d7c5d]"></div>
-              <span className="text-[11px] font-inter font-bold tracking-[0.25em] text-[#5a6259] uppercase">
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <div className="h-[1px] w-8 sm:w-14 bg-[#8d7c5d]"></div>
+              <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] sm:tracking-[0.25em] text-[#5a6259] uppercase">
                 Direct From Indian Farms to Global Ports
               </span>
-              <div className="h-[1px] w-14 bg-[#8d7c5d]"></div>
+              <div className="h-[1px] w-8 sm:w-14 bg-[#8d7c5d]"></div>
             </div>
 
             {/* Headline */}
-            <h1 className="font-playfair text-5xl sm:text-6xl md:text-7xl leading-[1.08] font-medium tracking-tight mb-6">
+            <h1 className="font-playfair text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.12] font-medium tracking-tight mb-4 sm:mb-6">
               <span className="text-[#0e3b2c] block">Our Export Grade</span>
               <span className="text-[#a68a56] italic block">Agricultural Portfolio.</span>
             </h1>
 
             {/* Subtitle Description */}
-            <p className="font-inter text-base md:text-lg text-[#4a524a] max-w-3xl leading-relaxed mb-10">
+            <p className="font-inter text-sm sm:text-base md:text-lg text-[#4a524a] max-w-3xl leading-relaxed mb-8 sm:mb-10 px-2">
               Each product in our catalogue is sourced directly from vetted farming collectives across India.
               Meticulously sorted, graded for export caliber, and safeguarded with unbroken cold-chain logistics to deliver peak freshness to our international partners.
             </p>
 
             {/* Quick Navigation Jump Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-4xl px-2">
               {productList.map((prod) => (
                 <a
                   key={prod.id}
                   href={`#${prod.id}`}
-                  className="px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#a68a56]/30 text-xs font-inter font-semibold text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white hover:border-[#0e3b2c] transition-all duration-300 shadow-sm"
+                  className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#a68a56]/30 text-[11px] sm:text-xs font-inter font-semibold text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white hover:border-[#0e3b2c] transition-all duration-300 shadow-xs"
                 >
                   {prod.name.split(" ")[0]} {prod.name.split(" ")[1] || ""}
                 </a>
@@ -229,25 +244,19 @@ export default function ProductPage() {
 
         {/* =========================================================================
             ALTERNATING PRODUCT CATALOGUE SECTIONS
-            Product 1: Info Left, Image Right
-            Product 2: Image Left, Info Right
-            Product 3: Info Left, Image Right
-            Product 4: Image Left, Info Right
-            Product 5: Info Left, Image Right
             ========================================================================= */}
-        <section className="w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col gap-28 md:gap-36 mt-10">
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex flex-col gap-16 sm:gap-24 lg:gap-36 mt-6 sm:mt-10">
           {productList.map((product, index) => {
-            const isEven = index % 2 === 1; // index 0 (1st) = false -> Info Left, Image Right
-                                            // index 1 (2nd) = true  -> Image Left, Info Right
+            const isEven = index % 2 === 1;
 
             return (
               <div
                 key={product.id}
                 id={product.id}
-                className="scroll-mt-36"
+                className="scroll-mt-28 sm:scroll-mt-36"
               >
                 <div
-                  className={`flex flex-col gap-12 lg:gap-16 items-center ${
+                  className={`flex flex-col gap-8 sm:gap-12 lg:gap-16 items-center ${
                     isEven ? "lg:flex-row-reverse" : "lg:flex-row"
                   }`}
                 >
@@ -256,48 +265,48 @@ export default function ProductPage() {
                       ================================================================= */}
                   <motion.div
                     className="w-full lg:w-1/2 flex flex-col items-start text-left"
-                    initial={{ opacity: 0, x: isEven ? 40 : -40 }}
+                    initial={{ opacity: 0, x: isEven ? 30 : -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                   >
                     {/* Category & Step Number Badge */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="w-8 h-8 rounded-full bg-[#0e3b2c] text-white flex items-center justify-center font-playfair text-sm font-semibold shadow-sm">
+                    <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0e3b2c] text-white flex items-center justify-center font-playfair text-xs sm:text-sm font-semibold shadow-xs">
                         {product.num}
                       </span>
-                      <span className="text-[11px] font-inter font-bold tracking-[0.2em] text-[#a68a56] uppercase">
+                      <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] text-[#a68a56] uppercase">
                         {product.category}
                       </span>
-                      <span className="h-[1px] w-10 bg-[#a68a56]/40"></span>
+                      <span className="h-[1px] w-8 sm:w-10 bg-[#a68a56]/40"></span>
                     </div>
 
                     {/* Product Title */}
-                    <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-[#0e3b2c] font-medium leading-[1.15] mb-3">
+                    <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0e3b2c] font-medium leading-[1.15] mb-2 sm:mb-3">
                       {product.name}
                     </h2>
 
                     {/* Subtitle / Tagline */}
-                    <p className="font-inter text-xs sm:text-sm font-semibold tracking-wider text-[#8d7c5d] uppercase mb-5">
+                    <p className="font-inter text-[11px] sm:text-xs md:text-sm font-semibold tracking-wider text-[#8d7c5d] uppercase mb-4 sm:mb-5">
                       {product.subtitle}
                     </p>
 
                     {/* Description Paragraph */}
-                    <p className="font-inter text-sm sm:text-base text-[#4a524a] leading-relaxed mb-6">
+                    <p className="font-inter text-xs sm:text-sm md:text-base text-[#4a524a] leading-relaxed mb-5 sm:mb-6">
                       {product.description}
                     </p>
 
                     {/* Origin & Key Highlights */}
-                    <div className="w-full p-4 rounded-xl bg-white/70 backdrop-blur-md border border-[#a68a56]/25 shadow-sm mb-6 flex flex-col gap-2.5">
+                    <div className="w-full p-3.5 sm:p-4 rounded-xl bg-white/75 backdrop-blur-md border border-[#a68a56]/25 shadow-xs mb-5 sm:mb-6 flex flex-col gap-2.5">
                       <div className="flex items-center gap-2 text-xs font-inter text-[#0e3b2c] font-medium">
                         <Globe2 size={16} className="text-[#a68a56] shrink-0" />
                         <span><strong>Origin Belt:</strong> {product.origin}</span>
                       </div>
-                      <div className="flex flex-wrap gap-2 pt-1 border-t border-[#a68a56]/15">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 border-t border-[#a68a56]/15">
                         {product.highlights.map((h, i) => (
                           <span
                             key={i}
-                            className="inline-flex items-center gap-1.5 text-[11px] font-inter font-semibold text-[#0e3b2c] bg-[#0e3b2c]/5 px-2.5 py-1 rounded-md"
+                            className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-inter font-semibold text-[#0e3b2c] bg-[#0e3b2c]/5 px-2 sm:px-2.5 py-1 rounded-md"
                           >
                             <CheckCircle2 size={12} className="text-[#0e3b2c]" />
                             {h}
@@ -307,18 +316,18 @@ export default function ProductPage() {
                     </div>
 
                     {/* Key Specifications Grid */}
-                    <div className="w-full mb-8">
-                      <h3 className="font-inter text-xs font-bold tracking-[0.18em] text-[#5a6259] uppercase mb-3 flex items-center gap-2">
+                    <div className="w-full mb-6 sm:mb-8">
+                      <h3 className="font-inter text-[11px] sm:text-xs font-bold tracking-[0.18em] text-[#5a6259] uppercase mb-3 flex items-center gap-2">
                         <Award size={14} className="text-[#a68a56]" />
                         Export Specifications
                       </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                         {product.specs.map((spec, sIdx) => (
                           <div
                             key={sIdx}
-                            className="p-3 rounded-lg bg-white/80 backdrop-blur-sm border border-[#a68a56]/20 shadow-xs flex flex-col justify-center"
+                            className="p-2.5 sm:p-3 rounded-lg bg-white/80 backdrop-blur-sm border border-[#a68a56]/20 shadow-2xs flex flex-col justify-center"
                           >
-                            <span className="text-[10px] font-inter font-bold uppercase tracking-wider text-[#8d7c5d]">
+                            <span className="text-[9px] sm:text-[10px] font-inter font-bold uppercase tracking-wider text-[#8d7c5d]">
                               {spec.label}
                             </span>
                             <span className="text-xs font-inter font-medium text-[#103728] mt-0.5">
@@ -330,14 +339,14 @@ export default function ProductPage() {
                     </div>
 
                     {/* Certifications & CTA */}
-                    <div className="w-full flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#a68a56]/30">
-                      <div className="flex flex-wrap items-center gap-2">
+                    <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-[#a68a56]/30">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                         {product.certifications.map((c, cIdx) => (
                           <span
                             key={cIdx}
-                            className="inline-flex items-center gap-1 text-[11px] font-inter font-semibold text-[#0e3b2c] bg-white/90 border border-[#a68a56]/30 px-2.5 py-1 rounded-full shadow-2xs"
+                            className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-inter font-semibold text-[#0e3b2c] bg-white/90 border border-[#a68a56]/30 px-2 sm:px-2.5 py-1 rounded-full shadow-2xs"
                           >
-                            <ShieldCheck size={13} className="text-[#a68a56]" />
+                            <ShieldCheck size={12} className="text-[#a68a56]" />
                             {c}
                           </span>
                         ))}
@@ -346,7 +355,7 @@ export default function ProductPage() {
                       {/* Request Quote Button */}
                       <Link
                         href={`/#contact`}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#0e3b2c] text-white font-inter text-xs font-semibold tracking-wider uppercase hover:bg-[#134d3a] hover:gap-3 transition-all duration-300 shadow-md group/btn"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#0e3b2c] text-white font-inter text-xs font-semibold tracking-wider uppercase hover:bg-[#134d3a] hover:gap-3 transition-all duration-300 shadow-md group/btn w-full sm:w-auto text-center"
                       >
                         <span>Enquire for Export</span>
                         <ArrowRight size={14} className="transition-transform group-hover/btn:translate-x-1" />
@@ -356,16 +365,16 @@ export default function ProductPage() {
                   </motion.div>
 
                   {/* =================================================================
-                      IMAGE SIDE (Framed & Arched Luxury Showcase)
+                      IMAGE SIDE (Framed Luxury Showcase)
                       ================================================================= */}
                   <motion.div
                     className="w-full lg:w-1/2 flex justify-center items-center"
-                    initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+                    initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                   >
-                    <div className="relative w-full max-w-[560px] aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#a68a56]/40 shadow-2xl bg-white/80 group">
+                    <div className="relative w-full max-w-[560px] aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#a68a56]/40 shadow-xl sm:shadow-2xl bg-white/80 group">
                       
                       {/* Product Image */}
                       <Image
@@ -373,24 +382,24 @@ export default function ProductPage() {
                         alt={`${product.name} - Vishva Setu Exim`}
                         fill
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 560px"
+                        sizes="(max-width: 640px) 95vw, (max-width: 1024px) 500px, 560px"
                       />
 
                       {/* Subtle Vignette Gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
 
                       {/* Floating Top Badge */}
-                      <div className="absolute top-4 left-4 z-20">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4f2e9]/90 backdrop-blur-md text-[11px] font-inter font-bold tracking-wider text-[#0e3b2c] border border-[#a68a56]/40 shadow-md uppercase">
-                          <Sparkles size={12} className="text-[#a68a56]" />
+                      <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-20">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#f4f2e9]/90 backdrop-blur-md text-[10px] sm:text-[11px] font-inter font-bold tracking-wider text-[#0e3b2c] border border-[#a68a56]/40 shadow-xs uppercase">
+                          <Sparkles size={11} className="text-[#a68a56]" />
                           Grade-A Export Caliber
                         </span>
                       </div>
 
                       {/* Floating Bottom Badge */}
-                      <div className="absolute bottom-4 right-4 z-20">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0e3b2c]/90 backdrop-blur-md text-[11px] font-inter font-medium text-white border border-[#a68a56]/40 shadow-md">
-                          <ThermometerSnowflake size={13} className="text-[#a68a56]" />
+                      <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-20">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#0e3b2c]/90 backdrop-blur-md text-[10px] sm:text-[11px] font-inter font-medium text-white border border-[#a68a56]/40 shadow-xs">
+                          <ThermometerSnowflake size={12} className="text-[#a68a56]" />
                           Cold-Chain Monitored
                         </span>
                       </div>
@@ -406,34 +415,34 @@ export default function ProductPage() {
         {/* =========================================================================
             BOTTOM GLOBAL TRADE CALL-TO-ACTION BANNER
             ========================================================================= */}
-        <section className="w-full max-w-5xl mx-auto px-6 lg:px-10 mt-32">
+        <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 mt-20 sm:mt-28 md:mt-32">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0e3b2c] to-[#08241b] text-white p-10 md:p-14 shadow-2xl border border-[#a68a56]/40 flex flex-col md:flex-row items-center justify-between gap-8"
+            className="w-full relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0e3b2c] to-[#08241b] text-white p-6 sm:p-10 md:p-14 shadow-2xl border border-[#a68a56]/40 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8"
           >
             {/* Background Decorative Gold Rings */}
             <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full border border-[#a68a56]/20 pointer-events-none"></div>
             <div className="absolute -right-10 -bottom-10 w-60 h-60 rounded-full border border-[#a68a56]/15 pointer-events-none"></div>
 
             <div className="flex flex-col text-left max-w-xl relative z-10">
-              <span className="text-[11px] font-inter font-bold tracking-[0.25em] text-[#a68a56] uppercase mb-2">
+              <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.25em] text-[#a68a56] uppercase mb-2">
                 Custom Export Solutions
               </span>
-              <h3 className="font-playfair text-3xl md:text-4xl font-medium leading-tight mb-4">
+              <h3 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-medium leading-tight mb-3 sm:mb-4">
                 Require Custom Bulk Packaging or Private Labelling?
               </h3>
-              <p className="font-inter text-sm text-[#e5e3da]/80 leading-relaxed">
+              <p className="font-inter text-xs sm:text-sm text-[#e5e3da]/80 leading-relaxed">
                 We cater to customized palletized shipments, CIF / FOB contracts, and dedicated branding boxes for international wholesalers and retail chains across the Middle East, Europe, and Asia.
               </p>
             </div>
 
-            <div className="relative z-10 shrink-0">
+            <div className="relative z-10 shrink-0 w-full md:w-auto">
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-md bg-[#a68a56] text-[#0e3b2c] font-inter text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-[#0e3b2c] transition-all duration-300 shadow-xl"
+                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-md bg-[#a68a56] text-[#0e3b2c] font-inter text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-[#0e3b2c] transition-all duration-300 shadow-xl w-full md:w-auto text-center"
               >
                 <span>Request Custom Quote</span>
                 <ArrowRight size={16} />

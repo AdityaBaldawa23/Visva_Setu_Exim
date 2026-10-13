@@ -183,7 +183,11 @@ export function WorldMap({
               return (
                 <motion.div
                   key={`label-${i}`}
-                  className={`absolute flex items-center gap-2 bg-[#103728] text-white px-3 py-1.5 rounded-full shadow-lg border border-[#a68a56]/20 ${isLeftAligned ? '-translate-x-[calc(100%+12px)] -translate-y-1/2' : 'translate-x-4.5 -translate-y-1/2'}`}
+                  className={`absolute flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-[#103728] text-white px-1.5 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1.5 rounded-full shadow-lg border border-[#a68a56]/20 ${
+                    isLeftAligned
+                      ? '-translate-x-[calc(100%+4px)] sm:-translate-x-[calc(100%+8px)] md:-translate-x-[calc(100%+12px)] -translate-y-1/2'
+                      : 'translate-x-1 sm:translate-x-2.5 md:translate-x-4.5 -translate-y-1/2'
+                  }`}
                   style={{
                     left: `${(endPoint.x / 800) * 100}%`,
                     top: `${(endPoint.y / 400) * 100}%`,
@@ -197,11 +201,11 @@ export function WorldMap({
                   }}
                 >
                   {dot.flag && (
-                    <span className="text-sm bg-white/10 rounded-full w-5 h-5 flex items-center justify-center -ml-1 leading-none pb-0.5">
+                    <span className="text-[10px] sm:text-xs md:text-sm bg-white/10 rounded-full w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex items-center justify-center -ml-0.5 sm:-ml-1 leading-none pb-0.5">
                       {dot.flag}
                     </span>
                   )}
-                  <span className="font-playfair text-[18px] tracking-wide whitespace-nowrap pt-0.5">
+                  <span className="font-playfair text-[9px] sm:text-[11px] md:text-[15px] lg:text-[18px] tracking-wide whitespace-nowrap pt-0.5">
                     {dot.label}
                   </span>
                 </motion.div>

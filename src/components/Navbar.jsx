@@ -27,6 +27,18 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   // Check scroll position
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +61,7 @@ export default function Navbar() {
       className={`fixed top-0 z-[99] w-full transition-all duration-500 font-sans ${
         isScrolled
           ? "bg-[#f4f2e9] shadow-md border-b border-[#e5e3da] py-2"
-          : "bg-transparent border-b border-transparent py-8"
+          : "bg-transparent border-b border-transparent py-3 md:py-8"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">

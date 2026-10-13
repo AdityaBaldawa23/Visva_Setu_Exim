@@ -67,43 +67,58 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section id="why-choose-us" className="relative min-h-screen w-full flex flex-col items-center justify-start overflow-hidden py-24">
-      {/* Background Image */}
+    <section id="why-choose-us" className="relative min-h-[100svh] w-full flex flex-col items-center justify-start overflow-hidden py-16 sm:py-20 md:py-24">
+      {/* Background Images with Mobile Design Placeholder */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/vishva why choose us.png"
-          alt="Why Choose Vishva Setu Exim"
-          fill
-          className="object-cover object-center"
-          quality={100}
-        />
+        {/* Desktop Background Image (hidden on mobile) */}
+        <div className="hidden md:block absolute inset-0">
+          <Image
+            src="/vishva why choose us.png"
+            alt="Why Choose Vishva Setu Exim"
+            fill
+            className="object-cover object-center"
+            quality={95}
+          />
+        </div>
+
+        {/* Mobile Background Image Placeholder (Replace /why-choose-us-mobile-bg.png with your mobile design) */}
+        <div className="block md:hidden absolute inset-0">
+          <Image
+            src="/why-choose-us-mobile-bg.png"
+            alt="Why Choose Vishva Setu Exim Mobile Background"
+            fill
+            className="object-cover object-center"
+            quality={95}
+          />
+        </div>
+
         {/* Top and Bottom blend gradients for seamless canvas effect */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#f4f2e9] to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#f4f2e9] via-[#f4f2e9]/50 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-[#f4f2e9] to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-48 bg-gradient-to-t from-[#f4f2e9] via-[#f4f2e9]/50 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 flex flex-col items-center">
         
         {/* Header Content */}
         <motion.div 
-          className="text-center flex flex-col items-center mb-20"
+          className="text-center flex flex-col items-center mb-12 sm:mb-16 md:mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           {/* Subtitle */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-[1px] w-12 bg-[#8d7c5d]"></div>
-            <span className="text-[11px] font-inter font-bold tracking-[0.2em] text-[#5a6259] uppercase">
+          <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
+            <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] text-[#5a6259] uppercase">
               Why Choose Us
             </span>
-            <div className="h-[1px] w-12 bg-[#8d7c5d]"></div>
+            <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
           </div>
 
           {/* Main Title */}
-          <h2 className="font-playfair text-5xl md:text-[64px] leading-[1.1] font-medium tracking-tight">
-            <span className="text-[#0e3b2c] block mb-2">Your Trusted Partner</span>
+          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] font-medium tracking-tight">
+            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">Your Trusted Partner</span>
             <span className="text-[#a68a56] block">in Global Trade.</span>
           </h2>
         </motion.div>
@@ -115,7 +130,7 @@ const WhyChooseUs = () => {
 
           <div 
             ref={carouselRef}
-            className="w-full flex lg:grid lg:grid-cols-5 gap-6 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory hide-scrollbar pb-12 pt-4 px-4 lg:px-0"
+            className="w-full flex lg:grid lg:grid-cols-5 gap-4 sm:gap-6 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory hide-scrollbar pb-8 pt-4 px-2 lg:px-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {features.map((feature) => {
@@ -126,10 +141,10 @@ const WhyChooseUs = () => {
                 <div 
                   key={feature.id}
                   onClick={() => handleFeatureClick(feature.id)}
-                  className={`snap-center shrink-0 w-[280px] lg:w-auto relative z-10 flex flex-col items-center text-center group cursor-pointer transition-all duration-500 ${isActive ? 'opacity-100 scale-105 lg:scale-110' : 'opacity-60 hover:opacity-80'}`}
+                  className={`snap-center shrink-0 w-[260px] sm:w-[280px] lg:w-auto relative z-10 flex flex-col items-center text-center group cursor-pointer transition-all duration-500 ${isActive ? 'opacity-100 scale-102 lg:scale-105' : 'opacity-70 hover:opacity-90'}`}
                 >
                   {/* Number Circle */}
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-playfair text-lg transition-all duration-500 mb-8 relative ${
+                  <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-playfair text-base sm:text-lg transition-all duration-500 mb-6 sm:mb-8 relative ${
                     isActive 
                       ? 'bg-[#0e3b2c] text-white shadow-[0_0_0_6px_rgba(14,59,44,0.15)]' 
                       : 'bg-[#f4f2e9] border border-[#8d7c5d] text-[#0e3b2c]'
@@ -147,29 +162,42 @@ const WhyChooseUs = () => {
                   </div>
 
                   {/* Card Container for Icon, Title, and Description */}
-                  <div className={`flex flex-col items-center p-6 rounded-2xl transition-all duration-500 w-full ${
+                  <div className={`flex flex-col items-center p-5 sm:p-6 rounded-2xl transition-all duration-500 w-full ${
                     isActive 
-                      ? 'bg-[#f4f2e9]/95 backdrop-blur-sm shadow-xl border border-[#a68a56]/20' 
-                      : 'bg-transparent border border-transparent'
+                      ? 'bg-[#f4f2e9]/95 backdrop-blur-sm shadow-xl border border-[#a68a56]/30' 
+                      : 'bg-[#f4f2e9]/60 lg:bg-transparent border border-[#a68a56]/15 lg:border-transparent'
                   }`}>
                     {/* Icon */}
-                    <div className={`mb-5 transition-transform duration-500 ${isActive ? 'scale-110 text-[#0e3b2c]' : 'text-[#5a6259]'}`}>
-                      <Icon strokeWidth={1.5} size={32} />
+                    <div className={`mb-4 sm:mb-5 transition-transform duration-500 ${isActive ? 'scale-110 text-[#0e3b2c]' : 'text-[#5a6259]'}`}>
+                      <Icon strokeWidth={1.5} size={28} className="sm:w-8 sm:h-8" />
                     </div>
 
                     {/* Title */}
-                    <h3 className={`font-playfair text-xl md:text-2xl font-semibold mb-3 transition-colors duration-500 ${isActive ? 'text-[#0e3b2c]' : 'text-[#0e3b2c]/80'}`}>
+                    <h3 className={`font-playfair text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 transition-colors duration-500 ${isActive ? 'text-[#0e3b2c]' : 'text-[#0e3b2c]/85'}`}>
                       {feature.title}
                     </h3>
 
                     {/* Description */}
-                    <p className={`font-inter text-sm leading-relaxed max-w-[200px] transition-colors duration-500 ${isActive ? 'text-[#3a3f3a]' : 'text-[#3a3f3a]/80'}`}>
+                    <p className={`font-inter text-xs sm:text-sm leading-relaxed max-w-[200px] transition-colors duration-500 ${isActive ? 'text-[#3a3f3a]' : 'text-[#3a3f3a]/80'}`}>
                       {feature.desc}
                     </p>
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Mobile Swipe helper indicator */}
+          <div className="flex lg:hidden justify-center items-center gap-1.5 mt-2 text-xs font-inter text-[#5a6259]">
+            {features.map((f) => (
+              <span
+                key={f.id}
+                onClick={() => handleFeatureClick(f.id)}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  activeId === f.id ? "w-6 bg-[#0e3b2c]" : "w-1.5 bg-[#8d7c5d]/40"
+                }`}
+              />
+            ))}
           </div>
         </div>
 
