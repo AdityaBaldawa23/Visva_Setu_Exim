@@ -32,16 +32,16 @@ const Footer = () => {
             </h3>
             <ul className="flex flex-col space-y-4 text-sm">
               <li>
-                <Link href="#about" className="hover:text-[#a68a56] transition-colors duration-300">About Us</Link>
+                <Link href="/#about" className="hover:text-[#a68a56] transition-colors duration-300">About Us</Link>
               </li>
               <li>
-                <Link href="#process" className="hover:text-[#a68a56] transition-colors duration-300">Our Process</Link>
+                <Link href="/#process" className="hover:text-[#a68a56] transition-colors duration-300">Our Process</Link>
               </li>
               <li>
-                <Link href="#why-choose-us" className="hover:text-[#a68a56] transition-colors duration-300">Why Choose Us</Link>
+                <Link href="/#why-choose-us" className="hover:text-[#a68a56] transition-colors duration-300">Why Choose Us</Link>
               </li>
               <li>
-                <Link href="#presence" className="hover:text-[#a68a56] transition-colors duration-300">Global Presence</Link>
+                <Link href="/#presence" className="hover:text-[#a68a56] transition-colors duration-300">Global Presence</Link>
               </li>
             </ul>
           </div>
@@ -53,16 +53,16 @@ const Footer = () => {
             </h3>
             <ul className="flex flex-col space-y-4 text-sm">
               <li>
-                <Link href="#products" className="hover:text-[#a68a56] transition-colors duration-300">Fresh Fruits</Link>
+                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Fresh Fruits</Link>
               </li>
               <li>
-                <Link href="#products" className="hover:text-[#a68a56] transition-colors duration-300">Premium Spices</Link>
+                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Premium Spices</Link>
               </li>
               <li>
-                <Link href="#products" className="hover:text-[#a68a56] transition-colors duration-300">Organic Vegetables</Link>
+                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Organic Vegetables</Link>
               </li>
               <li>
-                <Link href="#products" className="hover:text-[#a68a56] transition-colors duration-300">Grains & Cereals</Link>
+                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Grains & Cereals</Link>
               </li>
             </ul>
           </div>

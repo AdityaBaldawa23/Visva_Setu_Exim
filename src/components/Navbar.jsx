@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search, ShoppingCart, User, ChevronDown } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const NavLink = ({ href, children, active = false }) => (
@@ -25,6 +25,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   // Check scroll position
   useEffect(() => {
@@ -45,7 +46,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} // smooth spring-like cubic bezier
-      className={`fixed top-0 z-[99] w-full transition-all duration-500 ${
+      className={`fixed top-0 z-[99] w-full transition-all duration-500 font-sans ${
         isScrolled
           ? "bg-[#f4f2e9] shadow-md border-b border-[#e5e3da] py-2"
           : "bg-transparent border-b border-transparent py-8"
@@ -56,9 +57,9 @@ export default function Navbar() {
         <div className="hidden md:flex justify-between items-center h-16">
           {/* Left Nav */}
           <nav className="flex items-center gap-10 flex-1 justify-end pr-12">
-            <NavLink href="/" active={true}>Home</NavLink>
-            <NavLink href="#about">About Us</NavLink>
-            <NavLink href="#products">Products</NavLink>
+            <NavLink href="/" active={pathname === "/"}>Home</NavLink>
+            <NavLink href="/#about">About Us</NavLink>
+            <NavLink href="/products" active={pathname === "/products"}>Products</NavLink>
           </nav>
 
           {/* Center Logo */}
@@ -82,9 +83,9 @@ export default function Navbar() {
 
           {/* Right Nav */}
           <nav className="flex items-center gap-10 flex-1 justify-start pl-12">
-            <NavLink href="#presence">Our Presence</NavLink>
-            <NavLink href="#blogs">Blogs</NavLink>
-            <NavLink href="#contact">Contact Us</NavLink>
+            <NavLink href="/#presence">Our Presence</NavLink>
+            <NavLink href="/#process">Process</NavLink>
+            <NavLink href="/#contact">Contact Us</NavLink>
           </nav>
         </div>
 
@@ -142,11 +143,11 @@ export default function Navbar() {
           <nav className="flex flex-col items-center justify-center h-full gap-8 text-xl font-playfair text-[#113B2E]">
             {[
               { href: "/", label: "Home" },
-              { href: "#about", label: "About Us" },
-              { href: "#products", label: "Products" },
-              { href: "#presence", label: "Our Presence" },
-              { href: "#blogs", label: "Blogs" },
-              { href: "#contact", label: "Contact Us" },
+              { href: "/#about", label: "About Us" },
+              { href: "/products", label: "Products" },
+              { href: "/#process", label: "Our Process" },
+              { href: "/#presence", label: "Our Presence" },
+              { href: "/#contact", label: "Contact Us" },
             ].map(({ href, label }) => (
               <Link
                 key={href}
