@@ -16,7 +16,7 @@ export function WorldMap({
 
   const svgMap = map.getSVG({
     radius: 0.22,
-    color: "#0e3b2c80", // Dark green with 80% opacity for better visibility
+    color: "#000000", // Dark green with 80% opacity for better visibility
     shape: "circle",
     backgroundColor: "transparent",
   });
