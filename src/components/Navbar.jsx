@@ -58,7 +58,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} // smooth spring-like cubic bezier
-      className={`fixed top-0 z-[99] w-full transition-all duration-2000 font-sans ${
+      className={`absolute top-0 z-[99] w-full transition-all duration-2000 font-sans ${
         isScrolled
           ? "bg-[#f4f2e9] shadow-md border-b border-[#e5e3da] py-2"
           : "bg-transparent border-b border-transparent py-3 md:py-8"

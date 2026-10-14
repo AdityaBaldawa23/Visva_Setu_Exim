@@ -7,14 +7,55 @@ import { motion } from "framer-motion";
 import { MapPin, Plane } from "lucide-react";
 
 const destinations = [
-  { label: "Canada", flag: "🇨🇦", region: "North America", tagline: "Fresh produce to Ontario & BC" },
-  { label: "USA", flag: "🇺🇸", region: "North America", tagline: "Spices & fruits across 15 states" },
-  { label: "UAE", flag: "🇦🇪", region: "Middle East", tagline: "Year-round supply to Dubai & Abu Dhabi" },
-  { label: "Kenya", flag: "🇰🇪", region: "East Africa", tagline: "Growing agricultural trade routes" },
-  { label: "Singapore", flag: "🇸🇬", region: "Southeast Asia", tagline: "Premium exports to Asian markets" },
-  { label: "Bangladesh", flag: "🇧🇩", region: "South Asia", tagline: "Cross-border onion & spice supply" },
+  {
+    label: "Canada",
+    flag: "🇨🇦",
+    region: "North America",
+    tagline: "Fresh produce to Ontario & BC",
+  },
+  {
+    label: "USA",
+    flag: "🇺🇸",
+    region: "North America",
+    tagline: "Spices & fruits across 15 states",
+  },
+  {
+    label: "UAE",
+    flag: "🇦🇪",
+    region: "Middle East",
+    tagline: "Year-round supply to Dubai & Abu Dhabi",
+  },
+  {
+    label: "Singapore",
+    flag: "🇸🇬",
+    region: "Southeast Asia",
+    tagline: "Premium exports to Asian markets",
+  },
+  {
+    label: "Bangladesh",
+    flag: "🇧🇩",
+    region: "South Asia",
+    tagline: "Cross-border onion & spice supply",
+  },
+  {
+    label: "Sri Lanka",
+    flag: "🇱🇰",
+    region: "South Asia",
+    tagline: "Connecting with island markets",
+  },
+  {
+    label: "Vietnam",
+    flag: "🇻🇳",
+    region: "Southeast Asia",
+    tagline: "Expanding agricultural trade in Asia",
+  },
+  {
+    label: "Europe",
+    flag: "🇪🇺",
+    region: "Europe",
+    tagline: "Connecting with European markets",
+  },
 ];
-
 const GlobalPresence = () => {
   return (
     <section
@@ -70,7 +111,9 @@ const GlobalPresence = () => {
 
           {/* Main Title */}
           <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] font-medium tracking-tight">
-            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">From India,</span>
+            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">
+              From India,
+            </span>
             <span className="text-[#a68a56] block">to the World.</span>
           </h2>
         </motion.div>
@@ -83,40 +126,57 @@ const GlobalPresence = () => {
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 56.1304, lng: -106.3468 }, // Canada
-                label: "Canada", flag: "🇨🇦"
+                label: "Canada",
+                flag: "🇨🇦",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 37.0902, lng: -95.7129 }, // USA
-                label: "USA", flag: "🇺🇸"
+                label: "USA",
+                flag: "🇺🇸",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 23.4241, lng: 53.8478 }, // UAE
-                label: "UAE", flag: "🇦🇪"
-              },
-              {
-                start: { lat: 20.5937, lng: 78.9629 }, // India
-                end: { lat: -1.2921, lng: 36.8219 }, // Kenya
-                label: "Kenya", flag: "🇰🇪"
+                label: "UAE",
+                flag: "🇦🇪",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 1.3521, lng: 103.8198 }, // Singapore
-                label: "Singapore", flag: "🇸🇬"
+                label: "Singapore",
+                flag: "🇸🇬",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
-                end: { lat: 23.6850, lng: 90.3563 }, // Bangladesh
-                label: "Bangladesh", flag: "🇧🇩"
-              }
+                end: { lat: 23.685, lng: 90.3563 }, // Bangladesh
+                label: "Bangladesh",
+                flag: "🇧🇩",
+              },
+              {
+                start: { lat: 20.5937, lng: 78.9629 }, // India
+                end: { lat: 7.8731, lng: 80.7718 }, // Sri Lanka
+                label: "Sri Lanka",
+                flag: "🇱🇰",
+              },
+              {
+                start: { lat: 20.5937, lng: 78.9629 }, // India
+                end: { lat: 14.0583, lng: 108.2772 }, // Vietnam
+                label: "Vietnam",
+                flag: "🇻🇳",
+              },
+              {
+                start: { lat: 20.5937, lng: 78.9629 }, // India
+                end: { lat: 50.1109, lng: 10.0 }, // Central Europe
+                label: "Europe",
+                flag: "🇪🇺",
+              },
             ]}
           />
         </div>
 
         {/* ==================== MOBILE: Radial Route Cards (visible on mobile only) ==================== */}
         <div className="flex md:hidden flex-col items-center w-full mt-6 gap-6">
-
           {/* Central India Hub Badge */}
           <motion.div
             className="flex flex-col items-center"
@@ -131,11 +191,19 @@ const GlobalPresence = () => {
               <motion.div
                 className="absolute -inset-2 rounded-full border-2 border-[#a68a56]/40"
                 animate={{ scale: [1, 1.2, 1], opacity: [0.6, 0, 0.6] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
             </div>
-            <span className="font-playfair text-lg text-[#0e3b2c] font-semibold mt-3">India</span>
-            <span className="font-inter text-[10px] tracking-[0.15em] text-[#8d7c5d] uppercase">Origin Hub</span>
+            <span className="font-playfair text-lg text-[#0e3b2c] font-semibold mt-3">
+              India
+            </span>
+            <span className="font-inter text-[10px] tracking-[0.15em] text-[#8d7c5d] uppercase">
+              Origin Hub
+            </span>
           </motion.div>
 
           {/* Animated dashed connector line from India hub downward */}
@@ -176,7 +244,9 @@ const GlobalPresence = () => {
                 </div>
 
                 {/* Flag */}
-                <span className="text-3xl mb-2 drop-shadow-sm">{dest.flag}</span>
+                <span className="text-3xl mb-2 drop-shadow-sm">
+                  {dest.flag}
+                </span>
 
                 {/* Country Name */}
                 <h3 className="font-playfair text-base font-semibold text-[#0e3b2c] leading-tight mb-0.5">
@@ -209,9 +279,7 @@ const GlobalPresence = () => {
           >
             — and expanding to new markets every quarter —
           </motion.p>
-
         </div>
-
       </div>
     </section>
   );
