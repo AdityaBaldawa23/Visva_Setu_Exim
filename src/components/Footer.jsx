@@ -1,11 +1,25 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
-import { MessageCircle, Phone, Globe } from 'lucide-react';
+import { MessageCircle, Phone, Globe, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const tickerItems = [
+  "Bridging Indian Farms to Global Ports",
+  "Uncompromising Export Quality & Standards",
+  "Fresh Cavendish Bananas & G4 Chillies Worldwide",
+  "Certified APEDA, GlobalGAP & Phytosanitary Compliance",
+  "Connecting Cultures Through Pure Agricultural Excellence",
+  "Reliable Ocean Reefer Cold-Chain Shipments",
+  "From Indian Soil to Wholesalers Across the Globe",
+  "Trust • Integrity • Consistency • Global Trade",
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0b2b20] text-[#e5e3da] pt-14 sm:pt-16 md:pt-20 pb-8 px-5 sm:px-8 lg:px-12 font-inter border-t border-[#a68a56]/30">
-      <div className="max-w-[1400px] mx-auto">
+    <footer className="bg-[#0b2b20] text-[#e5e3da] pt-14 sm:pt-16 md:pt-20 pb-0 font-inter border-t border-[#a68a56]/30 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 mb-12 sm:mb-16">
@@ -102,8 +116,8 @@ const Footer = () => {
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="w-full border-t border-white/10 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#a3a19a] text-center sm:text-left">
+        {/* Bottom Bar (Credits & Policies) */}
+        <div className="w-full border-t border-white/10 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#a3a19a] text-center sm:text-left">
           <p>© {new Date().getFullYear()} Vishva Setu Exim. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/terms" className="hover:text-[#a68a56] transition-colors duration-300">Terms & Conditions</Link>
@@ -111,6 +125,55 @@ const Footer = () => {
           </div>
         </div>
 
+      </div>
+
+      {/* Infinitely Moving Horizontal Marquee Line below Credits */}
+      <div className="w-full bg-[#fdfbf7] text-[#0e3b2c] py-3.5 sm:py-4 border-t-2 border-[#a68a56]/50 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] relative overflow-hidden select-none">
+        <div className="flex w-max">
+          {/* First loop track */}
+          <motion.div
+            className="flex items-center shrink-0 space-x-8 sm:space-x-12 pr-8 sm:pr-12"
+            animate={{ x: "-100%" }}
+            transition={{
+              duration: 35,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {tickerItems.map((quote, index) => (
+              <div key={`tick-1-${index}`} className="flex items-center space-x-6 sm:space-x-8">
+                <span className="font-playfair text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap text-[#0e3b2c]">
+                  {quote}
+                </span>
+                <span className="flex items-center justify-center text-[#a68a56]">
+                  <Sparkles size={14} className="animate-pulse" />
+                </span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Duplicate loop track for continuous seamless scroll */}
+          <motion.div
+            className="flex items-center shrink-0 space-x-8 sm:space-x-12 pr-8 sm:pr-12"
+            animate={{ x: "-100%" }}
+            transition={{
+              duration: 35,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {tickerItems.map((quote, index) => (
+              <div key={`tick-2-${index}`} className="flex items-center space-x-6 sm:space-x-8">
+                <span className="font-playfair text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap text-[#0e3b2c]">
+                  {quote}
+                </span>
+                <span className="flex items-center justify-center text-[#a68a56]">
+                  <Sparkles size={14} className="animate-pulse" />
+                </span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </footer>
   );

@@ -9,42 +9,42 @@ const processes = [
   {
     id: 1,
     num: '01',
-    title: 'Sourcing',
-    desc: 'Direct procurement from trusted farmers and producers across India.',
+    title: 'Farm Sourcing',
+    desc: 'Direct sourcing from trusted farmers and reliable growing regions across India.',
     icon: Leaf,
-    image: 'https://images.unsplash.com/photo-1611078810243-5ce26154564c?q=80&w=600&auto=format&fit=crop'
+    image: './farm_sourcing.png'
   },
   {
     id: 2,
     num: '02',
-    title: 'Quality & Processing',
-    desc: 'Careful grading, quality checks, and compliant packaging.',
+    title: 'Quality Control',
+    desc: 'Careful selection, grading and quality checks to meet buyer specifications.',
     icon: Search,
-    image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2836?q=80&w=600&auto=format&fit=crop'
+    image: './quality.png'
   },
   {
     id: 3,
     num: '03',
-    title: 'Export & Logistics',
-    desc: 'Documentation, customs clearance, and seamless logistics management.',
+    title: 'Export Packaging',
+    desc: 'Export-ready packaging designed for product protection, freshness and safe handling.',
     icon: Package,
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8ed7e66a5a?q=80&w=600&auto=format&fit=crop'
+    image: './export.png'
   },
   {
     id: 4,
     num: '04',
-    title: 'Global Shipping',
-    desc: 'Reliable shipping through our global network of partners.',
+    title: 'Shipping & Logistics',
+    desc: 'Documentation, customs, logistics and shipment coordination from origin to destination.',
     icon: Ship,
-    image: 'https://images.unsplash.com/photo-1551525212-a1dc18871d4a?q=80&w=600&auto=format&fit=crop'
+    image: './ship.png'
   },
   {
     id: 5,
     num: '05',
-    title: 'Delivery to Markets',
-    desc: 'Timely delivery to international markets with consistent support.',
+    title: 'Market Delivery',
+    desc: 'Efficient delivery to international markets.',
     icon: MapPin,
-    image: 'https://images.unsplash.com/photo-1580674684081-77673cecef41?q=80&w=600&auto=format&fit=crop'
+    image: './market.png'
   }
 ];
 

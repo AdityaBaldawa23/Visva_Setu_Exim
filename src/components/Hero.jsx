@@ -41,7 +41,7 @@ const Hero = () => {
         </div>
 
         {/* Subtle mobile overlay to boost text contrast */}
-        <div className="block md:hidden absolute inset-0 bg-[#f4f2e9]/40 backdrop-blur-[1px]"></div>
+        {/* <div className="block md:hidden absolute inset-0 bg-[#f4f2e9]/40 backdrop-blur-[1px]"></div> */}
 
         {/* Bottom blend gradient to seamlessly merge with About section */}
         <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-36 bg-gradient-to-b from-transparent to-[#f4f2e9]"></div>
@@ -57,7 +57,7 @@ const Hero = () => {
           {/* Subtitle */}
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
             <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
-            <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] text-[#5a6259] uppercase">
+            <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-[#5a6259] uppercase">
               Premium Agricultural Exports
             </span>
           </div>

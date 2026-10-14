@@ -32,13 +32,13 @@ const About = () => {
         </div>
 
         {/* Top and Bottom blend gradients for seamless canvas effect */}
-        <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-[#f4f2e9] to-transparent"></div>
+        {/* <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-[#f4f2e9] to-transparent"></div> */}
         <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-[#f4f2e9] to-transparent"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 flex justify-center md:justify-end">
         <motion.div 
-          className="max-w-xl w-full p-6 sm:p-8 md:p-0 rounded-3xl md:rounded-none bg-[#f4f2e9]/80 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-none border border-[#a68a56]/20 md:border-none shadow-sm md:shadow-none"
+          className="max-w-xl w-full p-6 sm:p-12 md:p-0 rounded-3xl md:rounded-none bg-[#f4f2e9]/80 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-none border border-[#a68a56]/20 md:border-none shadow-sm md:shadow-none"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
