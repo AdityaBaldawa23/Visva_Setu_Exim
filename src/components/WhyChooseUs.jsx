@@ -129,7 +129,7 @@ const WhyChooseUs = () => {
         {/* Responsive Features */}
         <div className="relative w-full max-w-6xl mx-auto">
           {/* Timeline line — desktop only */}
-          <div className="hidden lg:block absolute top-6 left-[10%] right-[10%] h-px bg-[#8d7c5d]/40" />
+          {/* <div className="hidden lg:block absolute top-6 left-[10%] right-[10%] h-px bg-[#8d7c5d]/40" /> */}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6 lg:gap-4">
             {features.map((feature) => {
