@@ -155,7 +155,7 @@ const GlobalPresence = () => {
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
-                end: { lat: 7.8731, lng: 80.7718 }, // Sri Lanka
+                end: { lat: -9.8731, lng: 85.7718 }, // Sri Lanka
                 label: "Sri Lanka",
                 flag: "🇱🇰",
               },
