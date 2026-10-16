@@ -64,7 +64,7 @@ const Products = () => {
         {/* Desktop Background Image (hidden on mobile) */}
         <div className="hidden md:block absolute inset-0">
           <Image
-            src="/ishva product catalogue.png"
+            src="/prod-bg.png"
             alt="Vishva Setu Exim Products Background"
             fill
             className="object-cover object-center"

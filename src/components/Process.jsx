@@ -1,212 +1,141 @@
-"use client";
+import { Montserrat } from "next/font/google";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Leaf, Search, Package, Ship, MapPin, ChevronRight, ChevronDown } from 'lucide-react';
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
 
-const processes = [
-  {
-    id: 1,
-    num: '01',
-    title: 'Farm Sourcing',
-    desc: 'Direct sourcing from trusted farmers and reliable growing regions across India.',
-    icon: Leaf,
-    image: './farm_sourcing.png'
-  },
-  {
-    id: 2,
-    num: '02',
-    title: 'Quality Control',
-    desc: 'Careful selection, grading and quality checks to meet buyer specifications.',
-    icon: Search,
-    image: './quality.png'
-  },
-  {
-    id: 3,
-    num: '03',
-    title: 'Export Packaging',
-    desc: 'Export-ready packaging designed for product protection, freshness and safe handling.',
-    icon: Package,
-    image: './export.png'
-  },
-  {
-    id: 4,
-    num: '04',
-    title: 'Shipping & Logistics',
-    desc: 'Documentation, customs, logistics and shipment coordination from origin to destination.',
-    icon: Ship,
-    image: './ship.png'
-  },
-  {
-    id: 5,
-    num: '05',
-    title: 'Market Delivery',
-    desc: 'Efficient delivery to international markets.',
-    icon: MapPin,
-    image: './market.png'
-  }
+const Icon = ({ children }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.4"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-7 w-7"
+  >
+    {children}
+  </svg>
+);
+
+const icons = {
+  sourcing: (
+    <Icon>
+      <path d="M12 21v-9" />
+      <path d="M12 12c0-4 2.5-6.5 6.5-6.5C18.5 9.5 16 12 12 12Z" />
+      <path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5Z" />
+    </Icon>
+  ),
+  quality: (
+    <Icon>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" />
+    </Icon>
+  ),
+  export: (
+    <Icon>
+      <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+      <path d="m3 8 9 5 9-5" />
+      <path d="M12 13v8" />
+    </Icon>
+  ),
+  shipping: (
+    <Icon>
+      <path d="M3 17h18l-2 4H5l-2-4Z" />
+      <path d="M5 17V11h14v6" />
+      <path d="M9 11V7h6v4" />
+      <path d="M12 3v4" />
+    </Icon>
+  ),
+  delivery: (
+    <Icon>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.5 2.5 3.8 5.5 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3Z" />
+    </Icon>
+  ),
+};
+
+const leftSteps = [
+  { icon: icons.sourcing, title: "Sourcing", desc: "Direct procurement from trusted farmers across India.", offset: "" },
+  { icon: icons.quality, title: "Quality & Processing", desc: "Careful grading, quality checks, and compliant packaging.", offset: "lg:translate-x-4" },
+  { icon: icons.export, title: "Export & Logistics", desc: "Documentation, customs clearance, and seamless logistics management.", offset: "" },
 ];
 
-const Process = () => {
+const rightSteps = [
+  { icon: icons.shipping, title: "Global Shipping", desc: "Reliable shipping through our global network of partners.", offset: "" },
+  { icon: icons.delivery, title: "Delivery to Markets", desc: "Timely delivery to international markets with consistent support.", offset: "" },
+];
+
+const StepCard = ({ icon, title, desc, offset }) => (
+  <div
+    className={`flex w-full items-center gap-4 rounded-[44px] bg-[#fbf7ee]/90 py-4 pl-5 pr-7 shadow-[0_6px_24px_rgba(120,100,60,0.12)] backdrop-blur-sm lg:w-[340px] ${offset}`}
+  >
+    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#e3d6b8] bg-[#fffdf7] text-[#0b3d2c]">
+      {icon}
+    </div>
+    <div className="min-w-0 flex-1">
+      <h3
+        className="text-lg font-semibold leading-tight text-[#0b3d2c]"
+        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+      >
+        {title}
+      </h3>
+      <p className={`${montserrat.className} mt-1 text-[13px] leading-snug text-[#5b5b52]`}>
+        {desc}
+      </p>
+    </div>
+  </div>
+);
+
+export default function ProcessSection() {
   return (
-    <section id="process" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden py-20 sm:py-24 md:py-32">
-      {/* Background Images with Mobile Design Placeholder */}
-      <div className="absolute inset-0 z-0">
-        {/* Desktop Background Image (hidden on mobile) */}
-        <div className="hidden md:block absolute inset-0">
-          <Image
-            src="/process.png"
-            alt="Our Export Process"
-            fill
-            className="object-cover object-center"
-            quality={95}
-          />
-        </div>
-
-        {/* Mobile Background Image Placeholder (Replace /process-mobile-bg.png with your mobile design) */}
-        <div className="block md:hidden absolute inset-0">
-          <Image
-            src="/process-mobile-bg.png"
-            alt="Our Export Process Mobile Background"
-            fill
-            className="object-cover object-center"
-            quality={95}
-          />
-        </div>
-
-        {/* Top and Bottom blend gradients for seamless canvas effect */}
-        <div className="absolute top-0 left-0 right-0 h-28 sm:h-48 bg-gradient-to-b from-[#f4f2e9] via-[#f4f2e9]/60 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-48 bg-gradient-to-t from-[#f4f2e9] via-[#f4f2e9]/60 to-transparent"></div>
-      </div>
-
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center">
-        {/* Header Content */}
-        <motion.div 
-          className="text-center flex flex-col items-center mb-16 sm:mb-20 md:mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          {/* Subtitle */}
-          <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-            <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
-            <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] text-[#5a6259] uppercase">
+    <section
+      className="relative w-full overflow-hidden bg-cover bg-bottom bg-no-repeat px-6 pb-28 pt-24 md:px-12 lg:min-h-[1100px] lg:pt-28"
+      style={{ backgroundImage: "url('/process-bg.png')" }}
+    >
+      <div className="mx-auto max-w-7xl">
+        {/* Heading */}
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-5">
+            <span className="h-px w-20 bg-[#8a8a7a]" />
+            <span className={`${montserrat.className} text-xs font-semibold uppercase tracking-[0.3em] text-[#5b5b52]`}>
               Our Process
             </span>
-            <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
+            <span className="h-px w-20 bg-[#8a8a7a]" />
           </div>
 
-          {/* Main Title */}
-          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] font-medium tracking-tight">
-            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">How We Deliver</span>
-            <span className="text-[#a68a56] block">Excellence.</span>
+          <h2
+            className="mt-8 text-5xl leading-[1.15] md:text-7xl"
+            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+          >
+            <span className="block text-[#0b3d2c]">How We Deliver</span>
+            <span className="mt-1 block text-[#a98a52]">Excellence.</span>
           </h2>
-        </motion.div>
+        </div>
 
-        {/* Timeline Container */}
-        <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-between relative mt-4 sm:mt-8">
-          
-          {processes.map((process, index) => {
-            const Icon = process.icon;
-            const isLast = index === processes.length - 1;
+        {/* Gap between heading and globe */}
+        <div className="h-12 lg:h-28" aria-hidden="true" />
 
-            return (
-              <React.Fragment key={process.id}>
-                
-                {/* Step Card */}
-                <motion.div 
-                  className="relative flex flex-col items-center w-full max-w-[280px] lg:max-w-[240px] shrink-0 group cursor-pointer"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
-                >
-                  
-                  {/* Top Icon overlapping the top arch */}
-                  <div className="relative z-20 -mb-6 w-11 h-11 sm:w-12 sm:h-12 bg-[#103728] rounded-full flex items-center justify-center text-white border-[3px] border-[#f4f2e9] shadow-sm transition-transform duration-300 group-hover:scale-110">
-                    <Icon size={18} strokeWidth={1.5} />
-                  </div>
+        {/* Steps + globe space */}
+        <div className="mx-auto grid max-w-none items-center gap-6 lg:grid-cols-[340px_minmax(0,1fr)_340px] lg:gap-86">
+          <div className="flex flex-col gap-5 lg:justify-self-start lg:-translate-x-12 xl:-translate-x-18">
+            {leftSteps.map((s) => (
+              <StepCard key={s.title} {...s} />
+            ))}
+          </div>
 
-                  {/* The Image Arch */}
-                  <div className="relative w-full aspect-[4/3] rounded-t-[120px] overflow-hidden border border-[#a68a56]/40 shadow-xl bg-[#f4f2e9]">
-                    <img 
-                      src={process.image}
-                      alt={process.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
+          {/* Globe sits here via the bg image */}
+          <div className="hidden h-[480px] lg:block" aria-hidden="true" />
 
-                  {/* Number Circle overlapping the bottom of the image */}
-                  <div className="relative z-20 -mt-6 w-11 h-11 sm:w-12 sm:h-12 bg-[#f4f2e9] rounded-full flex items-center justify-center text-[#103728] border border-[#a68a56] font-playfair text-base sm:text-lg shadow-sm transition-colors duration-300 group-hover:bg-[#0e3b2c] group-hover:text-white">
-                    {process.num}
-                  </div>
-
-                  {/* Text Content */}
-                  <div className="mt-2 text-center p-4 rounded-2xl transition-all duration-300 border border-[#a68a56]/20 bg-[#f4f2e9]/95 backdrop-blur-sm shadow-md lg:bg-transparent lg:border-transparent lg:shadow-none lg:group-hover:bg-[#f4f2e9]/95 lg:group-hover:backdrop-blur-md lg:group-hover:border-[#a68a56]/30 lg:group-hover:shadow-xl w-full">
-                    <h3 className="font-playfair text-lg sm:text-xl text-[#0e3b2c] mb-1.5 font-semibold">
-                      {process.title}
-                    </h3>
-                    <p className="font-inter text-xs text-[#5a6259] leading-relaxed max-w-[210px] mx-auto">
-                      {process.desc}
-                    </p>
-                  </div>
-
-                </motion.div>
-
-                {/* Vertical Connector for Mobile */}
-                {!isLast && (
-                  <div className="flex lg:hidden flex-col items-center justify-center my-3 sm:my-4 h-12">
-                    <div className="w-[2px] h-8 border-l-2 border-dashed border-[#a68a56]/60"></div>
-                    <div className="w-6 h-6 rounded-full bg-[#a68a56] flex items-center justify-center text-white shadow-xs -mt-1">
-                      <ChevronDown size={14} strokeWidth={2.5} />
-                    </div>
-                  </div>
-                )}
-
-                {/* Connecting Line for Desktop */}
-                {!isLast && (
-                  <div className="hidden lg:flex flex-1 items-start justify-center relative mt-[70px] xl:mt-[80px]">
-                    <svg 
-                      className="absolute w-full h-[50px] top-0 left-0 pointer-events-none"
-                      viewBox="0 0 100 50" 
-                      preserveAspectRatio="none"
-                    >
-                      <motion.path 
-                        d="M0,0 C30,50 70,50 100,0" 
-                        fill="none" 
-                        stroke="#a68a56" 
-                        strokeDasharray="4 4" 
-                        strokeWidth="1.5"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.5, delay: (index * 0.2) + 0.5 }}
-                      />
-                    </svg>
-                    
-                    {/* Golden Arrow Circle in the middle of the dip */}
-                    <motion.div 
-                      className="absolute top-[28px] left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#a68a56] flex items-center justify-center text-white shadow-md z-10"
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index * 0.2) + 1.2, type: "spring" }}
-                    >
-                      <ChevronRight size={14} strokeWidth={3} />
-                    </motion.div>
-                  </div>
-                )}
-
-              </React.Fragment>
-            );
-          })}
-
+          <div className="flex flex-col gap-7 lg:pt-10">
+            {rightSteps.map((s) => (
+              <StepCard key={s.title} {...s} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Process;
+}

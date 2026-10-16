@@ -19,7 +19,7 @@ const Hero = () => {
         {/* Desktop Background Image (hidden on mobile) */}
         <div className="hidden md:block absolute inset-0">
           <Image
-            src="/hero-bg.jpg"
+            src="/hero-bg1.png"
             alt="Agriculture World Map Background"
             fill
             className="object-cover object-center"

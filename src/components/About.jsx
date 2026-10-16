@@ -12,7 +12,7 @@ const About = () => {
         {/* Desktop Background Image (hidden on mobile) */}
         <div className="hidden md:block absolute inset-0">
           <Image
-            src="/Vishva about image.png"
+            src="/about-bg.png"
             alt="About Vishva Setu Exim"
             fill
             className="object-cover object-center"

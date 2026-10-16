@@ -147,7 +147,7 @@ export default function ProductPage() {
         {/* Desktop Background Image (hidden on mobile) */}
         <div className="hidden md:block absolute inset-0">
           <Image
-            src="/product page.png"
+            src="/product-bg.png"
             alt="Vishva Setu Exim Background Pattern Desktop"
             fill
             priority
@@ -169,7 +169,7 @@ export default function ProductPage() {
         </div>
 
         {/* Soft atmospheric gradient wash ensuring perfect contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f4f2e9]/70 via-[#f4f2e9]/40 to-[#f4f2e9]/80 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f4f2e9]/10 via-transparent to-[#f4f2e9]/10"></div>
       </div>
 
       {/* Main Navbar */}
