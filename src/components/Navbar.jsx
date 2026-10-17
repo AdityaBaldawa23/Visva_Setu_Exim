@@ -73,7 +73,7 @@ export default function Navbar() {
           {/* Left Nav */}
           <nav className="flex items-center gap-10 flex-1 justify-end pr-12">
             <NavLink href="/" active={pathname === "/"}>Home</NavLink>
-            <NavLink href="/#about">About Us</NavLink>
+            <NavLink href="/about">About Us</NavLink>
             <NavLink href="/products" active={pathname === "/products"}>Products</NavLink>
           </nav>
 

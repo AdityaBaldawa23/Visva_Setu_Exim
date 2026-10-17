@@ -51,20 +51,22 @@ export default function AboutPage() {
       </div>
 
       {/* ================= INTRO ================= */}
+
       <section className="relative w-full">
         <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-28 sm:pt-36 md:pt-40 pb-12 md:pb-16">
           <motion.div
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
             {/* Subtitle */}
-            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
               <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
               <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-[#5a6259] uppercase">
                 About Vishvasetu Exim
               </span>
+              <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
             </div>
 
             {/* Main Title */}
@@ -73,8 +75,9 @@ export default function AboutPage() {
               <span className="text-[#a68a56] block">Driven by Trust.</span>
             </h1>
 
+            {/* Description */}
             <p
-              className={`${montserrat.className} text-sm sm:text-base md:text-lg text-[#3a3f3a] leading-relaxed max-w-xl`}
+              className={`${montserrat.className} text-sm sm:text-base md:text-lg text-[#3a3f3a] leading-relaxed max-w-xl mx-auto`}
             >
               Connecting India&apos;s agricultural strength with global markets.
             </p>
@@ -82,11 +85,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+
       {/* ================= STORY ================= */}
       <section className="relative w-full">
         <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 py-8 md:py-12">
           <motion.div
-            className={`${montserrat.className} max-w-3xl space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg text-[#3a3f3a] leading-relaxed`}
+            className={`${montserrat.className} max-w-4xl mx-auto space-y-5 md:space-y-6 text-center text-sm sm:text-base md:text-lg text-[#3a3f3a] leading-relaxed`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -97,23 +101,27 @@ export default function AboutPage() {
               quality products, trusted relationships and a commitment to doing business the right
               way.
             </p>
+
             <p>
               Based in India, we focus on sourcing fresh agricultural produce and connecting it with
               international buyers through a reliable, transparent and customer-focused export
               approach. From the farms where our products are grown to the markets where they are
               delivered, we aim to make every step of the journey more dependable.
             </p>
+
             <p>
               Our product portfolio includes fresh G9 green bananas, G4 green chillies,
               pomegranates, onions and other agricultural commodities. We work towards meeting buyer
               specifications through careful sourcing, appropriate packaging, quality checks and
               coordinated shipment planning.
             </p>
+
             <p>
-              Behind every product are the farmers whose hard work brings India&apos;s agricultural
+              Behind every product are the farmers whose hard work brings India's agricultural
               richness to the world. We value these relationships and aim to build long-term
               partnerships that create value for farmers, buyers and our business alike.
             </p>
+
             <p>
               Our promise is simple: to build trust through transparency, focus on quality at every
               stage, and develop lasting relationships with customers across global markets.
@@ -121,6 +129,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+
 
       {/* ================= HIGHLIGHTS ================= */}
       <section className="relative w-full">
