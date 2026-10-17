@@ -1,9 +1,16 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Montserrat } from "next/font/google";
+import { motion } from "framer-motion";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
+
+const DESKTOP_BG = "/process-bg.png";
+const MOBILE_BG = "/mobile-bg.png"; // 👈 your phone bg filename
 
 const Icon = ({ children }) => (
   <svg
@@ -13,7 +20,7 @@ const Icon = ({ children }) => (
     strokeWidth="1.4"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="h-7 w-7"
+    className="h-5 w-5 lg:h-7 lg:w-7"
   >
     {children}
   </svg>
@@ -58,56 +65,97 @@ const icons = {
 };
 
 const leftSteps = [
-  { icon: icons.sourcing, title: "Sourcing", desc: "Direct procurement from trusted farmers across India.", offset: "" },
-  { icon: icons.quality, title: "Quality & Processing", desc: "Careful grading, quality checks, and compliant packaging.", offset: "lg:translate-x-4" },
-  { icon: icons.export, title: "Export & Logistics", desc: "Documentation, customs clearance, and seamless logistics management.", offset: "" },
+  { id: 1, icon: icons.sourcing, title: "Sourcing", desc: "Direct procurement from trusted farmers across India.", offset: "" },
+  { id: 2, icon: icons.quality, title: "Quality & Processing", desc: "Careful grading, quality checks, and compliant packaging.", offset: "lg:translate-x-4" },
+  { id: 3, icon: icons.export, title: "Export & Logistics", desc: "Documentation, customs clearance, and seamless logistics management.", offset: "" },
 ];
 
 const rightSteps = [
-  { icon: icons.shipping, title: "Global Shipping", desc: "Reliable shipping through our global network of partners.", offset: "" },
-  { icon: icons.delivery, title: "Delivery to Markets", desc: "Timely delivery to international markets with consistent support.", offset: "" },
+  { id: 4, icon: icons.shipping, title: "Global Shipping", desc: "Reliable shipping through our global network of partners.", offset: "" },
+  { id: 5, icon: icons.delivery, title: "Delivery to Markets", desc: "Timely delivery to international markets with consistent support.", offset: "" },
 ];
 
-const StepCard = ({ icon, title, desc, offset }) => (
-  <div
-    className={`flex w-full items-center gap-4 rounded-[44px] bg-[#fbf7ee]/90 py-4 pl-5 pr-7 shadow-[0_6px_24px_rgba(120,100,60,0.12)] backdrop-blur-sm lg:w-[340px] ${offset}`}
-  >
-    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#e3d6b8] bg-[#fffdf7] text-[#0b3d2c]">
-      {icon}
-    </div>
-    <div className="min-w-0 flex-1">
-      <h3
-        className="text-lg font-semibold leading-tight text-[#0b3d2c]"
-        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+const TOTAL_STEPS = leftSteps.length + rightSteps.length;
+
+const StepCard = ({ id, icon, title, desc, offset, activeId, onSelect }) => {
+  const isActive = activeId === id;
+
+  return (
+    <div className={`mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:w-[340px] ${offset}`}>
+      <motion.button
+        type="button"
+        onClick={() => onSelect(id)}
+        aria-pressed={isActive}
+        whileHover={{ y: -3 }}
+        whileTap={{ scale: 0.98 }}
+        className={`flex w-full items-center gap-3 rounded-[44px] py-2.5 pl-3 pr-5 text-left backdrop-blur-sm transition-all duration-300 lg:gap-4 lg:py-4 lg:pl-5 lg:pr-7 ${isActive
+            ? "bg-[#fbf7ee]/95 shadow-[0_10px_30px_rgba(120,100,60,0.22),0_0_0_1px_rgba(166,138,86,0.45)]"
+            : "bg-[#fbf7ee]/70 shadow-[0_6px_24px_rgba(120,100,60,0.12),0_0_0_1px_rgba(166,138,86,0.15)] hover:bg-[#fbf7ee]/95"
+          }`}
       >
-        {title}
-      </h3>
-      <p className={`${montserrat.className} mt-1 text-[13px] leading-snug text-[#5b5b52]`}>
-        {desc}
-      </p>
+        <div
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 lg:h-14 lg:w-14 ${isActive
+              ? "border-[#0b3d2c] bg-[#0b3d2c] text-white shadow-[0_0_0_4px_rgba(11,61,44,0.12)]"
+              : "border-[#e3d6b8] bg-[#fffdf7] text-[#0b3d2c]"
+            }`}
+        >
+          {icon}
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3
+            className="text-sm font-semibold leading-tight text-[#0b3d2c] lg:text-lg"
+            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+          >
+            {title}
+          </h3>
+          <p className={`${montserrat.className} mt-0.5 text-[11px] leading-snug text-[#5b5b52] lg:mt-1 lg:text-[13px]`}>
+            {desc}
+          </p>
+        </div>
+      </motion.button>
     </div>
-  </div>
-);
+  );
+};
 
 export default function ProcessSection() {
+  const [activeId, setActiveId] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveId((prev) => (prev === TOTAL_STEPS ? 1 : prev + 1));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section
-      className="relative w-full overflow-hidden bg-cover bg-bottom bg-no-repeat px-6 pb-28 pt-24 md:px-12 lg:min-h-[1100px] lg:pt-28"
-      style={{ backgroundImage: "url('/process-bg.png')" }}
-    >
-      <div className="mx-auto max-w-7xl">
+    <section className="relative w-full overflow-hidden bg-[#f4f2e9] px-5 pb-8 pt-[8vw] md:px-12 lg:min-h-[1100px] lg:px-6 lg:pb-28 lg:pt-28">
+      {/* Desktop background (unchanged) */}
+      <div
+        className="absolute inset-0 hidden bg-cover bg-bottom bg-no-repeat lg:block"
+        style={{ backgroundImage: `url('${DESKTOP_BG}')` }}
+        aria-hidden="true"
+      />
+
+      {/* Mobile / tablet background: full width, natural proportions, covers heading too */}
+      <div
+        className="absolute inset-0 bg-[length:100%_auto] bg-top bg-no-repeat lg:hidden"
+        style={{ backgroundImage: `url('${MOBILE_BG}')` }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         {/* Heading */}
         <div className="text-center">
-          <div className="flex items-center justify-center gap-5">
-            <span className="h-px w-20 bg-[#8a8a7a]" />
-            <span className={`${montserrat.className} text-xs font-semibold uppercase tracking-[0.3em] text-[#5b5b52]`}>
+          <div className="flex items-center justify-center gap-3 sm:gap-5">
+            <span className="h-px w-10 bg-[#8a8a7a] sm:w-20" />
+            <span className={`${montserrat.className} text-[10px] font-semibold uppercase tracking-[0.3em] text-[#5b5b52] sm:text-xs`}>
               Our Process
             </span>
-            <span className="h-px w-20 bg-[#8a8a7a]" />
+            <span className="h-px w-10 bg-[#8a8a7a] sm:w-20" />
           </div>
 
           <h2
-            className="mt-8 text-5xl leading-[1.15] md:text-7xl"
+            className="mt-3 text-[9vw] leading-[1.15] lg:mt-8 lg:text-7xl"
             style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
           >
             <span className="block text-[#0b3d2c]">How We Deliver</span>
@@ -115,23 +163,28 @@ export default function ProcessSection() {
           </h2>
         </div>
 
-        {/* Gap between heading and globe */}
-        <div className="h-12 lg:h-28" aria-hidden="true" />
+        {/* Gap between heading and globe (desktop only) */}
+        <div className="h-0 lg:h-28" aria-hidden="true" />
 
         {/* Steps + globe space */}
-        <div className="mx-auto grid max-w-none items-center gap-6 lg:grid-cols-[340px_minmax(0,1fr)_340px] lg:gap-86">
-          <div className="flex flex-col gap-5 lg:justify-self-start lg:-translate-x-12 xl:-translate-x-18">
+        <div className="mx-auto grid max-w-none items-center gap-1.5 lg:grid-cols-[340px_minmax(0,1fr)_340px] lg:gap-6 lg:gap-86">
+          {/* Mobile globe space (globe is part of the bg image) */}
+          <div className="h-[62vw] lg:hidden" aria-hidden="true" />
+
+          <div className="flex flex-col gap-1.5 lg:justify-self-start lg:gap-5 lg:-translate-x-12 xl:-translate-x-18">
             {leftSteps.map((s) => (
-              <StepCard key={s.title} {...s} />
+              <div key={s.id} className={s.id === 3 ? "hidden lg:block" : ""}>
+                <StepCard {...s} activeId={activeId} onSelect={setActiveId} />
+              </div>
             ))}
           </div>
 
-          {/* Globe sits here via the bg image */}
+          {/* Globe space (desktop) */}
           <div className="hidden h-[480px] lg:block" aria-hidden="true" />
 
-          <div className="flex flex-col gap-7 lg:pt-10">
+          <div className="flex flex-col gap-1.5 lg:gap-7 lg:pt-10">
             {rightSteps.map((s) => (
-              <StepCard key={s.title} {...s} />
+              <StepCard key={s.id} {...s} activeId={activeId} onSelect={setActiveId} />
             ))}
           </div>
         </div>
