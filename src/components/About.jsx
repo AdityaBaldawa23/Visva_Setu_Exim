@@ -4,6 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 const About = () => {
   return (
     <section id="about" className="relative min-h-[100svh] w-full flex items-center overflow-hidden py-20 md:py-24">
@@ -37,7 +44,7 @@ const About = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 flex justify-center md:justify-end">
-        <motion.div 
+        <motion.div
           className="max-w-xl w-full p-6 sm:p-12 md:p-0 rounded-3xl md:rounded-none bg-[#f4f2e9]/80 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-none border border-[#a68a56]/20 md:border-none shadow-sm md:shadow-none"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +67,9 @@ const About = () => {
           </h2>
 
           {/* Description */}
-          <p className="font-inter text-sm sm:text-base md:text-[17px] text-[#3a3f3a] leading-relaxed">
+          <p
+            className={`${montserrat.className} text-sm sm:text-base md:text-[17px] text-[#3a3f3a] leading-relaxed`}
+          >
             At Vishva Setu Exim, we are committed to delivering high-quality agricultural products from the heart of India to the world. Our journey is built on strong partnerships, sustainable practices, and a deep respect for the farmers who make it all possible.
           </p>
         </motion.div>

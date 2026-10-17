@@ -4,6 +4,12 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const Contact = () => {
   const form = useRef();
@@ -113,7 +119,7 @@ const Contact = () => {
                   name="user_name" 
                   required
                   placeholder="Full Name *"
-                  className="w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 font-inter text-sm sm:text-base peer"
+                  className={`w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 ${montserrat.className} text-sm sm:text-base`}
                 />
               </div>
 
@@ -124,7 +130,7 @@ const Contact = () => {
                   name="user_mobile" 
                   required
                   placeholder="Mobile Number *"
-                  className="w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 font-inter text-sm sm:text-base"
+                  className={`w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 ${montserrat.className} text-sm sm:text-base`}
                 />
               </div>
             </div>
@@ -136,7 +142,7 @@ const Contact = () => {
                   type="email" 
                   name="user_email" 
                   placeholder="Email ID (Optional)"
-                  className="w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 font-inter text-sm sm:text-base"
+                  className={`w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 ${montserrat.className} text-sm sm:text-base`}
                 />
               </div>
 
@@ -147,7 +153,7 @@ const Contact = () => {
                   name="user_location" 
                   required
                   placeholder="Your Location / Country *"
-                  className="w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 font-inter text-sm sm:text-base"
+                  className={`w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 ${montserrat.className} text-sm sm:text-base`}
                 />
               </div>
             </div>
@@ -159,7 +165,7 @@ const Contact = () => {
                 name="enquiry_product" 
                 required
                 placeholder="Product you want to enquire for *"
-                className="w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 font-inter text-sm sm:text-base"
+                className={`w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 ${montserrat.className} text-sm sm:text-base`}
               />
             </div>
 
@@ -169,7 +175,7 @@ const Contact = () => {
                 name="message" 
                 rows="4"
                 placeholder="Any message or specific requirements..."
-                className="w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 font-inter text-sm sm:text-base resize-none"
+                className={`w-full bg-transparent border-b border-[#a68a56]/40 focus:border-[#0e3b2c] text-[#0e3b2c] px-2 py-2.5 sm:py-3 outline-none transition-colors placeholder:text-[#5a6259]/60 ${montserrat.className} text-sm sm:text-base`}
               ></textarea>
             </div>
 
@@ -178,19 +184,19 @@ const Contact = () => {
               <button 
                 type="submit" 
                 disabled={status === 'sending'}
-                className="w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 bg-[#0e3b2c] text-white font-inter text-sm sm:text-base font-medium tracking-wide rounded-md hover:bg-[#134d3a] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+                className={`w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 bg-[#0e3b2c] text-white ${montserrat.className} text-sm sm:text-base font-medium tracking-wide rounded-md hover:bg-[#134d3a] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl`}
               >
                 {status === 'sending' ? 'Sending...' : 'Send Enquiry'}
               </button>
 
               {/* Status Messages */}
               {status === 'success' && (
-                <span className="text-green-700 font-inter text-xs sm:text-sm font-medium text-center">
+                <span className={`${montserrat.className} text-green-700 text-xs sm:text-sm font-medium text-center`}>
                   Message sent successfully! We will contact you soon.
                 </span>
               )}
               {status === 'error' && (
-                <span className="text-red-600 font-inter text-xs sm:text-sm font-medium text-center">
+                <span className={`${montserrat.className} text-green-700 text-xs sm:text-sm font-medium text-center`}>
                   Failed to send message. Please try again.
                 </span>
               )}

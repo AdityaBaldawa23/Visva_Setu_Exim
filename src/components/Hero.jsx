@@ -1,16 +1,22 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-[100svh] w-full flex items-center overflow-hidden">
       {/* Background Images with Mobile Design Placeholder */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0"
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -48,7 +54,7 @@ const Hero = () => {
       </motion.div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-28 sm:pt-36 md:pt-40 pb-16 md:pb-24">
-        <motion.div 
+        <motion.div
           className="max-w-2xl"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -69,14 +75,15 @@ const Hero = () => {
           </h1>
 
           {/* Description */}
-          <p className="font-inter text-sm sm:text-base md:text-lg text-[#3a3f3a] mb-8 md:mb-10 leading-relaxed max-w-lg">
+          <p
+            className={`${montserrat.className} text-sm sm:text-base md:text-lg text-[#3a3f3a] mb-8 md:mb-10 leading-relaxed max-w-lg`}>
             Vishva Setu Exim connects quality agricultural products from India&apos;s farms to markets across the world, ensuring trust, consistency and long-term value for our global partners.
           </p>
 
           {/* CTA Button */}
           <Link
             href="/products"
-            className="group inline-flex items-center justify-center gap-3 bg-[#0c3827] text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-inter text-sm sm:text-[15px] font-medium hover:bg-[#144d37] transition-all duration-300 shadow-md w-full sm:w-auto"
+            className={`group inline-flex items-center justify-center gap-3 bg-[#0c3827] text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-full ${montserrat.className} text-sm sm:text-[15px] font-medium hover:bg-[#144d37] transition-all duration-300 shadow-md w-full sm:w-auto`}
           >
             <span>Explore Our Products</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />

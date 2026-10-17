@@ -4,6 +4,12 @@ import React from 'react';
 import Link from 'next/link';
 import { MessageCircle, Phone, Globe, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const tickerItems = [
   "Bridging Indian Farms to Global Ports",
@@ -18,7 +24,7 @@ const tickerItems = [
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0b2b20] text-[#e5e3da] pt-14 sm:pt-16 md:pt-20 pb-0 font-inter border-t border-[#a68a56]/30 overflow-hidden">
+    <footer className={`bg-[#0b2b20] text-[#e5e3da] pt-14 sm:pt-16 md:pt-20 pb-0 ${montserrat.className} border-t border-[#a68a56]/30 overflow-hidden`}>
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* Main 4-Column Grid */}
@@ -41,7 +47,7 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div className="flex flex-col">
-            <h3 className="font-inter font-semibold text-white text-base sm:text-lg mb-4 sm:mb-6 tracking-wide">
+            <h3 className="font-semibold text-white text-base sm:text-lg mb-4 sm:mb-6 tracking-wide">
               Quick Links
             </h3>
             <ul className="flex flex-col space-y-3 sm:space-y-4 text-xs sm:text-sm">

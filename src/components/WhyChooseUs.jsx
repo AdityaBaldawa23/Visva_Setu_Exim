@@ -4,6 +4,12 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Leaf, Handshake, Package, ShieldCheck, Sprout } from "lucide-react";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const features = [
   {
@@ -142,30 +148,27 @@ const WhyChooseUs = () => {
                   type="button"
                   onClick={() => handleFeatureClick(feature.id)}
                   aria-pressed={isActive}
-                  className={`relative z-10 flex w-full flex-col items-center text-center rounded-2xl p-5 sm:p-6 lg:px-3 lg:py-5 transition-all duration-300 ${
-                    isActive
+                  className={`relative z-10 flex w-full flex-col items-center text-center rounded-2xl p-5 sm:p-6 lg:px-3 lg:py-5 transition-all duration-300 ${isActive
                       ? "bg-[#f4f2e9]/95 backdrop-blur-sm border border-[#a68a56]/40 shadow-lg"
                       : "bg-[#f4f2e9]/65 border border-[#a68a56]/15 hover:bg-[#f4f2e9]/90"
-                  }`}
+                    }`}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   {/* Number */}
                   <div
-                    className={`relative mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-playfair text-lg transition-all duration-300 ${
-                      isActive
+                    className={`relative mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-playfair text-lg transition-all duration-300 ${isActive
                         ? "bg-[#0e3b2c] text-white shadow-[0_0_0_5px_rgba(14,59,44,0.12)]"
                         : "bg-[#f4f2e9] border border-[#8d7c5d] text-[#0e3b2c]"
-                    }`}
+                      }`}
                   >
                     {feature.num}
                   </div>
 
                   {/* Icon */}
                   <div
-                    className={`mb-4 transition-colors duration-300 ${
-                      isActive ? "text-[#0e3b2c]" : "text-[#5a6259]"
-                    }`}
+                    className={`mb-4 transition-colors duration-300 ${isActive ? "text-[#0e3b2c]" : "text-[#5a6259]"
+                      }`}
                   >
                     <Icon size={30} strokeWidth={1.5} />
                   </div>
@@ -176,7 +179,9 @@ const WhyChooseUs = () => {
                   </h3>
 
                   {/* Description */}
-                  <p className="font-inter text-sm leading-relaxed text-[#3a3f3a] max-w-xs lg:text-xs xl:text-sm">
+                  <p
+                    className={`${montserrat.className} text-sm leading-relaxed text-[#3a3f3a] max-w-xs lg:text-xs xl:text-sm`}
+                  >
                     {feature.desc}
                   </p>
                 </motion.button>

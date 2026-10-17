@@ -6,17 +6,21 @@ import Image from "next/image";
 import { Search, ShoppingCart, User, ChevronDown } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const NavLink = ({ href, children, active = false }) => (
   <Link
     href={href}
-    className="group relative font-inter font-medium text-[15px] text-stone-900 transition-colors duration-200"
-  >
+    className={`group relative ${montserrat.className} font-medium text-[15px] text-stone-900 transition-colors duration-200`}  >
     {children}
     <span
-      className={`absolute -bottom-1 left-1/2 h-[2px] bg-[#113B2E] transition-all duration-300 ease-out -translate-x-1/2 ${
-        active ? "w-4/5" : "w-0 group-hover:w-4/5"
-      }`}
+      className={`absolute -bottom-1 left-1/2 h-[2px] bg-[#113B2E] transition-all duration-300 ease-out -translate-x-1/2 ${active ? "w-4/5" : "w-0 group-hover:w-4/5"
+        }`}
     />
   </Link>
 );
@@ -58,11 +62,10 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} // smooth spring-like cubic bezier
-      className={`absolute top-0 z-[99] w-full transition-all duration-2000 font-sans ${
-        isScrolled
+      className={`absolute top-0 z-[99] w-full transition-all duration-2000 font-sans ${isScrolled
           ? "bg-[#f4f2e9] shadow-md border-b border-[#e5e3da] py-2"
           : "bg-transparent border-b border-transparent py-3 md:py-8"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* ==================== DESKTOP LAYOUT ==================== */}
@@ -75,9 +78,8 @@ export default function Navbar() {
           </nav>
 
           {/* Center Logo */}
-          <div className={`flex justify-center flex-shrink-0 transition-all duration-500 origin-center ${
-            isScrolled ? "scale-90" : "scale-110"
-          }`}>
+          <div className={`flex justify-center flex-shrink-0 transition-all duration-500 origin-center ${isScrolled ? "scale-90" : "scale-110"
+            }`}>
             <Link
               href="/"
               className="hover:opacity-80 transition-opacity duration-300 flex items-center justify-center"
@@ -110,28 +112,24 @@ export default function Navbar() {
             className="flex flex-col gap-[5px] text-stone-900 z-50 relative"
           >
             <span
-              className={`block w-6 h-[2px] bg-current transition-all duration-300 ${
-                isMobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
-              }`}
+              className={`block w-6 h-[2px] bg-current transition-all duration-300 ${isMobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
             />
             <span
-              className={`block w-6 h-[2px] bg-current transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-              }`}
+              className={`block w-6 h-[2px] bg-current transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`block w-6 h-[2px] bg-current transition-all duration-300 ${
-                isMobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
+              className={`block w-6 h-[2px] bg-current transition-all duration-300 ${isMobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
             />
           </button>
 
           {/* Logo Mobile */}
           <Link
             href="/"
-            className={`hover:opacity-80 transition-all duration-500 flex items-center justify-center origin-center ${
-              isScrolled ? "scale-90" : "scale-105"
-            }`}
+            className={`hover:opacity-80 transition-all duration-500 flex items-center justify-center origin-center ${isScrolled ? "scale-90" : "scale-105"
+              }`}
             aria-label="Vishva Setu Exim Home"
           >
             <Image
@@ -142,15 +140,14 @@ export default function Navbar() {
               className="block object-contain"
             />
           </Link>
-          
+
           <div className="w-6"></div> {/* Spacer for centering */}
         </div>
 
         {/* ==================== MOBILE MENU DRAWER ==================== */}
         <div
-          className={`md:hidden fixed inset-0 bg-[#f4f2e9] z-40 transition-transform duration-500 ease-in-out ${
-            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`md:hidden fixed inset-0 bg-[#f4f2e9] z-40 transition-transform duration-500 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
         >
           <nav className="flex flex-col items-center justify-center h-full gap-8 text-xl font-playfair text-[#113B2E]">
             {[

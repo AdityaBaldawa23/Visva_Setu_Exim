@@ -2,8 +2,13 @@
 import { useRef } from "react";
 import { motion } from "motion/react";
 import DottedMap from "dotted-map";
-
+import { Montserrat } from "next/font/google";
 import { useTheme } from "next-themes";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export function WorldMap({
   dots = [],
@@ -205,7 +210,7 @@ export function WorldMap({
                       {dot.flag}
                     </span>
                   )}
-                  <span className="font-playfair text-[9px] sm:text-[11px] md:text-[15px] lg:text-[18px] tracking-wide whitespace-nowrap pt-0.5">
+                  <span className={`${montserrat.className} text-[9px] sm:text-[11px] md:text-[15px] lg:text-[18px] tracking-wide whitespace-nowrap pt-0.5`}>
                     {dot.label}
                   </span>
                 </motion.div>

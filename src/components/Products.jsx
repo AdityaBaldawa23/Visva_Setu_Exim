@@ -6,6 +6,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 const products = [
   { id: "banana", name: "G9 Green Banana", subtitle: "PREMIUM INDIAN ORIGIN", img: "/banana.png" },
   { id: "chilli", name: "G4 Green Chilli", subtitle: "FARM FRESH QUALITY", img: "/chilli.png" },
@@ -113,7 +120,7 @@ const Products = () => {
           </h2>
 
           {/* Description */}
-          <p className="font-inter text-sm sm:text-base md:text-lg text-[#3a3f3a] max-w-2xl leading-relaxed">
+          <p className={`${montserrat.className} text-sm sm:text-base md:text-lg text-[#3a3f3a] max-w-2xl leading-relaxed`}>
             Carefully sourced agricultural products, selected for quality, freshness and consistency.
           </p>
         </motion.div>
@@ -162,7 +169,7 @@ const Products = () => {
                   </h3>
 
                   <div className="flex items-center justify-between w-full mt-2">
-                    <span className="font-inter text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-[#8d7c5d] uppercase">
+                    <span className={`${montserrat.className} text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-[#8d7c5d] uppercase`}>
                       {product.subtitle}
                     </span>
                     <Link
@@ -202,7 +209,7 @@ const Products = () => {
             >
               <ArrowLeft size={16} />
             </button>
-            <span className="text-xs font-inter text-[#5a6259]">Swipe or tap</span>
+            <span className={`${montserrat.className} text-xs text-[#5a6259]`}>Swipe or tap</span>
             <button
               onClick={scrollRight}
               aria-label="Next product"
@@ -213,7 +220,7 @@ const Products = () => {
           </div>
 
           {/* Pagination Progress */}
-          <div className="flex items-center gap-4 sm:gap-6 font-inter text-xs sm:text-sm font-semibold text-[#3a3f3a]">
+          <div className={`flex items-center gap-4 sm:gap-6 ${montserrat.className} text-xs sm:text-sm font-semibold text-[#3a3f3a]`}>
             <span>01</span>
             <div className="w-24 sm:w-32 h-[2px] bg-[#e5dfc9] relative rounded-full overflow-hidden">
               <motion.div

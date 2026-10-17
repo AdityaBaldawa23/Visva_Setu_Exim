@@ -5,6 +5,12 @@ import Image from "next/image";
 import { WorldMap } from "./world-map";
 import { motion } from "framer-motion";
 import { MapPin, Plane } from "lucide-react";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const destinations = [
   {
@@ -201,7 +207,7 @@ const GlobalPresence = () => {
             <span className="font-playfair text-lg text-[#0e3b2c] font-semibold mt-3">
               India
             </span>
-            <span className="font-inter text-[10px] tracking-[0.15em] text-[#8d7c5d] uppercase">
+            <span className={`${montserrat.className} text-[10px] tracking-[0.15em] text-[#8d7c5d] uppercase`}>
               Origin Hub
             </span>
           </motion.div>
@@ -254,12 +260,12 @@ const GlobalPresence = () => {
                 </h3>
 
                 {/* Region Tag */}
-                <span className="font-inter text-[9px] font-bold tracking-[0.15em] text-[#a68a56] uppercase mb-2">
+                <span className={`${montserrat.className} text-[9px] font-bold tracking-[0.15em] text-[#a68a56] uppercase mb-2`}>
                   {dest.region}
                 </span>
 
                 {/* Tagline */}
-                <p className="font-inter text-[10px] text-[#5a6259] leading-snug">
+                <p className={`${montserrat.className} text-[10px] text-[#5a6259] leading-snug`}>
                   {dest.tagline}
                 </p>
 
