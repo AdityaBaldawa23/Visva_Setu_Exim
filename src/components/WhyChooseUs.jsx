@@ -4,52 +4,51 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Leaf, Handshake, Package, ShieldCheck, Sprout } from "lucide-react";
-import { Montserrat } from "next/font/google";
+import { useTranslation } from "@/i18n/useTranslation";
+
+import { Montserrat, DM_Serif_Display } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
 const features = [
   {
     id: 1,
     num: "01",
-    title: "Premium Quality",
-    desc: "Sourced directly from trusted farms across India.",
     icon: Leaf,
   },
   {
     id: 2,
     num: "02",
-    title: "Reliable Partnerships",
-    desc: "Built on transparency, consistency and trust.",
     icon: Handshake,
   },
   {
     id: 3,
     num: "03",
-    title: "Global Reach",
-    desc: "Delivering to markets across the world.",
     icon: Package,
   },
   {
     id: 4,
     num: "04",
-    title: "Assured Standards",
-    desc: "Stringent quality checks at every step.",
     icon: ShieldCheck,
   },
   {
     id: 5,
     num: "05",
-    title: "Sustainable Growth",
-    desc: "Supporting farmers and building a better tomorrow.",
     icon: Sprout,
   },
 ];
 
 const WhyChooseUs = () => {
+  const { t } = useTranslation();
   const [activeId, setActiveId] = useState(1);
   const carouselRef = useRef(null);
 
@@ -70,7 +69,7 @@ const WhyChooseUs = () => {
   return (
     <section
       id="why-choose-us"
-      className="relative min-h-[auto] lg:min-h-[100svh] w-full flex flex-col items-center justify-start overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
+      className={`${dmSerif.className} relative min-h-[auto] lg:min-h-[100svh] w-full flex flex-col items-center justify-start overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24`}
     >
       {/* Background Images with Mobile Design Placeholder */}
       <div className="absolute inset-0 z-0">
@@ -78,7 +77,7 @@ const WhyChooseUs = () => {
         <div className="hidden md:block absolute inset-0">
           <Image
             src="/vishva why choose us.png"
-            alt="Why Choose Vishva Setu Exim"
+            alt={t("why.bgAlt")}
             fill
             sizes="100vw"
             className="object-cover object-center"
@@ -115,8 +114,8 @@ const WhyChooseUs = () => {
           {/* Subtitle */}
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
-            <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] text-[#5a6259] uppercase">
-              Why Choose Us
+            <span className="font-[var(--font-dm-serif)] text-[10px] sm:text-[11px] font-normal tracking-[0.2em] text-[#5a6259] uppercase">
+              {t("why.eyebrow")}
             </span>
             <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
           </div>
@@ -124,9 +123,9 @@ const WhyChooseUs = () => {
           {/* Main Title */}
           <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] font-medium tracking-tight">
             <span className="text-[#0e3b2c] block mb-1 sm:mb-2">
-              Your Trusted Partner
+              {t("why.titleLine1")}
             </span>
-            <span className="text-[#a68a56] block">in Global Trade.</span>
+            <span className="text-[#a68a56] block">{t("why.titleLine2")}</span>
           </h2>
         </motion.div>
 
@@ -148,41 +147,44 @@ const WhyChooseUs = () => {
                   type="button"
                   onClick={() => handleFeatureClick(feature.id)}
                   aria-pressed={isActive}
-                  className={`relative z-10 flex w-full flex-col items-center text-center rounded-2xl p-5 sm:p-6 lg:px-3 lg:py-5 transition-all duration-300 ${isActive
+                  className={`relative z-10 flex w-full flex-col items-center text-center rounded-2xl p-5 sm:p-6 lg:px-3 lg:py-5 transition-all duration-300 ${
+                    isActive
                       ? "bg-[#f4f2e9]/95 backdrop-blur-sm border border-[#a68a56]/40 shadow-lg"
                       : "bg-[#f4f2e9]/65 border border-[#a68a56]/15 hover:bg-[#f4f2e9]/90"
-                    }`}
+                  }`}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   {/* Number */}
                   <div
-                    className={`relative mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-playfair text-lg transition-all duration-300 ${isActive
+                    className={`relative mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-playfair text-lg transition-all duration-300 ${
+                      isActive
                         ? "bg-[#0e3b2c] text-white shadow-[0_0_0_5px_rgba(14,59,44,0.12)]"
                         : "bg-[#f4f2e9] border border-[#8d7c5d] text-[#0e3b2c]"
-                      }`}
+                    }`}
                   >
                     {feature.num}
                   </div>
 
                   {/* Icon */}
                   <div
-                    className={`mb-4 transition-colors duration-300 ${isActive ? "text-[#0e3b2c]" : "text-[#5a6259]"
-                      }`}
+                    className={`mb-4 transition-colors duration-300 ${
+                      isActive ? "text-[#0e3b2c]" : "text-[#5a6259]"
+                    }`}
                   >
                     <Icon size={30} strokeWidth={1.5} />
                   </div>
 
                   {/* Title */}
                   <h3 className="font-playfair text-xl lg:text-lg xl:text-xl font-semibold leading-snug text-[#0e3b2c] mb-3">
-                    {feature.title}
+                    {t(`why.features.${feature.id}.title`)}
                   </h3>
 
                   {/* Description */}
                   <p
-                    className={`${montserrat.className} text-sm leading-relaxed text-[#3a3f3a] max-w-xs lg:text-xs xl:text-sm`}
+                    className={`font-body text-sm leading-relaxed text-[#3a3f3a] max-w-xs lg:text-xs xl:text-sm`}
                   >
-                    {feature.desc}
+                    {t(`why.features.${feature.id}.desc`)}
                   </p>
                 </motion.button>
               );
@@ -190,12 +192,6 @@ const WhyChooseUs = () => {
           </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };

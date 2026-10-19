@@ -1,21 +1,86 @@
-
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Script fallbacks only cover their own unicode ranges, so Latin text is unaffected. */
+  --script-sans: var(--font-sans-ar), var(--font-sans-bn), var(--font-sans-si);
+  --script-serif: var(--font-amiri), var(--font-serif-bn), var(--font-serif-si);
+
+  /* Heading typeface: DM Serif Display */
+  --heading-font: var(--font-dm-serif), var(--script-serif), Georgia, serif;
+}
+
+/* DM Serif Display lacks Vietnamese tone-mark glyphs; use Playfair Display for the whole heading. */
+:root:lang(vi) {
+  --heading-font: var(--font-playfair-display), Georgia, serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Content Font", sans-serif;
-  --font-inter: "Content Font", sans-serif;
-  --font-playfair: Georgia, serif;
+  --font-sans: "Content Font", var(--script-sans), sans-serif;
+  --font-inter: "Content Font", var(--script-sans), sans-serif;
+  --font-playfair: var(--heading-font);
+  --font-body: var(--font-montserrat), var(--script-sans), sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Content Font", sans-serif;
+  font-family: "Content Font", var(--script-sans), sans-serif;
+}
+
+/* ---------- Headings ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+}
+
+/* DM Serif Display ships a single weight; avoid faux-bold smearing. */
+.font-playfair,
+h1, h2, h3, h4, h5, h6 {
+  font-synthesis-weight: none;
+}
+
+/* Taller line boxes for scripts with stacked vowel signs / diacritics. */
+:root:lang(ar) :is(h1, h2, h3, h4, h5, h6),
+:root:lang(bn) :is(h1, h2, h3, h4, h5, h6),
+:root:lang(si) :is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.4;
+}
+
+/* Arabic letters join; letter-spacing breaks the joins. Italics are not used in Arabic. */
+:root:lang(ar) * {
+  letter-spacing: 0 !important;
+}
+:root:lang(ar) .italic {
+  font-style: normal;
+}
+
+/* Carousel scrollbars (was a styled-jsx block, which caused a hydration mismatch) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Smooth scrolling ---------- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- Locale boot guard (see layout.js) ---------- */
+html.i18n-pending body {
+  visibility: hidden;
+  /* Safety net: reveal even if JS never runs. */
+  animation: i18n-reveal 0s linear 1.5s forwards;
+}
+@keyframes i18n-reveal {
+  to {
+    visibility: visible;
+  }
 }

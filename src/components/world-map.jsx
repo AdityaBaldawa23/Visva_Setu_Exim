@@ -2,17 +2,13 @@
 import { useRef } from "react";
 import { motion } from "motion/react";
 import DottedMap from "dotted-map";
-import { Montserrat } from "next/font/google";
 import { useTheme } from "next-themes";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export function WorldMap({
   dots = [],
-  lineColor = "#a68a56"
+  lineColor = "#a68a56",
+  mapAlt = "world map",
+  getLabel = (label) => label,
 }) {
   const svgRef = useRef(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
@@ -43,11 +39,12 @@ export function WorldMap({
 
   return (
     <div
+      dir="ltr"
       className="w-full aspect-2/1 bg-transparent rounded-lg relative font-sans">
       <img
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
         className="h-full w-full mask-[linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none"
-        alt="world map"
+        alt={mapAlt}
         height="495"
         width="1056"
         draggable={false} />
@@ -210,8 +207,8 @@ export function WorldMap({
                       {dot.flag}
                     </span>
                   )}
-                  <span className={`${montserrat.className} text-[9px] sm:text-[11px] md:text-[15px] lg:text-[18px] tracking-wide whitespace-nowrap pt-0.5`}>
-                    {dot.label}
+                  <span className={`font-body text-[9px] sm:text-[11px] md:text-[15px] lg:text-[18px] tracking-wide whitespace-nowrap pt-0.5`}>
+                    {getLabel(dot.label)}
                   </span>
                 </motion.div>
               );

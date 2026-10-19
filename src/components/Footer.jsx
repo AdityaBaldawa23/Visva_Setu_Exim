@@ -1,184 +1,234 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { MessageCircle, Phone, Globe, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { Montserrat } from "next/font/google";
+import React from "react";
+import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+// import {Linkedin, Twitter, Youtube } from "lucide-react";
+import { DM_Serif_Display, Montserrat } from "next/font/google";
+
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const tickerItems = [
-  "Bridging Indian Farms to Global Ports",
-  "Uncompromising Export Quality & Standards",
-  "Fresh Cavendish Bananas & G4 Chillies Worldwide",
-  "Certified APEDA, GlobalGAP & Phytosanitary Compliance",
-  "Connecting Cultures Through Pure Agricultural Excellence",
-  "Reliable Ocean Reefer Cold-Chain Shipments",
-  "From Indian Soil to Wholesalers Across the Globe",
-  "Trust • Integrity • Consistency • Global Trade",
+/* ------------------------------------------------------------------ */
+/*  Edit your details here                                             */
+/* ------------------------------------------------------------------ */
+const COMPANY = "Vishva Setu Exim";
+const ADDRESS = ["[Business address line 1]", "[Business address line 2]", "[City, State - PIN]"];
+const EMAIL = "info@vishvasetuexim.com";
+const PHONE = "+91 00000 00000";
+const MAP_QUERY = "Pune, Maharashtra, India"; // replace with your exact address
+
+const SOCIALS = [
+
 ];
 
-const Footer = () => {
+const QUICK_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/#about" },
+  { label: "Products", href: "/products" },
+  { label: "Contact", href: "/contact" },
+];
+
+const PRODUCT_LINKS = [
+  { label: "Green Banana", href: "/products" },
+  { label: "Green Chilli", href: "/products" },
+  { label: "Pomegranate", href: "/products" },
+  { label: "Turmeric", href: "/products" },
+  { label: "White Onion", href: "/products" },
+];
+
+const TICKER_ITEMS = [
+  "Bridging Farms",
+  "Global Markets",
+  "Trust & Consistency",
+  "Rooted in India",
+];
+
+const Ticker = () => {
+  const reduceMotion = useReducedMotion();
+  // Two identical halves; moving by -50% gives a seamless loop
+  const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
+
+  const Row = ({ hidden = false }) => (
+    <div className="flex shrink-0 items-center" aria-hidden={hidden}>
+      {items.map((text, i) => (
+        <React.Fragment key={`${text}-${i}`}>
+          <span
+            className={`${dmSerif.className} whitespace-nowrap text-xl sm:text-6xl md:text-7xl lg:text-3xl text-white px-6 sm:px-10`}
+          >
+            {text}
+          </span>
+          <span className="h-1 w-2 rotate-45 bg-[#a68a56] shrink-0" />
+        </React.Fragment>
+      ))}
+    </div>
+  );
+
   return (
-    <footer className={`bg-[#0b2b20] text-[#e5e3da] pt-14 sm:pt-16 md:pt-20 pb-0 ${montserrat.className} border-t border-[#a68a56]/30 overflow-hidden`}>
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
-        
-        {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 mb-12 sm:mb-16">
-          
-          {/* Column 1: Brand & Description */}
-          <div className="flex flex-col pr-0 sm:pr-4">
-            {/* Logo */}
-            <Link href="/" className="mb-4 sm:mb-6 inline-block">
-              <img 
-                src="/Logo.png" 
-                alt="Vishva Setu Exim Logo" 
-                className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto rounded-xl sm:rounded-2xl object-contain hover:opacity-90 transition-opacity" 
-              />
+    <div className="overflow-hidden py-10 md:py-14" role="presentation">
+      <motion.div
+        className="flex w-max"
+        animate={reduceMotion ? undefined : { x: ["0%", "-50%"] }}
+        transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+      >
+        <Row />
+        <Row hidden />
+      </motion.div>
+    </div>
+  );
+};
+
+const Footer = () => {
+  const year = new Date().getFullYear();
+  const headingClass = `${dmSerif.className} text-2xl sm:text-[28px] uppercase tracking-wide text-white mb-6`;
+  const linkClass =
+    "text-white/80 hover:text-[#a68a56] transition-colors duration-300";
+
+  return (
+    <footer
+      className={`${montserrat.className} w-full bg-black text-white z-10`}
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-14 md:pt-20">
+        {/* Top grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.1fr_1.2fr] gap-10 lg:gap-12">
+          {/* Brand */}
+          <div>
+            <Link href="/" aria-label={`${COMPANY} home`} className="inline-block">
+              <span className={`${dmSerif.className} block text-4xl sm:text-5xl leading-tight`}>
+                {COMPANY}
+              </span>
+              <span className="mt-2 flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase text-[#a68a56]">
+                <span className="h-px w-8 bg-[#a68a56]" />
+                Premium Agricultural Exports
+              </span>
             </Link>
-            <p className="text-xs sm:text-sm leading-relaxed text-[#c2c0b8]">
-              Bridging farms to global markets with premium agricultural exports. Delivering quality, reliability, and trust at every step of the journey.
-            </p>
-          </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="flex flex-col">
-            <h3 className="font-semibold text-white text-base sm:text-lg mb-4 sm:mb-6 tracking-wide">
-              Quick Links
-            </h3>
-            <ul className="flex flex-col space-y-3 sm:space-y-4 text-xs sm:text-sm">
-              <li>
-                <Link href="/#about" className="hover:text-[#a68a56] transition-colors duration-300">About Us</Link>
-              </li>
-              <li>
-                <Link href="/#process" className="hover:text-[#a68a56] transition-colors duration-300">Our Process</Link>
-              </li>
-              <li>
-                <Link href="/#why-choose-us" className="hover:text-[#a68a56] transition-colors duration-300">Why Choose Us</Link>
-              </li>
-              <li>
-                <Link href="/#presence" className="hover:text-[#a68a56] transition-colors duration-300">Global Presence</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Our Products */}
-          <div className="flex flex-col">
-            <h3 className="font-inter font-semibold text-white text-base sm:text-lg mb-4 sm:mb-6 tracking-wide">
-              Our Products
-            </h3>
-            <ul className="flex flex-col space-y-3 sm:space-y-4 text-xs sm:text-sm">
-              <li>
-                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Fresh Fruits</Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Premium Spices</Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Organic Vegetables</Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-[#a68a56] transition-colors duration-300">Grains & Cereals</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Connect */}
-          <div className="flex flex-col">
-            <h3 className="font-inter font-semibold text-white text-base sm:text-lg mb-4 sm:mb-6 tracking-wide">
-              Connect
-            </h3>
-            
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <a href="#" aria-label="WhatsApp" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#a68a56] hover:text-white transition-all duration-300">
-                <MessageCircle size={17} />
-              </a>
-              <a href="#" aria-label="Phone" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#a68a56] hover:text-white transition-all duration-300">
-                <Phone size={17} />
-              </a>
-              <a href="#" aria-label="Website" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#a68a56] hover:text-white transition-all duration-300">
-                <Globe size={17} />
-              </a>
+            <div className="flex items-center gap-3 mt-8">
+              {SOCIALS.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black hover:bg-[#a68a56] hover:text-white transition-colors duration-300"
+                >
+                  <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                </a>
+              ))}
             </div>
 
-            <p className="text-xs sm:text-sm leading-relaxed text-[#c2c0b8] mb-3 sm:mb-4">
-              Connect with us for inquiries and global trade opportunities.
-            </p>
-
-            <div className="flex flex-col space-y-2 text-xs sm:text-sm text-[#e5e3da]">
-              <a href="mailto:info@vishvasetuexim.com" className="hover:text-[#a68a56] transition-colors duration-300 break-all">
-                info@vishvasetuexim.com
-              </a>
-              <a href="tel:+919876543210" className="hover:text-[#a68a56] transition-colors duration-300">
-                +91 98765 43210
-              </a>
-            </div>
+            <Link
+              href="/contact"
+              className="mt-8 inline-flex items-center justify-center rounded-lg border-2 border-white px-6 py-3 text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              Request a Quotation
+            </Link>
           </div>
 
-        </div>
+          {/* Quick links */}
+          <nav aria-label="Quick links">
+            <h3 className={headingClass}>Quick Links</h3>
+            <ul className="space-y-4 text-base">
+              {QUICK_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link href={l.href} className={linkClass}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        {/* Bottom Bar (Credits & Policies) */}
-        <div className="w-full border-t border-white/10 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#a3a19a] text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Vishva Setu Exim. All Rights Reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/terms" className="hover:text-[#a68a56] transition-colors duration-300">Terms & Conditions</Link>
-            <Link href="/privacy" className="hover:text-[#a68a56] transition-colors duration-300">Privacy Policy</Link>
+          {/* Get in touch */}
+          <div>
+            <h3 className={headingClass}>Get In Touch</h3>
+            <address className="not-italic text-base leading-relaxed space-y-5">
+              <p className="text-white/80">
+                {ADDRESS.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+              <p>
+                <a href={`mailto:${EMAIL}`} className={linkClass}>
+                  {EMAIL}
+                </a>
+              </p>
+              <p>
+                <a href={`tel:${PHONE.replace(/\s/g, "")}`} className={linkClass}>
+                  {PHONE}
+                </a>
+              </p>
+            </address>
+          </div>
+
+          {/* Map */}
+          <div>
+            <h3 className={headingClass}>Contact Us</h3>
+            <div className="overflow-hidden rounded-2xl h-[200px] sm:h-[220px] w-full">
+              <iframe
+                title={`${COMPANY} location`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&output=embed`}
+                className="h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
 
+        {/* Products row */}
+        <div className="mt-14 md:mt-16">
+          <h3 className={headingClass}>Our Products</h3>
+          <ul className="flex flex-wrap gap-x-8 gap-y-3 text-base sm:text-lg">
+            {PRODUCT_LINKS.map((l) => (
+              <li key={l.label}>
+                <Link href={l.href} className={linkClass}>
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      {/* Infinitely Moving Horizontal Marquee Line below Credits */}
-      <div className="w-full bg-[#fdfbf7] text-[#0e3b2c] py-3.5 sm:py-4 border-t-2 border-[#a68a56]/50 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] relative overflow-hidden select-none">
-        <div className="flex w-max">
-          {/* First loop track */}
-          <motion.div
-            className="flex items-center shrink-0 space-x-8 sm:space-x-12 pr-8 sm:pr-12"
-            animate={{ x: "-100%" }}
-            transition={{
-              duration: 35,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            {tickerItems.map((quote, index) => (
-              <div key={`tick-1-${index}`} className="flex items-center space-x-6 sm:space-x-8">
-                <span className="font-playfair text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap text-[#0e3b2c]">
-                  {quote}
-                </span>
-                <span className="flex items-center justify-center text-[#a68a56]">
-                  <Sparkles size={14} className="animate-pulse" />
-                </span>
-              </div>
-            ))}
-          </motion.div>
+      {/* Ticker */}
+      <div className="mt-10 md:mt-14">
+        <Ticker />
+      </div>
 
-          {/* Duplicate loop track for continuous seamless scroll */}
-          <motion.div
-            className="flex items-center shrink-0 space-x-8 sm:space-x-12 pr-8 sm:pr-12"
-            animate={{ x: "-100%" }}
-            transition={{
-              duration: 35,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            {tickerItems.map((quote, index) => (
-              <div key={`tick-2-${index}`} className="flex items-center space-x-6 sm:space-x-8">
-                <span className="font-playfair text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap text-[#0e3b2c]">
-                  {quote}
-                </span>
-                <span className="flex items-center justify-center text-[#a68a56]">
-                  <Sparkles size={14} className="animate-pulse" />
-                </span>
-              </div>
-            ))}
-          </motion.div>
+      {/* Bottom bar */}
+      <div className="border-t border-white/15">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm sm:text-base">
+          <p className="text-white/80 text-center md:text-left">
+            Copyright © {year} {COMPANY}, All Rights Reserved.
+          </p>
+          <ul className="flex items-center divide-x divide-white/40">
+            <li className="pr-4">
+              <Link href="/sitemap" className={linkClass}>
+                Sitemap
+              </Link>
+            </li>
+            <li className="px-4">
+              <Link href="/privacy" className={linkClass}>
+                Privacy Policy
+              </Link>
+            </li>
+            <li className="pl-4">
+              <Link href="/terms" className={linkClass}>
+                Terms &amp; Conditions
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

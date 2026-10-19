@@ -1,0 +1,313 @@
+{
+  "_meta": {
+    "language": "Vietnamese",
+    "status": "NEEDS NATIVE REVIEW - AI-drafted translation, not yet checked by a professional translator."
+  },
+  "common": {
+    "brand": "Vishva Setu Exim",
+    "logoAlt": "Logo Vishva Setu Exim"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "products": "Sản phẩm",
+    "presence": "Thị trường",
+    "process": "Quy trình",
+    "ourProcess": "Quy trình của chúng tôi",
+    "contact": "Liên hệ",
+    "homeAria": "Trang chủ Vishva Setu Exim",
+    "openMenu": "Menu",
+    "closeMenu": "Đóng menu",
+    "mainNav": "Điều hướng chính",
+    "language": "Ngôn ngữ",
+    "chooseLanguage": "Chọn ngôn ngữ",
+    "currentLanguage": "Ngôn ngữ: {name}"
+  },
+  "hero": {
+    "eyebrow": "Xuất khẩu nông sản cao cấp",
+    "titleLine1": "Kết nối nông trại",
+    "titleLine2": "với thị trường toàn cầu.",
+    "description": "Vishva Setu Exim đưa các sản phẩm nông nghiệp chất lượng từ những nông trại của Ấn Độ đến các thị trường trên khắp thế giới, đảm bảo sự tin cậy, tính ổn định và giá trị lâu dài cho các đối tác toàn cầu của chúng tôi.",
+    "cta": "Khám phá sản phẩm",
+    "bgAlt": "Hình nền bản đồ thế giới nông nghiệp",
+    "bgMobileAlt": "Hình nền bản đồ thế giới nông nghiệp cho di động"
+  },
+  "about": {
+    "eyebrow": "Giới thiệu",
+    "titleLine1": "Bắt nguồn từ nông trại.",
+    "titleLine2": "Vững bước nhờ niềm tin.",
+    "description": "Tại Vishva Setu Exim, chúng tôi cam kết đưa các sản phẩm nông nghiệp chất lượng cao từ trái tim Ấn Độ đến với thế giới. Hành trình của chúng tôi được xây dựng trên những mối quan hệ đối tác vững chắc, các phương thức bền vững và sự trân trọng sâu sắc dành cho những người nông dân đã làm nên tất cả.",
+    "bgAlt": "Giới thiệu Vishva Setu Exim",
+    "bgMobileAlt": "Hình nền giới thiệu Vishva Setu Exim cho di động"
+  },
+  "products": {
+    "eyebrow": "Nông sản cao cấp",
+    "titleLine1": "Từ nông trại của chúng tôi.",
+    "titleLine2": "Đến thị trường của bạn.",
+    "description": "Nông sản được tuyển chọn cẩn thận về chất lượng, độ tươi và tính đồng đều.",
+    "bgAlt": "Hình nền sản phẩm Vishva Setu Exim",
+    "bgMobileAlt": "Hình nền sản phẩm Vishva Setu Exim cho di động",
+    "scrollLeft": "Cuộn sang trái",
+    "scrollRight": "Cuộn sang phải",
+    "previous": "Sản phẩm trước",
+    "next": "Sản phẩm tiếp theo",
+    "swipe": "Vuốt hoặc chạm",
+    "viewDetails": "Xem chi tiết {name}",
+    "items": {
+      "banana": { "name": "Chuối xanh G9", "subtitle": "XUẤT XỨ ẤN ĐỘ CAO CẤP" },
+      "chilli": { "name": "Ớt xanh G4", "subtitle": "TƯƠI NGON TỪ NÔNG TRẠI" },
+      "pom": { "name": "Lựu", "subtitle": "GIÀU DƯỠNG CHẤT TỰ NHIÊN" },
+      "onion": { "name": "Hành tây tươi", "subtitle": "MÙA VỤ VÀNG" },
+      "turmeric": { "name": "Nghệ", "subtitle": "GIÀU DƯỠNG CHẤT TỰ NHIÊN" }
+    }
+  },
+  "process": {
+    "eyebrow": "Quy trình của chúng tôi",
+    "titleLine1": "Cách chúng tôi mang lại",
+    "titleLine2": "sự xuất sắc.",
+    "steps": {
+      "1": { "title": "Thu mua", "desc": "Thu mua trực tiếp từ những nông dân uy tín trên khắp Ấn Độ." },
+      "2": { "title": "Chất lượng & Sơ chế", "desc": "Phân loại cẩn thận, kiểm tra chất lượng và đóng gói đạt chuẩn." },
+      "3": { "title": "Xuất khẩu & Hậu cần", "desc": "Chứng từ, thông quan và quản lý hậu cần liền mạch." },
+      "4": { "title": "Vận chuyển toàn cầu", "desc": "Vận chuyển tin cậy qua mạng lưới đối tác toàn cầu của chúng tôi." },
+      "5": { "title": "Giao hàng đến thị trường", "desc": "Giao hàng đúng hạn đến các thị trường quốc tế với sự hỗ trợ xuyên suốt." }
+    }
+  },
+  "why": {
+    "eyebrow": "Vì sao chọn chúng tôi",
+    "titleLine1": "Đối tác tin cậy của bạn",
+    "titleLine2": "trong thương mại toàn cầu.",
+    "bgAlt": "Vì sao chọn Vishva Setu Exim",
+    "features": {
+      "1": { "title": "Chất lượng cao cấp", "desc": "Thu mua trực tiếp từ các nông trại uy tín trên khắp Ấn Độ." },
+      "2": { "title": "Hợp tác tin cậy", "desc": "Xây dựng trên sự minh bạch, ổn định và tin tưởng." },
+      "3": { "title": "Phạm vi toàn cầu", "desc": "Cung ứng đến các thị trường trên khắp thế giới." },
+      "4": { "title": "Tiêu chuẩn đảm bảo", "desc": "Kiểm tra chất lượng nghiêm ngặt ở mọi khâu." },
+      "5": { "title": "Phát triển bền vững", "desc": "Hỗ trợ nông dân và kiến tạo một tương lai tốt đẹp hơn." }
+    }
+  },
+  "presence": {
+    "eyebrow": "Hiện diện toàn cầu",
+    "titleLine1": "Từ Ấn Độ,",
+    "titleLine2": "đến với thế giới.",
+    "bgAlt": "Sự hiện diện toàn cầu của Vishva Setu Exim",
+    "bgMobileAlt": "Hình nền hiện diện toàn cầu của Vishva Setu Exim cho di động",
+    "mapAlt": "bản đồ thế giới",
+    "india": "Ấn Độ",
+    "originHub": "Trung tâm xuất xứ",
+    "more": "— và mở rộng sang thị trường mới mỗi quý —",
+    "countries": {
+      "canada": { "label": "Canada", "region": "Bắc Mỹ", "tagline": "Nông sản tươi đến Ontario & BC" },
+      "usa": { "label": "Hoa Kỳ", "region": "Bắc Mỹ", "tagline": "Gia vị & trái cây tại 15 bang" },
+      "uae": { "label": "UAE", "region": "Trung Đông", "tagline": "Cung ứng quanh năm đến Dubai & Abu Dhabi" },
+      "singapore": { "label": "Singapore", "region": "Đông Nam Á", "tagline": "Xuất khẩu cao cấp đến các thị trường châu Á" },
+      "bangladesh": { "label": "Bangladesh", "region": "Nam Á", "tagline": "Cung ứng hành tây & gia vị xuyên biên giới" },
+      "sriLanka": { "label": "Sri Lanka", "region": "Nam Á", "tagline": "Kết nối với các thị trường đảo quốc" },
+      "vietnam": { "label": "Việt Nam", "region": "Đông Nam Á", "tagline": "Mở rộng thương mại nông sản tại châu Á" },
+      "europe": { "label": "Châu Âu", "region": "Châu Âu", "tagline": "Kết nối với các thị trường châu Âu" }
+    }
+  },
+  "contact": {
+    "eyebrow": "Liên hệ với chúng tôi",
+    "titleLine1": "Cùng xây dựng",
+    "titleLine2": "mối quan hệ đối tác.",
+    "bgAlt": "Liên hệ Vishva Setu Exim",
+    "bgMobileAlt": "Hình nền liên hệ Vishva Setu Exim cho di động",
+    "fields": {
+      "name": "Họ và tên *",
+      "mobile": "Số điện thoại di động *",
+      "email": "Email (Không bắt buộc)",
+      "location": "Địa điểm / Quốc gia của bạn *",
+      "product": "Sản phẩm bạn muốn hỏi *",
+      "message": "Lời nhắn hoặc yêu cầu cụ thể..."
+    },
+    "submit": "Gửi yêu cầu",
+    "sending": "Đang gửi...",
+    "success": "Đã gửi tin nhắn thành công! Chúng tôi sẽ sớm liên hệ với bạn.",
+    "error": "Gửi tin nhắn thất bại. Vui lòng thử lại.",
+    "validation": {
+      "required": "Vui lòng điền vào trường này.",
+      "email": "Vui lòng nhập địa chỉ email hợp lệ."
+    }
+  },
+  "footer": {
+    "description": "Kết nối nông trại với thị trường toàn cầu bằng nông sản xuất khẩu cao cấp. Mang đến chất lượng, sự tin cậy và niềm tin ở mọi chặng đường.",
+    "quickLinks": "Liên kết nhanh",
+    "aboutUs": "Giới thiệu",
+    "ourProcess": "Quy trình của chúng tôi",
+    "whyChooseUs": "Vì sao chọn chúng tôi",
+    "globalPresence": "Hiện diện toàn cầu",
+    "ourProducts": "Sản phẩm của chúng tôi",
+    "freshFruits": "Trái cây tươi",
+    "premiumSpices": "Gia vị cao cấp",
+    "organicVegetables": "Rau củ hữu cơ",
+    "grainsCereals": "Ngũ cốc & Hạt",
+    "connect": "Kết nối",
+    "whatsapp": "WhatsApp",
+    "phone": "Điện thoại",
+    "website": "Trang web",
+    "connectText": "Liên hệ với chúng tôi để được tư vấn và tìm kiếm cơ hội thương mại toàn cầu.",
+    "rights": "© {year} Vishva Setu Exim. Bảo lưu mọi quyền.",
+    "terms": "Điều khoản & Điều kiện",
+    "privacy": "Chính sách bảo mật",
+    "ticker": [
+      "Kết nối nông trại Ấn Độ với các cảng toàn cầu",
+      "Chất lượng & tiêu chuẩn xuất khẩu không thỏa hiệp",
+      "Chuối Cavendish & ớt G4 tươi đến khắp thế giới",
+      "Chứng nhận APEDA, GlobalGAP & tuân thủ kiểm dịch thực vật",
+      "Kết nối các nền văn hóa qua nông nghiệp thuần khiết xuất sắc",
+      "Lô hàng đường biển container lạnh tin cậy",
+      "Từ đất Ấn Độ đến các nhà bán buôn khắp toàn cầu",
+      "Tin cậy • Chính trực • Ổn định • Thương mại toàn cầu"
+    ]
+  },
+  "productsPage": {
+    "bgAlt": "Họa tiết nền Vishva Setu Exim cho máy tính",
+    "bgMobileAlt": "Họa tiết nền Vishva Setu Exim cho di động",
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbCurrent": "Danh mục xuất khẩu",
+    "eyebrow": "Trực tiếp từ nông trại Ấn Độ đến các cảng toàn cầu",
+    "titleLine1": "Danh mục nông sản",
+    "titleLine2": "đạt chuẩn xuất khẩu.",
+    "intro": "Mỗi sản phẩm trong danh mục của chúng tôi đều được thu mua trực tiếp từ các hợp tác xã nông nghiệp đã được thẩm định trên khắp Ấn Độ. Được phân loại tỉ mỉ, xếp hạng theo kích cỡ xuất khẩu và bảo quản bằng chuỗi lạnh liên tục để giữ độ tươi tối ưu khi đến tay các đối tác quốc tế.",
+    "originBelt": "Vùng xuất xứ:",
+    "specsTitle": "Thông số xuất khẩu",
+    "enquire": "Hỏi về xuất khẩu",
+    "gradeBadge": "Kích cỡ xuất khẩu loại A",
+    "coldChainBadge": "Giám sát chuỗi lạnh",
+    "imageAlt": "{name} - Vishva Setu Exim",
+    "cta": {
+      "eyebrow": "Giải pháp xuất khẩu theo yêu cầu",
+      "title": "Cần đóng gói số lượng lớn theo yêu cầu hoặc nhãn riêng?",
+      "text": "Chúng tôi đáp ứng các lô hàng đóng pallet theo yêu cầu, hợp đồng CIF / FOB và thùng in thương hiệu riêng cho các nhà bán buôn quốc tế và chuỗi bán lẻ tại Trung Đông, châu Âu và châu Á.",
+      "button": "Yêu cầu báo giá riêng"
+    },
+    "items": {
+      "banana": {
+        "category": "Trái cây tươi",
+        "name": "Chuối xanh Cavendish G9",
+        "short": "Cavendish G9",
+        "subtitle": "Trồng tự nhiên • Kích cỡ hoàn hảo • Chuẩn xuất khẩu tươi từ nông trại",
+        "origin": "Maharashtra, Gujarat & Andhra Pradesh",
+        "description": "Được trồng tại các lưu vực sông màu mỡ của Ấn Độ dưới ánh nắng nhiệt đới lý tưởng, chuối xanh Cavendish G9 (Grand Nain) của chúng tôi được đánh giá cao trên thị trường quốc tế nhờ lớp vỏ dày bảo vệ, quả có chiều dài đồng đều và vị béo ngậy khi chín. Thu mua trực tiếp từ các vườn đạt chứng nhận GlobalGAP, mỗi nải được rửa nhẹ nhàng, khử trùng, phân cỡ và đóng trong túi hút chân không đạt chuẩn thực phẩm sạch để đảm bảo thời hạn bảo quản tối ưu trong suốt hành trình đường biển.",
+        "specs": [
+          { "label": "Giống", "value": "Grand Nain (Cavendish G9)" },
+          { "label": "Chiều dài quả", "value": "Tối thiểu 18 cm - 25 cm (7 - 9 inch)" },
+          { "label": "Kích cỡ / Đường kính", "value": "39 mm đến 47 mm" },
+          { "label": "Số nải mỗi thùng", "value": "4, 5, 6 & 7 nải (Buồng / Nải)" },
+          { "label": "Đóng gói", "value": "Thùng 7 kg / 13 kg, theo yêu cầu của bạn" },
+          { "label": "Nhiệt độ kho lạnh", "value": "13,2°C – 13,5°C, khí quyển kiểm soát" },
+          { "label": "Thời hạn bảo quản", "value": "35 – 45 ngày khi vận chuyển container lạnh" },
+          { "label": "Nguồn cung", "value": "Cung ứng liên tục quanh năm" }
+        ],
+        "certifications": ["GlobalGAP", "Được APEDA phê duyệt", "Chứng nhận kiểm dịch thực vật"],
+        "highlights": ["Màu xanh đồng đều", "Không ủ chín bằng hóa chất", "Đệm mút chuẩn xuất khẩu"]
+      },
+      "chilli": {
+        "category": "Rau củ tươi",
+        "name": "Ớt xanh tươi G4",
+        "short": "G4 tươi",
+        "subtitle": "Cay nồng & tươi sáng • Hàm lượng capsaicin cao • Thu hái thủ công mỗi ngày",
+        "origin": "Gujarat, Andhra Pradesh & Karnataka",
+        "description": "Ớt xanh G4 xuất khẩu của chúng tôi được ưa chuộng trên toàn cầu nhờ độ cay tự nhiên mạnh, màu xanh bóng rực rỡ và độ giòn. Được thu hái trong sương sớm để giữ tối đa độ ẩm và tinh dầu capsaicin, mỗi quả ớt đều trải qua quá trình phân loại quang học và thủ công nghiêm ngặt nhằm loại bỏ khuyết tật, đảm bảo chỉ những quả ớt đồng đều, cuống dài mới được đưa đến cơ sở đóng gói lạnh hiện đại của chúng tôi.",
+        "specs": [
+          { "label": "Giống", "value": "Ớt xanh G4 (Tiêu chuẩn xuất khẩu)" },
+          { "label": "Chiều dài quả", "value": "8 cm đến 14 cm" },
+          { "label": "Vỏ & Kết cấu", "value": "Xanh đậm bóng, chắc & giòn" },
+          { "label": "Độ cay", "value": "Cao (Giàu capsaicin: 45.000–60.000 SHU)" },
+          { "label": "Đóng gói", "value": "Thùng 3,5 kg / 4 kg / 5 kg, theo yêu cầu của bạn" },
+          { "label": "Nhiệt độ vận chuyển", "value": "7°C – 9°C (Độ ẩm tương đối 85–90%)" },
+          { "label": "Thời hạn bảo quản", "value": "21 – 25 ngày trong chuỗi lạnh" },
+          { "label": "Nguồn cung", "value": "Thu hoạch quanh năm" }
+        ],
+        "certifications": ["Tuân thủ FSSAI", "Chứng nhận SPICES Board", "Chịu quản lý của APEDA"],
+        "highlights": ["Thu hái thủ công mỗi ngày", "Hương thơm tươi nồng", "Thùng thông gió chống ẩm"]
+      },
+      "pom": {
+        "category": "Trái cây tươi",
+        "name": "Lựu Bhagwa cao cấp",
+        "short": "Bhagwa cao cấp",
+        "subtitle": "Hạt đỏ hồng ngọc • Độ ngọt Brix cao • Siêu trái cây giàu chất chống oxy hóa",
+        "origin": "Solapur & Nashik, Maharashtra",
+        "description": "Được mệnh danh là viên ngọc quý của ngành làm vườn Ấn Độ, lựu Bhagwa được săn đón trên toàn cầu nhờ lớp vỏ đỏ nghệ tây rực rỡ cùng những hạt đỏ hồng ngọc mềm, hầu như không có xơ cứng, căng mọng nước ngọt giàu chất chống oxy hóa. Thu mua trực tiếp từ Solapur — thủ phủ lựu của Ấn Độ — mỗi quả đều được cân cẩn thận, bọc lưới xốp và xếp khay để bảo vệ phần đài mỏng manh và vẻ óng ánh hồng ngọc qua hàng nghìn hải lý.",
+        "specs": [
+          { "label": "Giống", "value": "Bhagwa (Tiêu chuẩn Kesar đỏ)" },
+          { "label": "Trọng lượng quả", "value": "200g – 450g+ (Từ cỡ nhỏ đến cỡ đại)" },
+          { "label": "Màu sắc", "value": "Vỏ đỏ đậm bóng với hạt hồng ngọc" },
+          { "label": "Tổng chất rắn hòa tan", "value": "15° đến 16,5° Brix (Rất ngọt)" },
+          { "label": "Đóng gói", "value": "Khay 3,5 kg / 4 kg (9 / 10 / 12 / 14 quả), theo yêu cầu của bạn" },
+          { "label": "Nhiệt độ vận chuyển", "value": "5°C – 7°C, container lạnh có kiểm soát" },
+          { "label": "Thời hạn bảo quản", "value": "60 – 75 ngày khi bảo quản lạnh" },
+          { "label": "Nguồn cung", "value": "Thu hoạch quanh năm" }
+        ],
+        "certifications": ["Chứng nhận GlobalGAP", "Sạch kiểm dịch thực vật", "Đã đăng ký PomeNet"],
+        "highlights": ["Hạt mềm không xơ cứng", "Bọc lưới từng quả", "Hàm lượng nước cao (48%+)"]
+      },
+      "onion": {
+        "category": "Rau củ",
+        "name": "Hành tây đỏ & trắng tươi",
+        "short": "Hành đỏ tươi",
+        "subtitle": "Thu hoạch tại Nashik • Vỏ đỏ ánh vàng • Bảo quản lâu ở nhiệt độ thường",
+        "origin": "Nashik & Pune, Maharashtra",
+        "description": "Được thu mua từ vùng đất giàu khoáng chất của Nashik, hành tây tươi của chúng tôi có củ chắc, đặc, được bảo vệ bởi nhiều lớp vỏ mỏng màu đỏ thẫm còn nguyên vẹn giúp giữ hương vị hăng nồng và độ ẩm. Được làm khô kỹ trong các nhà sấy chuyên dụng, hành có khả năng chống nảy mầm và hư hỏng do ẩm, đảm bảo độ bền vượt trội trong các lô hàng đường biển bằng container thường và container lạnh đến các cảng trên toàn thế giới.",
+        "specs": [
+          { "label": "Giống", "value": "Hành đỏ Nashik / Đỏ nhạt / Hành trắng" },
+          { "label": "Kích cỡ", "value": "40 mm – 50 mm / 55 mm+ / 60 mm+ cỡ đại" },
+          { "label": "Hình dạng & Độ ẩm", "value": "Củ tròn, độ ẩm sau sấy < 14%" },
+          { "label": "Độ hăng", "value": "Mùi hăng mạnh & hàm lượng chất khô cao" },
+          { "label": "Đóng gói", "value": "Bao lưới Leno đỏ 10 kg / 20 kg / 25 kg / 50 kg" },
+          { "label": "Nhiệt độ bảo quản", "value": "Nhiệt độ thường thông thoáng / Container lạnh 0°C–2°C" },
+          { "label": "Thời hạn bảo quản", "value": "45 – 90 ngày trong điều kiện khô thoáng" },
+          { "label": "Nguồn cung", "value": "Quanh năm (Kharif, Kharif muộn & Rabi)" }
+        ],
+        "certifications": ["APEDA xác minh xuất khẩu", "AGMARK loại 1", "Đã kiểm dịch thực vật"],
+        "highlights": ["Vỏ ngoài đã được xử lý khô", "Ức chế nảy mầm", "Bao lưới chịu lực"]
+      },
+      "turmeric": {
+        "category": "Gia vị & Thảo mộc",
+        "name": "Nghệ nguyên chất hàm lượng curcumin cao",
+        "short": "Nghệ curcumin cao",
+        "subtitle": "Củ nghệ Salem & Nizamabad • Sắc vàng óng • Curcumin hỗ trợ sức khỏe",
+        "origin": "Salem (Tamil Nadu) & Nizamabad (Telangana)",
+        "description": "Được đánh giá cao trong ngành ẩm thực và thực phẩm chức năng, củ nghệ nhánh và thân rễ khô nguyên củ của Ấn Độ mang sắc vàng nghệ tây đậm cùng nồng độ curcumin cao tự nhiên (lên đến 7%). Được chế biến theo phương pháp truyền thống lâu đời là luộc và phơi nắng trước khi đánh bóng bằng máy, nghệ của chúng tôi mang lại vị ấm nồng đặc trưng của đất, khả năng kháng khuẩn và chất lượng xuất khẩu thuần khiết, đồng đều.",
+        "specs": [
+          { "label": "Các loại sẵn có", "value": "Nghệ nhánh đánh bóng một lần, cùng nghệ nhánh đánh bóng hai lần, củ cái & bột" },
+          { "label": "Hàm lượng curcumin", "value": "3,5% đến 7%, hoạt tính sinh học cao" },
+          { "label": "Độ ẩm", "value": "Tối đa 9,5% – 10% (Sấy khô kỹ)" },
+          { "label": "Tạp chất", "value": "< 0,5% (Làm sạch & phân loại bằng máy)" },
+          { "label": "Đóng gói", "value": "Bao đay 25 kg / 50 kg hoặc bao PP có lót PE" },
+          { "label": "Điều kiện bảo quản", "value": "Kho mát, khô, tối & không ẩm" },
+          { "label": "Thời hạn bảo quản", "value": "24 tháng trong điều kiện tiêu chuẩn" },
+          { "label": "Nguồn cung", "value": "Thu hoạch quanh năm" }
+        ],
+        "certifications": ["SPICES Board of India", "FSSAI loại A", "Đã kiểm nghiệm"],
+        "highlights": ["Màu vàng đậm", "Không pha trộn", "Curcumin tự nhiên cao"]
+      }
+    }
+  },
+  "aboutPage": {
+    "bgAlt": "Hình nền trang giới thiệu",
+    "eyebrow": "Về Vishvasetu Exim",
+    "titleLine1": "Bắt nguồn từ nông trại.",
+    "titleLine2": "Vững bước nhờ niềm tin.",
+    "intro": "Kết nối thế mạnh nông nghiệp của Ấn Độ với thị trường toàn cầu.",
+    "story": [
+      "Tại Vishvasetu Exim, chúng tôi tin rằng mọi mối quan hệ đối tác toàn cầu thành công đều bắt đầu từ sản phẩm chất lượng, những mối quan hệ đáng tin cậy và cam kết kinh doanh đúng đắn.",
+      "Có trụ sở tại Ấn Độ, chúng tôi tập trung thu mua nông sản tươi và kết nối chúng với người mua quốc tế thông qua phương thức xuất khẩu tin cậy, minh bạch và lấy khách hàng làm trọng tâm. Từ những nông trại nơi sản phẩm được trồng đến những thị trường nơi chúng được giao, chúng tôi hướng tới việc làm cho mỗi chặng đường trở nên đáng tin cậy hơn.",
+      "Danh mục sản phẩm của chúng tôi gồm chuối xanh G9 tươi, ớt xanh G4, lựu, hành tây và các mặt hàng nông sản khác. Chúng tôi nỗ lực đáp ứng thông số kỹ thuật của người mua thông qua thu mua cẩn trọng, đóng gói phù hợp, kiểm tra chất lượng và lập kế hoạch vận chuyển phối hợp.",
+      "Đằng sau mỗi sản phẩm là những người nông dân mà sự cần cù của họ đưa sự phong phú của nông nghiệp Ấn Độ đến với thế giới. Chúng tôi trân trọng những mối quan hệ này và hướng tới xây dựng quan hệ đối tác lâu dài, tạo ra giá trị cho nông dân, người mua và cả doanh nghiệp của chúng tôi.",
+      "Lời hứa của chúng tôi rất đơn giản: xây dựng niềm tin bằng sự minh bạch, chú trọng chất lượng ở mọi giai đoạn và phát triển mối quan hệ bền lâu với khách hàng trên khắp các thị trường toàn cầu."
+    ],
+    "highlights": [
+      { "title": "Thu mua gắn với nông trại", "text": "Xây dựng mối quan hệ xoay quanh nông sản và nguồn cung theo mùa vụ." },
+      { "title": "Cam kết chất lượng", "text": "Hướng tới đáp ứng thông số của người mua và tiêu chuẩn xử lý phù hợp." },
+      { "title": "Kết nối toàn cầu", "text": "Kết nối nông sản Ấn Độ với các cơ hội quốc tế." },
+      { "title": "Hợp tác lâu dài", "text": "Ưu tiên giao tiếp rõ ràng, minh bạch và cùng phát triển." }
+    ],
+    "promiseEyebrow": "Lời hứa của chúng tôi",
+    "promiseLine1": "Từ nông trại Ấn Độ",
+    "promiseLine2": "đến tương lai toàn cầu.",
+    "promiseText": "Mỗi mùa vụ mang theo một câu chuyện về sự cần cù. Mỗi lô hàng thể hiện một lời cam kết. Tại Vishvasetu Exim, chúng tôi gắn kết cả hai.",
+    "cta": "Khám phá sản phẩm"
+  }
+}

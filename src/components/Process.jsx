@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -77,8 +78,11 @@ const rightSteps = [
 
 const TOTAL_STEPS = leftSteps.length + rightSteps.length;
 
-const StepCard = ({ id, icon, title, desc, offset, activeId, onSelect }) => {
+const StepCard = ({ id, icon, offset, activeId, onSelect }) => {
+  const { t } = useTranslation();
   const isActive = activeId === id;
+  const title = t(`process.steps.${id}.title`);
+  const desc = t(`process.steps.${id}.desc`);
 
   return (
     <div className={`mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:w-[340px] ${offset}`}>
@@ -119,6 +123,8 @@ const StepCard = ({ id, icon, title, desc, offset, activeId, onSelect }) => {
 
 export default function ProcessSection() {
   const [activeId, setActiveId] = useState(1);
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -148,18 +154,15 @@ export default function ProcessSection() {
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 sm:gap-5">
             <span className="h-px w-10 bg-[#8a8a7a] sm:w-20" />
-            <span className={`${montserrat.className} text-[10px] font-semibold uppercase tracking-[0.3em] text-[#5b5b52] sm:text-xs`}>
-              Our Process
+            <span className={`font-body text-[10px] font-semibold uppercase tracking-[0.3em] text-[#5b5b52] sm:text-xs`}>
+              {t("process.eyebrow")}
             </span>
             <span className="h-px w-10 bg-[#8a8a7a] sm:w-20" />
           </div>
 
-          <h2
-            className="mt-3 text-[9vw] leading-[1.15] lg:mt-8 lg:text-7xl"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-          >
-            <span className="block text-[#0b3d2c]">How We Deliver</span>
-            <span className="mt-1 block text-[#a98a52]">Excellence.</span>
+          <h2 className="font-playfair mt-3 text-[9vw] leading-[1.15] lg:mt-8 lg:text-7xl">
+            <span className="block text-[#0b3d2c]">{t("process.titleLine1")}</span>
+            <span className="mt-1 block text-[#a98a52]">{t("process.titleLine2")}</span>
           </h2>
         </div>
 
@@ -189,6 +192,9 @@ export default function ProcessSection() {
           </div>
         </div>
       </div>
+
+      <div className="absolute top-0 left-0 right-0 h-28 sm:h-48 bg-gradient-to-b from-[#f4f2e9] via-[#f4f2e9]/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-48 bg-gradient-to-t from-[#f4f2e9] via-[#f4f2e9]/50 to-transparent"></div>
     </section>
   );
 }

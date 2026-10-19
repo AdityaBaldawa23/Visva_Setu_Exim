@@ -5,23 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useTranslation } from "@/i18n/useTranslation";
 
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
+// Display text for each product lives in the locale files under products.items.<id>
 const products = [
-  { id: "banana", name: "G9 Green Banana", subtitle: "PREMIUM INDIAN ORIGIN", img: "/banana.png" },
-  { id: "chilli", name: "G4 Green Chilli", subtitle: "FARM FRESH QUALITY", img: "/chilli.png" },
-  { id: "pom", name: "Pomegranate", subtitle: "RICH IN NATURAL GOODNESS", img: "/pom.png" },
-  { id: "onion", name: "Fresh Onion", subtitle: "GOLDEN HARVEST", img: "/onion.png" },
-  { id: "turmeric", name: "Turmeric", subtitle: "RICH IN NATURAL GOODNESS", img: "/turmeric.png" },
+  { id: "banana", img: "/banana.png" },
+  { id: "chilli", img: "/chilli.png" },
+  { id: "pom", img: "/pom.png" },
+  { id: "onion", img: "/onion.png" },
+  { id: "turmeric", img: "/turmeric.png" },
 ];
 
 const Products = () => {
+  const { t, isRTL } = useTranslation();
   const [scrollProgress, setScrollProgress] = useState(0);
   const carouselRef = useRef(null);
 
@@ -29,7 +25,7 @@ const Products = () => {
     if (carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
       const maxScroll = scrollWidth - clientWidth;
-      const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+      const progress = maxScroll > 0 ? Math.abs(scrollLeft) / maxScroll : 0;
       setScrollProgress(Math.min(1, Math.max(0, progress)));
     }
   };
@@ -37,16 +33,19 @@ const Products = () => {
   useEffect(() => {
     const ref = carouselRef.current;
     if (ref) {
+      // Direction changes flip the scroll origin; start again from the first card.
+      ref.scrollLeft = 0;
       ref.addEventListener("scroll", handleScroll);
       handleScroll();
       return () => ref.removeEventListener("scroll", handleScroll);
     }
-  }, []);
+  }, [isRTL]);
 
+  // "Previous" / "next" follow the reading direction (mirrored in RTL).
   const scrollLeft = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
-        left: -carouselRef.current.clientWidth * 0.8,
+        left: (isRTL ? 1 : -1) * carouselRef.current.clientWidth * 0.8,
         behavior: "smooth",
       });
     }
@@ -55,7 +54,7 @@ const Products = () => {
   const scrollRight = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
-        left: carouselRef.current.clientWidth * 0.8,
+        left: (isRTL ? -1 : 1) * carouselRef.current.clientWidth * 0.8,
         behavior: "smooth",
       });
     }
@@ -72,7 +71,7 @@ const Products = () => {
         <div className="hidden md:block absolute inset-0">
           <Image
             src="/product.png"
-            alt="Vishva Setu Exim Products Background"
+            alt={t("products.bgAlt")}
             fill
             className="object-cover object-center"
             quality={90}
@@ -83,7 +82,7 @@ const Products = () => {
         <div className="block md:hidden absolute inset-0">
           <Image
             src="/products-mobile-bg.png"
-            alt="Vishva Setu Exim Products Mobile Background"
+            alt={t("products.bgMobileAlt")}
             fill
             className="object-cover object-center"
             quality={90}
@@ -108,20 +107,20 @@ const Products = () => {
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
             <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] text-[#5a6259] uppercase">
-              Premium Agricultural Products
+              {t("products.eyebrow")}
             </span>
             <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
           </div>
 
           {/* Main Title */}
           <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] mb-4 sm:mb-6 font-medium tracking-tight">
-            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">From Our Farms.</span>
-            <span className="text-[#a68a56] block">to Your Markets.</span>
+            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">{t("products.titleLine1")}</span>
+            <span className="text-[#a68a56] block">{t("products.titleLine2")}</span>
           </h2>
 
           {/* Description */}
-          <p className={`${montserrat.className} text-sm sm:text-base md:text-lg text-[#3a3f3a] max-w-2xl leading-relaxed`}>
-            Carefully sourced agricultural products, selected for quality, freshness and consistency.
+          <p className={`font-body text-sm sm:text-base md:text-lg text-[#3a3f3a] max-w-2xl leading-relaxed`}>
+            {t("products.description")}
           </p>
         </motion.div>
 
@@ -130,13 +129,13 @@ const Products = () => {
           {/* Left Arrow (Desktop / Tablet) */}
           <button
             onClick={scrollLeft}
-            aria-label="Scroll left"
-            className={`hidden md:flex absolute -left-4 lg:-left-12 z-20 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full border border-[#8d7c5d] text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-all duration-300 bg-[#f4f2e9]/80 backdrop-blur-sm ${
+            aria-label={isRTL ? t("products.scrollRight") : t("products.scrollLeft")}
+            className={`hidden md:flex absolute -start-4 lg:-start-12 z-20 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full border border-[#8d7c5d] text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-all duration-300 bg-[#f4f2e9]/80 backdrop-blur-sm ${
               scrollProgress <= 0.01 ? "opacity-30 cursor-not-allowed" : "opacity-100 cursor-pointer"
             }`}
             disabled={scrollProgress <= 0.01}
           >
-            <ArrowLeft className="w-5 h-5" strokeWidth={1.5} />
+            <ArrowLeft className="w-5 h-5 rtl:-scale-x-100" strokeWidth={1.5} />
           </button>
 
           {/* Cards Container */}
@@ -145,56 +144,59 @@ const Products = () => {
             className="w-full overflow-x-auto flex gap-4 sm:gap-6 md:gap-8 snap-x snap-mandatory hide-scrollbar pb-6 pt-2 px-2"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className="snap-center shrink-0 w-[82vw] sm:w-[320px] md:w-[calc(33.333%-22px)] bg-[#fdfbf6]/90 backdrop-blur-sm rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#e5dfc9] flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-500"
-              >
-                {/* Image Container */}
-                <div className="w-full aspect-square rounded-[20px] sm:rounded-[24px] bg-[#ebe7d9] mb-6 sm:mb-8 relative overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={product.img}
-                    alt={product.name}
-                    fill
-                    className="object-cover p-4 transition-transform duration-500 hover:scale-105"
-                    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 320px, 33vw"
-                  />
-                </div>
+            {products.map(({ id, img }) => {
+              const product = { id, img, ...t(`products.items.${id}`) };
+              return (
+                <div
+                  key={product.id}
+                  className="snap-center shrink-0 w-[82vw] sm:w-[320px] md:w-[calc(33.333%-22px)] bg-[#fdfbf6]/90 backdrop-blur-sm rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#e5dfc9] flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-500"
+                >
+                  {/* Image Container */}
+                  <div className="w-full aspect-square rounded-[20px] sm:rounded-[24px] bg-[#ebe7d9] mb-6 sm:mb-8 relative overflow-hidden flex items-center justify-center">
+                    <Image
+                      src={product.img}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 320px, 33vw"
+                    />
+                  </div>
 
-                {/* Card Content */}
-                <div className="w-full flex flex-col items-start text-left px-1 sm:px-2">
-                  <div className="h-[1px] w-8 bg-[#8d7c5d] mb-3 sm:mb-4"></div>
-                  <h3 className="font-playfair text-xl sm:text-2xl text-[#0e3b2c] font-semibold mb-2">
-                    {product.name}
-                  </h3>
+                  {/* Card Content */}
+                  <div className="w-full flex flex-col items-start text-start px-1 sm:px-2">
+                    <div className="h-[1px] w-8 bg-[#8d7c5d] mb-3 sm:mb-4"></div>
+                    <h3 className="font-playfair text-xl sm:text-2xl text-[#0e3b2c] font-semibold mb-2">
+                      {product.name}
+                    </h3>
 
-                  <div className="flex items-center justify-between w-full mt-2">
-                    <span className={`${montserrat.className} text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-[#8d7c5d] uppercase`}>
-                      {product.subtitle}
-                    </span>
-                    <Link
-                      href={`/products#${product.id}`}
-                      aria-label={`View details of ${product.name}`}
-                      className="w-8 h-8 rounded-full border border-[#8d7c5d] flex items-center justify-center text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-colors"
-                    >
-                      <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-                    </Link>
+                    <div className="flex items-center justify-between gap-3 w-full mt-2">
+                      <span className={`font-body text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-[#8d7c5d] uppercase`}>
+                        {product.subtitle}
+                      </span>
+                      <Link
+                        href={`/products#${product.id}`}
+                        aria-label={t("products.viewDetails", { name: product.name })}
+                        className="shrink-0 w-8 h-8 rounded-full border border-[#8d7c5d] flex items-center justify-center text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-colors"
+                      >
+                        <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" strokeWidth={2} />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Right Arrow (Desktop / Tablet) */}
           <button
             onClick={scrollRight}
-            aria-label="Scroll right"
-            className={`hidden md:flex absolute -right-4 lg:-right-12 z-20 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full border border-[#8d7c5d] text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-all duration-300 bg-[#f4f2e9]/80 backdrop-blur-sm ${
+            aria-label={isRTL ? t("products.scrollLeft") : t("products.scrollRight")}
+            className={`hidden md:flex absolute -end-4 lg:-end-12 z-20 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full border border-[#8d7c5d] text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-all duration-300 bg-[#f4f2e9]/80 backdrop-blur-sm ${
               scrollProgress >= 0.99 ? "opacity-30 cursor-not-allowed" : "opacity-100 cursor-pointer"
             }`}
             disabled={scrollProgress >= 0.99}
           >
-            <ArrowRight className="w-5 h-5" strokeWidth={1.5} />
+            <ArrowRight className="w-5 h-5 rtl:-scale-x-100" strokeWidth={1.5} />
           </button>
         </div>
 
@@ -204,27 +206,27 @@ const Products = () => {
           <div className="flex md:hidden items-center gap-4">
             <button
               onClick={scrollLeft}
-              aria-label="Previous product"
-              className="w-9 h-9 rounded-full border border-[#8d7c5d] text-[#0e3b2c] flex items-center justify-center bg-white/70 shadow-xs"
+              aria-label={t("products.previous")}
+              className="w-11 h-11 rounded-full border border-[#8d7c5d] text-[#0e3b2c] flex items-center justify-center bg-white/70 shadow-xs"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={16} className="rtl:-scale-x-100" />
             </button>
-            <span className={`${montserrat.className} text-xs text-[#5a6259]`}>Swipe or tap</span>
+            <span className={`font-body text-xs text-[#5a6259]`}>{t("products.swipe")}</span>
             <button
               onClick={scrollRight}
-              aria-label="Next product"
-              className="w-9 h-9 rounded-full border border-[#8d7c5d] text-[#0e3b2c] flex items-center justify-center bg-white/70 shadow-xs"
+              aria-label={t("products.next")}
+              className="w-11 h-11 rounded-full border border-[#8d7c5d] text-[#0e3b2c] flex items-center justify-center bg-white/70 shadow-xs"
             >
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="rtl:-scale-x-100" />
             </button>
           </div>
 
           {/* Pagination Progress */}
-          <div className={`flex items-center gap-4 sm:gap-6 ${montserrat.className} text-xs sm:text-sm font-semibold text-[#3a3f3a]`}>
+          <div className={`flex items-center gap-4 sm:gap-6 font-body text-xs sm:text-sm font-semibold text-[#3a3f3a]`}>
             <span>01</span>
             <div className="w-24 sm:w-32 h-[2px] bg-[#e5dfc9] relative rounded-full overflow-hidden">
               <motion.div
-                className="absolute top-0 left-0 h-full bg-[#8d7c5d]"
+                className="absolute top-0 start-0 h-full bg-[#8d7c5d]"
                 animate={{ width: `${20 + scrollProgress * 80}%` }}
                 transition={{ duration: 0.1, ease: "easeOut" }}
               />
@@ -233,12 +235,6 @@ const Products = () => {
           </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };

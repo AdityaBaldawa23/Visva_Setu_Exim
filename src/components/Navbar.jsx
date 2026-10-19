@@ -3,20 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, ShoppingCart, User, ChevronDown } from "lucide-react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+import { useTranslation } from "@/i18n/useTranslation";
+import LanguageSelector from "./LanguageSelector";
 
 const NavLink = ({ href, children, active = false }) => (
   <Link
     href={href}
-    className={`group relative ${montserrat.className} font-medium text-[15px] text-stone-900 transition-colors duration-200`}  >
+    className="group relative font-body font-medium text-[15px] text-stone-900 whitespace-nowrap transition-colors duration-200"
+  >
     {children}
     <span
       className={`absolute -bottom-1 left-1/2 h-[2px] bg-[#113B2E] transition-all duration-300 ease-out -translate-x-1/2 ${active ? "w-4/5" : "w-0 group-hover:w-4/5"
@@ -28,8 +24,8 @@ const NavLink = ({ href, children, active = false }) => (
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const router = useRouter();
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -43,13 +39,21 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
+  // Close the mobile menu with Escape
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKey = (e) => e.key === "Escape" && setIsMobileMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isMobileMenuOpen]);
+
   // Check scroll position
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     // Initial check
     handleScroll();
     return () => {
@@ -64,17 +68,17 @@ export default function Navbar() {
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} // smooth spring-like cubic bezier
       className={`absolute top-0 z-[99] w-full transition-all duration-2000 font-sans ${isScrolled
           ? "bg-[#f4f2e9] shadow-md border-b border-[#e5e3da] py-2"
-          : "bg-transparent border-b border-transparent py-3 md:py-8"
+          : "bg-transparent border-b border-transparent py-3 xl:py-8"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* ==================== DESKTOP LAYOUT ==================== */}
-        <div className="hidden md:flex justify-between items-center h-16">
-          {/* Left Nav */}
-          <nav className="flex items-center gap-10 flex-1 justify-end pr-12">
-            <NavLink href="/" active={pathname === "/"}>Home</NavLink>
-            <NavLink href="/#about">About Us</NavLink>
-            <NavLink href="/products" active={pathname === "/products"}>Products</NavLink>
+        <div className="hidden xl:flex justify-between items-center h-16">
+          {/* Start Nav */}
+          <nav aria-label={t("nav.mainNav")} className="flex items-center gap-7 2xl:gap-10 flex-1 justify-end pe-10 2xl:pe-12">
+            <NavLink href="/" active={pathname === "/"}>{t("nav.home")}</NavLink>
+            <NavLink href="/about">{t("nav.about")}</NavLink>
+            <NavLink href="/products" active={pathname === "/products"}>{t("nav.products")}</NavLink>
           </nav>
 
           {/* Center Logo */}
@@ -83,11 +87,11 @@ export default function Navbar() {
             <Link
               href="/"
               className="hover:opacity-80 transition-opacity duration-300 flex items-center justify-center"
-              aria-label="Vishva Setu Exim Home"
+              aria-label={t("nav.homeAria")}
             >
               <Image
                 src="/Central_Text_Logo.png"
-                alt="Vishva Setu Exim Logo"
+                alt={t("common.logoAlt")}
                 width={300}
                 height={80}
                 className="block object-contain"
@@ -95,21 +99,26 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Right Nav */}
-          <nav className="flex items-center gap-10 flex-1 justify-start pl-12">
-            <NavLink href="/#presence">Our Presence</NavLink>
-            <NavLink href="/#process">Process</NavLink>
-            <NavLink href="/#contact">Contact Us</NavLink>
-          </nav>
+          {/* End Nav */}
+          <div className="flex items-center gap-7 2xl:gap-10 flex-1 justify-start ps-10 2xl:ps-12">
+            <nav aria-label={t("nav.mainNav")} className="flex items-center gap-7 2xl:gap-10">
+              <NavLink href="/#presence">{t("nav.presence")}</NavLink>
+              <NavLink href="/#process">{t("nav.process")}</NavLink>
+              <NavLink href="/#contact">{t("nav.contact")}</NavLink>
+            </nav>
+            <LanguageSelector />
+          </div>
         </div>
 
-        {/* ==================== MOBILE LAYOUT ==================== */}
-        <div className="md:hidden flex items-center justify-between h-14">
+        {/* ==================== MOBILE / TABLET LAYOUT ==================== */}
+        <div className="xl:hidden flex items-center justify-between h-14">
           {/* Hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Menu"
-            className="flex flex-col gap-[5px] text-stone-900 z-50 relative"
+            aria-label={isMobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            className="flex flex-col justify-center gap-[5px] text-stone-900 z-50 relative w-11 h-11 -m-2.5 p-2.5"
           >
             <span
               className={`block w-6 h-[2px] bg-current transition-all duration-300 ${isMobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
@@ -130,44 +139,51 @@ export default function Navbar() {
             href="/"
             className={`hover:opacity-80 transition-all duration-500 flex items-center justify-center origin-center ${isScrolled ? "scale-90" : "scale-105"
               }`}
-            aria-label="Vishva Setu Exim Home"
+            aria-label={t("nav.homeAria")}
           >
             <Image
               src="/Central_Text_Logo.png"
-              alt="Vishva Setu Exim Logo"
+              alt={t("common.logoAlt")}
               width={220}
               height={40}
               className="block object-contain"
             />
           </Link>
 
-          <div className="w-6"></div> {/* Spacer for centering */}
+          {/* Language (occupies the former centering spacer) */}
+          <LanguageSelector variant="compact" className="w-6 flex justify-center" />
         </div>
 
         {/* ==================== MOBILE MENU DRAWER ==================== */}
         <div
-          className={`md:hidden fixed inset-0 bg-[#f4f2e9] z-40 transition-transform duration-500 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          id="mobile-menu"
+          inert={!isMobileMenuOpen}
+          className={`xl:hidden fixed inset-0 bg-[#f4f2e9] z-40 overflow-y-auto transition-transform duration-500 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full rtl:translate-x-full"
             }`}
         >
-          <nav className="flex flex-col items-center justify-center h-full gap-8 text-xl font-playfair text-[#113B2E]">
-            {[
-              { href: "/", label: "Home" },
-              { href: "/#about", label: "About Us" },
-              { href: "/products", label: "Products" },
-              { href: "/#process", label: "Our Process" },
-              { href: "/#presence", label: "Our Presence" },
-              { href: "/#contact", label: "Contact Us" },
-            ].map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#8d7c5d] transition-colors"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex flex-col items-center justify-center min-h-full gap-10 px-6 py-24">
+            <nav aria-label={t("nav.mainNav")} className="flex flex-col items-center gap-8 text-xl font-playfair text-[#113B2E]">
+              {[
+                { href: "/", label: t("nav.home") },
+                { href: "/#about", label: t("nav.about") },
+                { href: "/products", label: t("nav.products") },
+                { href: "/#process", label: t("nav.ourProcess") },
+                { href: "/#presence", label: t("nav.presence") },
+                { href: "/#contact", label: t("nav.contact") },
+              ].map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="hover:text-[#8d7c5d] transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+
+            <LanguageSelector variant="list" className="max-w-sm" />
+          </div>
         </div>
       </div>
     </motion.header>

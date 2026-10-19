@@ -5,64 +5,58 @@ import Image from "next/image";
 import { WorldMap } from "./world-map";
 import { motion } from "framer-motion";
 import { MapPin, Plane } from "lucide-react";
-import { Montserrat } from "next/font/google";
+import { useTranslation } from "@/i18n/useTranslation";
+
+import { Montserrat, DM_Serif_Display } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
 const destinations = [
   {
-    label: "Canada",
+    key: "canada",
     flag: "🇨🇦",
-    region: "North America",
-    tagline: "Fresh produce to Ontario & BC",
   },
   {
-    label: "USA",
+    key: "usa",
     flag: "🇺🇸",
-    region: "North America",
-    tagline: "Spices & fruits across 15 states",
   },
   {
-    label: "UAE",
+    key: "uae",
     flag: "🇦🇪",
-    region: "Middle East",
-    tagline: "Year-round supply to Dubai & Abu Dhabi",
   },
   {
-    label: "Singapore",
+    key: "singapore",
     flag: "🇸🇬",
-    region: "Southeast Asia",
-    tagline: "Premium exports to Asian markets",
   },
   {
-    label: "Bangladesh",
+    key: "bangladesh",
     flag: "🇧🇩",
-    region: "South Asia",
-    tagline: "Cross-border onion & spice supply",
   },
   {
-    label: "Sri Lanka",
+    key: "sriLanka",
     flag: "🇱🇰",
-    region: "South Asia",
-    tagline: "Connecting with island markets",
   },
   {
-    label: "Vietnam",
+    key: "vietnam",
     flag: "🇻🇳",
-    region: "Southeast Asia",
-    tagline: "Expanding agricultural trade in Asia",
   },
   {
-    label: "Europe",
+    key: "europe",
     flag: "🇪🇺",
-    region: "Europe",
-    tagline: "Connecting with European markets",
   },
 ];
 const GlobalPresence = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       id="presence"
@@ -74,7 +68,7 @@ const GlobalPresence = () => {
         <div className="hidden md:block absolute inset-0">
           <Image
             src="/world presence.png"
-            alt="Global Presence of Vishva Setu Exim"
+            alt={t("presence.bgAlt")}
             fill
             className="object-cover object-center"
             quality={95}
@@ -85,7 +79,7 @@ const GlobalPresence = () => {
         <div className="block md:hidden absolute inset-0">
           <Image
             src="/global-presence-mobile-bg.png"
-            alt="Global Presence of Vishva Setu Exim Mobile Background"
+            alt={t("presence.bgMobileAlt")}
             fill
             className="object-cover object-center"
             quality={95}
@@ -109,18 +103,24 @@ const GlobalPresence = () => {
           {/* Subtitle */}
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
-            <span className="text-[10px] sm:text-[11px] font-inter font-bold tracking-[0.2em] text-[#5a6259] uppercase">
-              Global Presence
+            <span
+              className={`${dmSerif.className} text-[10px] sm:text-[11px] font-normal tracking-[0.2em] text-[#5a6259] uppercase`}
+            >
+              {t("presence.eyebrow")}
             </span>
             <div className="h-[1px] w-8 sm:w-12 bg-[#8d7c5d]"></div>
           </div>
 
           {/* Main Title */}
-          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] font-medium tracking-tight">
+          <h2
+            className={`${dmSerif.className} text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] font-normal tracking-tight`}
+          >
             <span className="text-[#0e3b2c] block mb-1 sm:mb-2">
-              From India,
+              {t("presence.titleLine1")}
             </span>
-            <span className="text-[#a68a56] block">to the World.</span>
+            <span className="text-[#a68a56] block">
+              {t("presence.titleLine2")}
+            </span>
           </h2>
         </motion.div>
 
@@ -128,53 +128,55 @@ const GlobalPresence = () => {
         <div className="hidden md:flex w-full max-w-6xl relative items-center justify-center bg-transparent mt-4 sm:mt-8">
           <WorldMap
             lineColor="#a68a56"
+            mapAlt={t("presence.mapAlt")}
+            getLabel={(key) => t(`presence.countries.${key}.label`)}
             dots={[
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 56.1304, lng: -106.3468 }, // Canada
-                label: "Canada",
+                label: "canada",
                 flag: "🇨🇦",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 37.0902, lng: -95.7129 }, // USA
-                label: "USA",
+                label: "usa",
                 flag: "🇺🇸",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 23.4241, lng: 53.8478 }, // UAE
-                label: "UAE",
+                label: "uae",
                 flag: "🇦🇪",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 1.3521, lng: 103.8198 }, // Singapore
-                label: "Singapore",
+                label: "singapore",
                 flag: "🇸🇬",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 23.685, lng: 90.3563 }, // Bangladesh
-                label: "Bangladesh",
+                label: "bangladesh",
                 flag: "🇧🇩",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: -9.8731, lng: 85.7718 }, // Sri Lanka
-                label: "Sri Lanka",
+                label: "sriLanka",
                 flag: "🇱🇰",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 14.0583, lng: 108.2772 }, // Vietnam
-                label: "Vietnam",
+                label: "vietnam",
                 flag: "🇻🇳",
               },
               {
                 start: { lat: 20.5937, lng: 78.9629 }, // India
                 end: { lat: 50.1109, lng: 10.0 }, // Central Europe
-                label: "Europe",
+                label: "europe",
                 flag: "🇪🇺",
               },
             ]}
@@ -205,10 +207,12 @@ const GlobalPresence = () => {
               />
             </div>
             <span className="font-playfair text-lg text-[#0e3b2c] font-semibold mt-3">
-              India
+              {t("presence.india")}
             </span>
-            <span className={`${montserrat.className} text-[10px] tracking-[0.15em] text-[#8d7c5d] uppercase`}>
-              Origin Hub
+            <span
+              className={`font-body text-[10px] tracking-[0.15em] text-[#8d7c5d] uppercase`}
+            >
+              {t("presence.originHub")}
             </span>
           </motion.div>
 
@@ -237,7 +241,7 @@ const GlobalPresence = () => {
           <div className="grid grid-cols-2 gap-3 w-full max-w-sm px-1">
             {destinations.map((dest, i) => (
               <motion.div
-                key={dest.label}
+                key={dest.key}
                 className="relative overflow-hidden rounded-2xl bg-[#f4f2e9]/95 backdrop-blur-md border border-[#a68a56]/25 shadow-lg p-4 flex flex-col items-center text-center group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -245,7 +249,7 @@ const GlobalPresence = () => {
                 transition={{ duration: 0.5, delay: 0.15 * i, ease: "easeOut" }}
               >
                 {/* Top-right mini route indicator */}
-                <div className="absolute top-2 right-2">
+                <div className="absolute top-2 end-2">
                   <MapPin size={12} className="text-[#a68a56]/50" />
                 </div>
 
@@ -256,17 +260,21 @@ const GlobalPresence = () => {
 
                 {/* Country Name */}
                 <h3 className="font-playfair text-base font-semibold text-[#0e3b2c] leading-tight mb-0.5">
-                  {dest.label}
+                  {t(`presence.countries.${dest.key}.label`)}
                 </h3>
 
                 {/* Region Tag */}
-                <span className={`${montserrat.className} text-[9px] font-bold tracking-[0.15em] text-[#a68a56] uppercase mb-2`}>
-                  {dest.region}
+                <span
+                  className={`font-body text-[9px] font-bold tracking-[0.15em] text-[#a68a56] uppercase mb-2`}
+                >
+                  {t(`presence.countries.${dest.key}.region`)}
                 </span>
 
                 {/* Tagline */}
-                <p className={`${montserrat.className} text-[10px] text-[#5a6259] leading-snug`}>
-                  {dest.tagline}
+                <p
+                  className={`font-body text-[10px] text-[#5a6259] leading-snug`}
+                >
+                  {t(`presence.countries.${dest.key}.tagline`)}
                 </p>
 
                 {/* Bottom gold accent bar */}
@@ -283,7 +291,7 @@ const GlobalPresence = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
-            — and expanding to new markets every quarter —
+            {t("presence.more")}
           </motion.p>
         </div>
       </div>

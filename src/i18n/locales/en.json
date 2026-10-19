@@ -1,0 +1,313 @@
+{
+  "_meta": {
+    "language": "English",
+    "status": "Source text - copied verbatim from the original components."
+  },
+  "common": {
+    "brand": "Vishva Setu Exim",
+    "logoAlt": "Vishva Setu Exim Logo"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "presence": "Our Presence",
+    "process": "Process",
+    "ourProcess": "Our Process",
+    "contact": "Contact Us",
+    "homeAria": "Vishva Setu Exim Home",
+    "openMenu": "Menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation",
+    "language": "Language",
+    "chooseLanguage": "Choose language",
+    "currentLanguage": "Language: {name}"
+  },
+  "hero": {
+    "eyebrow": "Premium Agricultural Exports",
+    "titleLine1": "Bridging Farms",
+    "titleLine2": "to Global Markets.",
+    "description": "Vishva Setu Exim connects quality agricultural products from India's farms to markets across the world, ensuring trust, consistency and long-term value for our global partners.",
+    "cta": "Explore Our Products",
+    "bgAlt": "Agriculture World Map Background",
+    "bgMobileAlt": "Agriculture World Map Mobile Background"
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "titleLine1": "Rooted in Farms.",
+    "titleLine2": "Driven by Trust.",
+    "description": "At Vishva Setu Exim, we are committed to delivering high-quality agricultural products from the heart of India to the world. Our journey is built on strong partnerships, sustainable practices, and a deep respect for the farmers who make it all possible.",
+    "bgAlt": "About Vishva Setu Exim",
+    "bgMobileAlt": "About Vishva Setu Exim Mobile Background"
+  },
+  "products": {
+    "eyebrow": "Premium Agricultural Products",
+    "titleLine1": "From Our Farms.",
+    "titleLine2": "to Your Markets.",
+    "description": "Carefully sourced agricultural products, selected for quality, freshness and consistency.",
+    "bgAlt": "Vishva Setu Exim Products Background",
+    "bgMobileAlt": "Vishva Setu Exim Products Mobile Background",
+    "scrollLeft": "Scroll left",
+    "scrollRight": "Scroll right",
+    "previous": "Previous product",
+    "next": "Next product",
+    "swipe": "Swipe or tap",
+    "viewDetails": "View details of {name}",
+    "items": {
+      "banana": { "name": "G9 Green Banana", "subtitle": "PREMIUM INDIAN ORIGIN" },
+      "chilli": { "name": "G4 Green Chilli", "subtitle": "FARM FRESH QUALITY" },
+      "pom": { "name": "Pomegranate", "subtitle": "RICH IN NATURAL GOODNESS" },
+      "onion": { "name": "Fresh Onion", "subtitle": "GOLDEN HARVEST" },
+      "turmeric": { "name": "Turmeric", "subtitle": "RICH IN NATURAL GOODNESS" }
+    }
+  },
+  "process": {
+    "eyebrow": "Our Process",
+    "titleLine1": "How We Deliver",
+    "titleLine2": "Excellence.",
+    "steps": {
+      "1": { "title": "Sourcing", "desc": "Direct procurement from trusted farmers across India." },
+      "2": { "title": "Quality & Processing", "desc": "Careful grading, quality checks, and compliant packaging." },
+      "3": { "title": "Export & Logistics", "desc": "Documentation, customs clearance, and seamless logistics management." },
+      "4": { "title": "Global Shipping", "desc": "Reliable shipping through our global network of partners." },
+      "5": { "title": "Delivery to Markets", "desc": "Timely delivery to international markets with consistent support." }
+    }
+  },
+  "why": {
+    "eyebrow": "Why Choose Us",
+    "titleLine1": "Your Trusted Partner",
+    "titleLine2": "in Global Trade.",
+    "bgAlt": "Why Choose Vishva Setu Exim",
+    "features": {
+      "1": { "title": "Premium Quality", "desc": "Sourced directly from trusted farms across India." },
+      "2": { "title": "Reliable Partnerships", "desc": "Built on transparency, consistency and trust." },
+      "3": { "title": "Global Reach", "desc": "Delivering to markets across the world." },
+      "4": { "title": "Assured Standards", "desc": "Stringent quality checks at every step." },
+      "5": { "title": "Sustainable Growth", "desc": "Supporting farmers and building a better tomorrow." }
+    }
+  },
+  "presence": {
+    "eyebrow": "Global Presence",
+    "titleLine1": "From India,",
+    "titleLine2": "to the World.",
+    "bgAlt": "Global Presence of Vishva Setu Exim",
+    "bgMobileAlt": "Global Presence of Vishva Setu Exim Mobile Background",
+    "mapAlt": "world map",
+    "india": "India",
+    "originHub": "Origin Hub",
+    "more": "— and expanding to new markets every quarter —",
+    "countries": {
+      "canada": { "label": "Canada", "region": "North America", "tagline": "Fresh produce to Ontario & BC" },
+      "usa": { "label": "USA", "region": "North America", "tagline": "Spices & fruits across 15 states" },
+      "uae": { "label": "UAE", "region": "Middle East", "tagline": "Year-round supply to Dubai & Abu Dhabi" },
+      "singapore": { "label": "Singapore", "region": "Southeast Asia", "tagline": "Premium exports to Asian markets" },
+      "bangladesh": { "label": "Bangladesh", "region": "South Asia", "tagline": "Cross-border onion & spice supply" },
+      "sriLanka": { "label": "Sri Lanka", "region": "South Asia", "tagline": "Connecting with island markets" },
+      "vietnam": { "label": "Vietnam", "region": "Southeast Asia", "tagline": "Expanding agricultural trade in Asia" },
+      "europe": { "label": "Europe", "region": "Europe", "tagline": "Connecting with European markets" }
+    }
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "titleLine1": "Let's Build a",
+    "titleLine2": "Partnership.",
+    "bgAlt": "Contact Vishva Setu Exim",
+    "bgMobileAlt": "Contact Vishva Setu Exim Mobile Background",
+    "fields": {
+      "name": "Full Name *",
+      "mobile": "Mobile Number *",
+      "email": "Email ID (Optional)",
+      "location": "Your Location / Country *",
+      "product": "Product you want to enquire for *",
+      "message": "Any message or specific requirements..."
+    },
+    "submit": "Send Enquiry",
+    "sending": "Sending...",
+    "success": "Message sent successfully! We will contact you soon.",
+    "error": "Failed to send message. Please try again.",
+    "validation": {
+      "required": "Please fill out this field.",
+      "email": "Please enter a valid email address."
+    }
+  },
+  "footer": {
+    "description": "Bridging farms to global markets with premium agricultural exports. Delivering quality, reliability, and trust at every step of the journey.",
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "ourProcess": "Our Process",
+    "whyChooseUs": "Why Choose Us",
+    "globalPresence": "Global Presence",
+    "ourProducts": "Our Products",
+    "freshFruits": "Fresh Fruits",
+    "premiumSpices": "Premium Spices",
+    "organicVegetables": "Organic Vegetables",
+    "grainsCereals": "Grains & Cereals",
+    "connect": "Connect",
+    "whatsapp": "WhatsApp",
+    "phone": "Phone",
+    "website": "Website",
+    "connectText": "Connect with us for inquiries and global trade opportunities.",
+    "rights": "© {year} Vishva Setu Exim. All Rights Reserved.",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "ticker": [
+      "Bridging Indian Farms to Global Ports",
+      "Uncompromising Export Quality & Standards",
+      "Fresh Cavendish Bananas & G4 Chillies Worldwide",
+      "Certified APEDA, GlobalGAP & Phytosanitary Compliance",
+      "Connecting Cultures Through Pure Agricultural Excellence",
+      "Reliable Ocean Reefer Cold-Chain Shipments",
+      "From Indian Soil to Wholesalers Across the Globe",
+      "Trust • Integrity • Consistency • Global Trade"
+    ]
+  },
+  "productsPage": {
+    "bgAlt": "Vishva Setu Exim Background Pattern Desktop",
+    "bgMobileAlt": "Vishva Setu Exim Background Pattern Mobile",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Export Catalogue",
+    "eyebrow": "Direct From Indian Farms to Global Ports",
+    "titleLine1": "Our Export Grade",
+    "titleLine2": "Agricultural Portfolio.",
+    "intro": "Each product in our catalogue is sourced directly from vetted farming collectives across India. Meticulously sorted, graded for export caliber, and safeguarded with unbroken cold-chain logistics to deliver peak freshness to our international partners.",
+    "originBelt": "Origin Belt:",
+    "specsTitle": "Export Specifications",
+    "enquire": "Enquire for Export",
+    "gradeBadge": "Grade-A Export Caliber",
+    "coldChainBadge": "Cold-Chain Monitored",
+    "imageAlt": "{name} - Vishva Setu Exim",
+    "cta": {
+      "eyebrow": "Custom Export Solutions",
+      "title": "Require Custom Bulk Packaging or Private Labelling?",
+      "text": "We cater to customized palletized shipments, CIF / FOB contracts, and dedicated branding boxes for international wholesalers and retail chains across the Middle East, Europe, and Asia.",
+      "button": "Request Custom Quote"
+    },
+    "items": {
+      "banana": {
+        "category": "Fresh Fruits",
+        "name": "G9 Cavendish Green Banana",
+        "short": "G9 Cavendish",
+        "subtitle": "Naturally Grown • Flawless Caliber • Farm-Fresh Export Grade",
+        "origin": "Maharashtra, Gujarat & Andhra Pradesh",
+        "description": "Cultivated across India's fertile river basins under ideal tropical sunlight, our G9 (Grand Nain) Cavendish green bananas are internationally acclaimed for their thick protective peel, uniform finger length, and rich creamy taste upon ripening. Procured directly from GlobalGAP certified orchards, each hand is gently washed, sanitized, calibrated, and packed in pristine food-grade vacuum bags to guarantee optimum shelf life during marine voyage.",
+        "specs": [
+          { "label": "Variety", "value": "Grand Nain (Cavendish G9)" },
+          { "label": "Finger Length", "value": "Min 18 cm - 25 cm (7 - 9 inches)" },
+          { "label": "Caliber / Diameter", "value": "39 mm to 47 mm" },
+          { "label": "Hands per Box", "value": "4, 5, 6 & 7 hands (Cluster / Hand)" },
+          { "label": "Packaging", "value": "7 kg / 13 kg Box, as per your requirement" },
+          { "label": "Cold Storage Temp", "value": "13.2°C – 13.5°C Controlled Atmosphere" },
+          { "label": "Shelf Life", "value": "35 – 45 Days in Reefer Transit" },
+          { "label": "Availability", "value": "Year-Round Continuous Supply" }
+        ],
+        "certifications": ["GlobalGAP", "APEDA Approved", "Phytosanitary Certified"],
+        "highlights": ["Uniform Green Tone", "Zero Chemical Ripening", "Export Caliber Foam-Padded"]
+      },
+      "chilli": {
+        "category": "Fresh Vegetables",
+        "name": "G4 Fresh Green Chilli",
+        "short": "G4 Fresh",
+        "subtitle": "Pungent & Vibrant • High Capsaicin • Hand-Harvested Daily",
+        "origin": "Gujarat, Andhra Pradesh & Karnataka",
+        "description": "Our G4 export green chillies are celebrated globally for their intense natural pungency, radiant glossy green sheen, and crispy texture. Harvested in the early morning dew to retain maximum moisture and essential capsaicin oils, each pod undergoes stringent optical and manual grading to eliminate blemishes, ensuring only uniform, long-stemmed chillies reach our state-of-the-art cold-pack facility.",
+        "specs": [
+          { "label": "Variety", "value": "G4 Green Chilli (Export Standard)" },
+          { "label": "Pod Length", "value": "8 cm to 14 cm" },
+          { "label": "Skin & Texture", "value": "Glossy Dark Green, Firm & Crunchy" },
+          { "label": "Pungency Level", "value": "High (Capsaicin Rich: 45,000–60,000 SHU)" },
+          { "label": "Packaging", "value": "3.5 kg / 4 kg / 5 kg Box, as per your requirement" },
+          { "label": "Transit Temp", "value": "7°C – 9°C (85–90% Relative Humidity)" },
+          { "label": "Shelf Life", "value": "21 – 25 Days under Cold-Chain" },
+          { "label": "Availability", "value": "Round the Year Harvest" }
+        ],
+        "certifications": ["FSSAI Compliant", "SPICES Board Certified", "APEDA Regulated"],
+        "highlights": ["Hand-Picked Daily", "Intense Fresh Aroma", "Ventilated Moisture-Guard Boxes"]
+      },
+      "pom": {
+        "category": "Fresh Fruits",
+        "name": "Bhagwa Premium Pomegranate",
+        "short": "Bhagwa Premium",
+        "subtitle": "Ruby-Red Arils • High Brix Sweetness • Superfruit Antioxidants",
+        "origin": "Solapur & Nashik, Maharashtra",
+        "description": "Renowned as the crown jewel of Indian horticulture, the Bhagwa pomegranate is globally coveted for its glowing saffron-red rind and tender, seedless ruby-red arils dripping with sweet, antioxidant-dense juice. Sourced straight from Solapur—India's pomegranate capital—every fruit is carefully weighed, foam-sleeved, and nested to guard its delicate crown and ruby luster across thousands of nautical miles.",
+        "specs": [
+          { "label": "Variety", "value": "Bhagwa (Kesar Red Standard)" },
+          { "label": "Fruit Weight", "value": "200g – 450g+ (Small to Jumbo Grade)" },
+          { "label": "Color Profile", "value": "Deep Glossy Red Rind with Ruby Arils" },
+          { "label": "Total Soluble Solids", "value": "15° to 16.5° Brix (Super Sweet)" },
+          { "label": "Packaging", "value": "3.5 kg / 4 kg Tray Pack (9 / 10 / 12 / 14 counts), as per your requirement" },
+          { "label": "Transit Temp", "value": "5°C – 7°C Controlled Reefer" },
+          { "label": "Shelf Life", "value": "60 – 75 Days under Refrigerated Storage" },
+          { "label": "Availability", "value": "Round the Year Harvest" }
+        ],
+        "certifications": ["GlobalGAP Certified", "Phytosanitary Clean", "PomeNet Registered"],
+        "highlights": ["Soft Seedless Arils", "Individually Net-Sleeved", "High Juice Content (48%+)"]
+      },
+      "onion": {
+        "category": "Root Vegetables",
+        "name": "Fresh Red & White Onions",
+        "short": "Fresh Red",
+        "subtitle": "Nashik Harvested • Golden-Red Flakes • Long Ambient Shelf Life",
+        "origin": "Nashik & Pune, Maharashtra",
+        "description": "Sourced from the mineral-dense soils of Nashik, our fresh onions boast firm, solid globes shielded by multiple intact, papery crimson skins that lock in pungent aroma and moisture. Dried thoroughly in specialized curing sheds, they resist sprouting and moisture decay, ensuring supreme resilience across open-container and reefer maritime shipments to ports worldwide.",
+        "specs": [
+          { "label": "Varieties", "value": "Nashik Red Onion / Light Red / White Onion" },
+          { "label": "Caliber / Size", "value": "40 mm – 50 mm / 55 mm+ / 60 mm+ Jumbo" },
+          { "label": "Shape & Moisture", "value": "Round Globe, Moisture Dried < 14%" },
+          { "label": "Pungency", "value": "Strong Sharp Aroma & High Dry Matter" },
+          { "label": "Packaging", "value": "10 kg / 20 kg / 25 kg / 50 kg Red Lenomesh Bag" },
+          { "label": "Storage Temp", "value": "Well-Ventilated Ambient / 0°C–2°C Reefer" },
+          { "label": "Shelf Life", "value": "45 – 90 Days under Dry Ventilation" },
+          { "label": "Availability", "value": "Year-Round (Kharif, Late Kharif & Rabi)" }
+        ],
+        "certifications": ["APEDA Export Verified", "AGMARK Grade 1", "Phytosanitary Inspected"],
+        "highlights": ["Cured Outer Skin", "Sprout-Inhibited", "Heavy-Duty Mesh Bags"]
+      },
+      "turmeric": {
+        "category": "Spices & Botanicals",
+        "name": "High-Curcumin Pure Turmeric",
+        "short": "High-Curcumin Pure",
+        "subtitle": "Salem & Nizamabad Finger • Golden Glow • Therapeutic Curcumin",
+        "origin": "Salem (Tamil Nadu) & Nizamabad (Telangana)",
+        "description": "Revered across culinary and nutraceutical industries, our Indian turmeric fingers and whole dried rhizomes offer deep saffron-gold pigmentation and naturally elevated curcumin concentrations (up to 7%). Cured by ancient boiling and sun-basking traditions before mechanical polishing, our turmeric delivers unmatched earthy warmth, antibacterial potency, and pure export grade consistency.",
+        "specs": [
+          { "label": "Types Available", "value": "Single Polished Fingers, also Double Polished Fingers, Bulbs & Powder" },
+          { "label": "Curcumin Content", "value": "3.5% to 7% High Bio-Active Potency" },
+          { "label": "Moisture Content", "value": "Max 9.5% – 10% (Strictly Dried)" },
+          { "label": "Extraneous Matter", "value": "< 0.5% (Mechanically Cleaned & Sorted)" },
+          { "label": "Packaging", "value": "25 kg / 50 kg Jute Bag or Poly-Lined PP Bags" },
+          { "label": "Storage Condition", "value": "Cool, Dry & Dark Moisture-Free Warehouse" },
+          { "label": "Shelf Life", "value": "24 Months under Standard Storage" },
+          { "label": "Availability", "value": "Round the Year Harvest" }
+        ],
+        "certifications": ["SPICES Board of India", "FSSAI Grade A", "Laboratory Tested"],
+        "highlights": ["Deep Golden Color", "Zero Adulteration", "High Natural Curcumin"]
+      }
+    }
+  },
+  "aboutPage": {
+    "bgAlt": "About Us Background",
+    "eyebrow": "About Vishvasetu Exim",
+    "titleLine1": "Rooted in Farms.",
+    "titleLine2": "Driven by Trust.",
+    "intro": "Connecting India's agricultural strength with global markets.",
+    "story": [
+      "At Vishvasetu Exim, we believe that every successful global partnership begins with quality products, trusted relationships and a commitment to doing business the right way.",
+      "Based in India, we focus on sourcing fresh agricultural produce and connecting it with international buyers through a reliable, transparent and customer-focused export approach. From the farms where our products are grown to the markets where they are delivered, we aim to make every step of the journey more dependable.",
+      "Our product portfolio includes fresh G9 green bananas, G4 green chillies, pomegranates, onions and other agricultural commodities. We work towards meeting buyer specifications through careful sourcing, appropriate packaging, quality checks and coordinated shipment planning.",
+      "Behind every product are the farmers whose hard work brings India's agricultural richness to the world. We value these relationships and aim to build long-term partnerships that create value for farmers, buyers and our business alike.",
+      "Our promise is simple: to build trust through transparency, focus on quality at every stage, and develop lasting relationships with customers across global markets."
+    ],
+    "highlights": [
+      { "title": "Farm-Focused Sourcing", "text": "Building relationships around agricultural produce and seasonal availability." },
+      { "title": "Quality Commitment", "text": "Working towards buyer specifications and appropriate handling standards." },
+      { "title": "Global Connections", "text": "Connecting Indian agricultural products with international opportunities." },
+      { "title": "Long-Term Partnerships", "text": "Prioritising clear communication, transparency and mutual growth." }
+    ],
+    "promiseEyebrow": "Our Promise",
+    "promiseLine1": "From Indian Farms",
+    "promiseLine2": "to Global Futures.",
+    "promiseText": "Every harvest carries a story of hard work. Every shipment represents a commitment. At Vishvasetu Exim, we bring the two together.",
+    "cta": "Explore Our Products"
+  }
+}
