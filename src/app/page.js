@@ -7,7 +7,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import GlobalPresence from '@/components/GlobalPresence';
 import Process from '@/components/Process';
 import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer1';
 
 export default function Home() {
   return (
