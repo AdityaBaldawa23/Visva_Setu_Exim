@@ -68,7 +68,7 @@ const Contact = () => {
         {/* Desktop Background Image (hidden on mobile) */}
         <div className="hidden md:block absolute inset-0">
           <Image
-            src="/process.png"
+            src="/contact.jpeg"
             alt={t("contact.bgAlt")}
             fill
             className="object-cover object-center"

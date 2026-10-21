@@ -1,234 +1,177 @@
-"use client";
-
 import React from "react";
-import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-// import {Linkedin, Twitter, Youtube } from "lucide-react";
-import { DM_Serif_Display, Montserrat } from "next/font/google";
+import { FaWhatsapp, FaPhoneAlt, FaInstagram, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 
-const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-});
+/*
+  Dependencies:  npm i react-icons
+  Logo: replace LOGO_SRC with your logo path.
+  Fonts + marquee keyframes are injected by the <style> block below,
+  so no tailwind.config changes are needed.
+*/
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-/* ------------------------------------------------------------------ */
-/*  Edit your details here                                             */
-/* ------------------------------------------------------------------ */
-const COMPANY = "Vishva Setu Exim";
-const ADDRESS = ["[Business address line 1]", "[Business address line 2]", "[City, State - PIN]"];
-const EMAIL = "info@vishvasetuexim.com";
-const PHONE = "+91 00000 00000";
-const MAP_QUERY = "Pune, Maharashtra, India"; // replace with your exact address
-
-const SOCIALS = [
-
-];
+const LOGO_SRC = "/logo.png"; // <- change to your logo path
 
 const QUICK_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/#about" },
-  { label: "Products", href: "/products" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "#about" },
+  { label: "Our Process", href: "#process" },
+  { label: "Why Choose Us", href: "#why-choose-us" },
+  { label: "Global Presence", href: "#presence" },
 ];
 
-const PRODUCT_LINKS = [
-  { label: "Green Banana", href: "/products" },
-  { label: "Green Chilli", href: "/products" },
-  { label: "Pomegranate", href: "/products" },
-  { label: "Turmeric", href: "/products" },
-  { label: "White Onion", href: "/products" },
+const PRODUCTS = [
+  { label: "Green Banana", href: "/products#banana" },
+  { label: "Green Chilli", href: "/products#chilli" },
+  { label: "White Onions", href: "/products#onion" },
+  { label: "Pomogranate", href: "/products#pom" },
+  { label: "Turmeric", href: "/products#turmeric" },
+];
+
+const SOCIALS = [
+  { label: "WhatsApp", href: "https://wa.me/919876543210", Icon: FaWhatsapp },
+  { label: "Call us", href: "tel:+919876543210", Icon: FaPhoneAlt },
+  { label: "Instagram", href: "https://instagram.com/", Icon: FaInstagram },
+  { label: "LinkedIn", href: "https://linkedin.com/", Icon: FaLinkedinIn },
+  { label: "Email", href: "mailto:info@vishvasetuexim.com", Icon: FaEnvelope },
 ];
 
 const TICKER_ITEMS = [
-  "Bridging Farms",
-  "Global Markets",
-  "Trust & Consistency",
-  "Rooted in India",
+  "Trusted by Families Worldwide",
+  "Certified APEDA, GlobalGAP & Phytosanitary Compliance",
+  "Connecting Cultures Through Pure Agricultural Excellence",
+  "Reliable Ocean & Air Freight Logistics",
 ];
 
-const Ticker = () => {
-  const reduceMotion = useReducedMotion();
-  // Two identical halves; moving by -50% gives a seamless loop
-  const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
-
-  const Row = ({ hidden = false }) => (
-    <div className="flex shrink-0 items-center" aria-hidden={hidden}>
-      {items.map((text, i) => (
-        <React.Fragment key={`${text}-${i}`}>
-          <span
-            className={`${dmSerif.className} whitespace-nowrap text-xl sm:text-6xl md:text-7xl lg:text-3xl text-white px-6 sm:px-10`}
-          >
-            {text}
-          </span>
-          <span className="h-1 w-2 rotate-45 bg-[#a68a56] shrink-0" />
-        </React.Fragment>
-      ))}
-    </div>
-  );
-
-  return (
-    <div className="overflow-hidden py-10 md:py-14" role="presentation">
-      <motion.div
-        className="flex w-max"
-        animate={reduceMotion ? undefined : { x: ["0%", "-50%"] }}
-        transition={{ duration: 40, ease: "linear", repeat: Infinity }}
-      >
-        <Row />
-        <Row hidden />
-      </motion.div>
-    </div>
-  );
-};
-
 const Footer = () => {
-  const year = new Date().getFullYear();
-  const headingClass = `${dmSerif.className} text-2xl sm:text-[28px] uppercase tracking-wide text-white mb-6`;
-  const linkClass =
-    "text-white/80 hover:text-[#a68a56] transition-colors duration-300";
+  const loop = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
   return (
-    <footer
-      className={`${montserrat.className} w-full bg-black text-white z-10`}
-    >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-14 md:pt-20">
-        {/* Top grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.1fr_1.2fr] gap-10 lg:gap-12">
+    <footer className="font-['Montserrat',sans-serif] w-full bg-[#04342a] text-white z-10">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap');
+        @keyframes vse-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .vse-marquee-track { animation: vse-marquee 40s linear infinite; }
+        .vse-marquee:hover .vse-marquee-track { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) { .vse-marquee-track { animation: none; } }
+      `}</style>
+
+      {/* Main footer */}
+      <div className="mx-auto w-full max-w-7xl px-6 pt-16 pb-10 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.95fr_0.95fr_0.9fr] lg:gap-x-0 gap-y-12">
           {/* Brand */}
-          <div>
-            <Link href="/" aria-label={`${COMPANY} home`} className="inline-block">
-              <span className={`${dmSerif.className} block text-4xl sm:text-5xl leading-tight`}>
-                {COMPANY}
-              </span>
-              <span className="mt-2 flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase text-[#a68a56]">
-                <span className="h-px w-8 bg-[#a68a56]" />
-                Premium Agricultural Exports
-              </span>
-            </Link>
-
-            <div className="flex items-center gap-3 mt-8">
-              {SOCIALS.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black hover:bg-[#a68a56] hover:text-white transition-colors duration-300"
-                >
-                  <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
-                </a>
-              ))}
+          <div className="flex flex-col items-start lg:mr-12">
+            <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-white p-2">
+              <img src={LOGO_SRC} alt="Vishva Setu Exim" className="h-full w-full object-contain" />
             </div>
-
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center justify-center rounded-lg border-2 border-white px-6 py-3 text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors duration-300"
-            >
-              Request a Quotation
-            </Link>
+            <p className="mt-6 max-w-xs text-[15px] leading-7 text-white/75">
+              Bridging farms to global markets with premium agricultural exports.
+              Delivering quality, reliability, and trust at every step of the journey.
+            </p>
           </div>
 
           {/* Quick links */}
-          <nav aria-label="Quick links">
-            <h3 className={headingClass}>Quick Links</h3>
-            <ul className="space-y-4 text-base">
+          <nav aria-label="Quick links" className="lg:ml-12 lg:mr-2">
+            <h3 className="font-['DM_Serif_Display',serif] text-2xl font-normal tracking-wide text-white">
+              Quick Links
+            </h3>
+            <ul className="mt-6 space-y-4">
               {QUICK_LINKS.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className={linkClass}>
+                  <a
+                    href={l.href}
+                    className="text-[15px] text-white/75 transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:underline"
+                  >
                     {l.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Get in touch */}
-          <div>
-            <h3 className={headingClass}>Get In Touch</h3>
-            <address className="not-italic text-base leading-relaxed space-y-5">
-              <p className="text-white/80">
-                {ADDRESS.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </p>
-              <p>
-                <a href={`mailto:${EMAIL}`} className={linkClass}>
-                  {EMAIL}
-                </a>
-              </p>
-              <p>
-                <a href={`tel:${PHONE.replace(/\s/g, "")}`} className={linkClass}>
-                  {PHONE}
-                </a>
-              </p>
-            </address>
-          </div>
+          {/* Products */}
+          <nav aria-label="Our products" className="lg:ml-4">
+            <h3 className="font-['DM_Serif_Display',serif] text-2xl font-normal tracking-wide text-white">
+              Our Products
+            </h3>
+            <ul className="mt-6 space-y-4">
+              {PRODUCTS.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-[15px] text-white/75 transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:underline"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          {/* Map */}
+          {/* Connect */}
           <div>
-            <h3 className={headingClass}>Contact Us</h3>
-            <div className="overflow-hidden rounded-2xl h-[200px] sm:h-[220px] w-full">
-              <iframe
-                title={`${COMPANY} location`}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&output=embed`}
-                className="h-full w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <h3 className="font-['DM_Serif_Display',serif] text-2xl font-normal tracking-wide text-white">
+              Connect
+            </h3>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {SOCIALS.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  title={label}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-200 hover:bg-white hover:text-[#04342a] focus-visible:bg-white focus-visible:text-[#04342a] focus-visible:outline-none"
+                >
+                  <Icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
+
+            <p className="mt-6 max-w-xs text-[15px] leading-7 text-white/75">
+              Connect with us for inquiries and global trade opportunities.
+            </p>
+
+            <div className="mt-4 space-y-2 text-[15px]">
+              <a href="mailto:info@vishvasetuexim.com" className="block text-white/90 transition-colors hover:text-white">
+                info@vishvasetuexim.com
+              </a>
+              <a href="tel:+919876543210" className="block text-white/90 transition-colors hover:text-white">
+                +91 98765 43210
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Products row */}
-        <div className="mt-14 md:mt-16">
-          <h3 className={headingClass}>Our Products</h3>
-          <ul className="flex flex-wrap gap-x-8 gap-y-3 text-base sm:text-lg">
-            {PRODUCT_LINKS.map((l) => (
-              <li key={l.label}>
-                <Link href={l.href} className={linkClass}>
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* Bottom bar */}
+        <div className="mt-10 flex flex-col items-start justify-between border-t border-white/15 pt-5 text-sm text-white/60 sm:flex-row sm:items-center">
+          <p>© 2026 Vishva Setu Exim. All Rights Reserved.</p>
+          <div className="flex items-center gap-8">
+            <a href="/terms" className="transition-colors hover:text-white">Terms &amp; Conditions</a>
+            <a href="/privacy" className="transition-colors hover:text-white">Privacy Policy</a>
+          </div>
         </div>
       </div>
 
       {/* Ticker */}
-      <div className="mt-10 md:mt-14">
-        <Ticker />
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-white/15">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm sm:text-base">
-          <p className="text-white/80 text-center md:text-left">
-            Copyright © {year} {COMPANY}, All Rights Reserved.
-          </p>
-          <ul className="flex items-center divide-x divide-white/40">
-            <li className="pr-4">
-              <Link href="/sitemap" className={linkClass}>
-                Sitemap
-              </Link>
-            </li>
-            <li className="px-4">
-              <Link href="/privacy" className={linkClass}>
-                Privacy Policy
-              </Link>
-            </li>
-            <li className="pl-4">
-              <Link href="/terms" className={linkClass}>
-                Terms &amp; Conditions
-              </Link>
-            </li>
-          </ul>
+      <div
+        className="vse-marquee overflow-hidden border-t border-black/5 bg-[#faf8f1] py-5"
+        aria-label="Company highlights"
+      >
+        <div className="vse-marquee-track flex w-max items-center whitespace-nowrap">
+          {loop.map((text, i) => (
+            <div key={i} className="flex items-center">
+              <span className="font-['DM_Serif_Display',serif] px-10 text-xl text-[#04342a] sm:text-2xl">
+                {text}
+              </span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-5 w-5 shrink-0 text-[#b08d57]"
+                fill="currentColor"
+              >
+                <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2zm7 12l.9 3.1L23 18l-3.1.9L19 22l-.9-3.1L15 18l3.1-.9L19 14z" />
+              </svg>
+            </div>
+          ))}
         </div>
       </div>
     </footer>

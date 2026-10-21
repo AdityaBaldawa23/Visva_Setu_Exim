@@ -134,7 +134,7 @@ export default function ProcessSection() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#f4f2e9] px-5 pb-8 pt-[8vw] md:px-12 lg:min-h-[1100px] lg:px-6 lg:pb-28 lg:pt-28">
+    <section id = "process" className="relative w-full overflow-hidden bg-[#f4f2e9] px-5 pb-8 pt-[8vw] md:px-12 lg:min-h-[1100px] lg:px-6 lg:pb-28 lg:pt-28">
       {/* Desktop background (unchanged) */}
       <div
         className="absolute inset-0 hidden bg-cover bg-bottom bg-no-repeat lg:block"

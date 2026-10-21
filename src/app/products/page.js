@@ -24,6 +24,8 @@ const productList = [
   { id: "pom", num: "03", img: "/pom.png" },
   { id: "onion", num: "04", img: "/onion.png" },
   { id: "turmeric", num: "05", img: "/turmeric.png" },
+  { id: "coconut", num: "06", img: "/coconut.jpeg" },
+  { id: "drumstick", num: "07", img: "/drumstick.jpeg" },
 ];
 
 export default function ProductPage() {
@@ -304,8 +306,7 @@ export default function ProductPage() {
         </section>
       </main>
     </div>
-      <Footer />
-
+    <Footer />
 </>
   );
 }

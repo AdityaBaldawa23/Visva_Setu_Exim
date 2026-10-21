@@ -125,7 +125,7 @@ const GlobalPresence = () => {
         </motion.div>
 
         {/* ==================== DESKTOP: Aceternity World Map (hidden on mobile) ==================== */}
-        <div className="hidden md:flex w-full max-w-6xl relative items-center justify-center bg-transparent mt-4 sm:mt-8">
+        <div className="flex w-full max-w-6xl relative items-center justify-center bg-transparent mt-4 sm:mt-8">
           <WorldMap
             lineColor="#a68a56"
             mapAlt={t("presence.mapAlt")}

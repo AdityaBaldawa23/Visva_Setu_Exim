@@ -54,11 +54,25 @@
     "swipe": "Swipe or tap",
     "viewDetails": "View details of {name}",
     "items": {
-      "banana": { "name": "G9 Green Banana", "subtitle": "PREMIUM INDIAN ORIGIN" },
+      "banana": {
+        "name": "G9 Green Banana",
+        "subtitle": "PREMIUM INDIAN ORIGIN"
+      },
       "chilli": { "name": "G4 Green Chilli", "subtitle": "FARM FRESH QUALITY" },
       "pom": { "name": "Pomegranate", "subtitle": "RICH IN NATURAL GOODNESS" },
       "onion": { "name": "Fresh Onion", "subtitle": "GOLDEN HARVEST" },
-      "turmeric": { "name": "Turmeric", "subtitle": "RICH IN NATURAL GOODNESS" }
+      "turmeric": {
+        "name": "Turmeric",
+        "subtitle": "RICH IN NATURAL GOODNESS"
+      },
+      "coconut": {
+        "name": "Semi-Husked Coconut",
+        "subtitle": "SEMI-HUSKED | EXPORT QUALITY"
+      },
+      "drumstick": {
+        "name": "Fresh Drumstick",
+        "subtitle": "1.5–2 FEET AND ABOVE"
+      }
     }
   },
   "process": {
@@ -66,11 +80,26 @@
     "titleLine1": "How We Deliver",
     "titleLine2": "Excellence.",
     "steps": {
-      "1": { "title": "Sourcing", "desc": "Direct procurement from trusted farmers across India." },
-      "2": { "title": "Quality & Processing", "desc": "Careful grading, quality checks, and compliant packaging." },
-      "3": { "title": "Export & Logistics", "desc": "Documentation, customs clearance, and seamless logistics management." },
-      "4": { "title": "Global Shipping", "desc": "Reliable shipping through our global network of partners." },
-      "5": { "title": "Delivery to Markets", "desc": "Timely delivery to international markets with consistent support." }
+      "1": {
+        "title": "Sourcing",
+        "desc": "Direct procurement from trusted farmers across India."
+      },
+      "2": {
+        "title": "Quality & Processing",
+        "desc": "Careful grading, quality checks, and compliant packaging."
+      },
+      "3": {
+        "title": "Export & Logistics",
+        "desc": "Documentation, customs clearance, and seamless logistics management."
+      },
+      "4": {
+        "title": "Global Shipping",
+        "desc": "Reliable shipping through our global network of partners."
+      },
+      "5": {
+        "title": "Delivery to Markets",
+        "desc": "Timely delivery to international markets with consistent support."
+      }
     }
   },
   "why": {
@@ -79,11 +108,26 @@
     "titleLine2": "in Global Trade.",
     "bgAlt": "Why Choose Vishva Setu Exim",
     "features": {
-      "1": { "title": "Premium Quality", "desc": "Sourced directly from trusted farms across India." },
-      "2": { "title": "Reliable Partnerships", "desc": "Built on transparency, consistency and trust." },
-      "3": { "title": "Global Reach", "desc": "Delivering to markets across the world." },
-      "4": { "title": "Assured Standards", "desc": "Stringent quality checks at every step." },
-      "5": { "title": "Sustainable Growth", "desc": "Supporting farmers and building a better tomorrow." }
+      "1": {
+        "title": "Premium Quality",
+        "desc": "Sourced directly from trusted farms across India."
+      },
+      "2": {
+        "title": "Reliable Partnerships",
+        "desc": "Built on transparency, consistency and trust."
+      },
+      "3": {
+        "title": "Global Reach",
+        "desc": "Delivering to markets across the world."
+      },
+      "4": {
+        "title": "Assured Standards",
+        "desc": "Stringent quality checks at every step."
+      },
+      "5": {
+        "title": "Sustainable Growth",
+        "desc": "Supporting farmers and building a better tomorrow."
+      }
     }
   },
   "presence": {
@@ -97,14 +141,46 @@
     "originHub": "Origin Hub",
     "more": "— and expanding to new markets every quarter —",
     "countries": {
-      "canada": { "label": "Canada", "region": "North America", "tagline": "Fresh produce to Ontario & BC" },
-      "usa": { "label": "USA", "region": "North America", "tagline": "Spices & fruits across 15 states" },
-      "uae": { "label": "UAE", "region": "Middle East", "tagline": "Year-round supply to Dubai & Abu Dhabi" },
-      "singapore": { "label": "Singapore", "region": "Southeast Asia", "tagline": "Premium exports to Asian markets" },
-      "bangladesh": { "label": "Bangladesh", "region": "South Asia", "tagline": "Cross-border onion & spice supply" },
-      "sriLanka": { "label": "Sri Lanka", "region": "South Asia", "tagline": "Connecting with island markets" },
-      "vietnam": { "label": "Vietnam", "region": "Southeast Asia", "tagline": "Expanding agricultural trade in Asia" },
-      "europe": { "label": "Europe", "region": "Europe", "tagline": "Connecting with European markets" }
+      "canada": {
+        "label": "Canada",
+        "region": "North America",
+        "tagline": "Fresh produce to Ontario & BC"
+      },
+      "usa": {
+        "label": "USA",
+        "region": "North America",
+        "tagline": "Spices & fruits across 15 states"
+      },
+      "uae": {
+        "label": "UAE",
+        "region": "Middle East",
+        "tagline": "Year-round supply to Dubai & Abu Dhabi"
+      },
+      "singapore": {
+        "label": "Singapore",
+        "region": "Southeast Asia",
+        "tagline": "Premium exports to Asian markets"
+      },
+      "bangladesh": {
+        "label": "Bangladesh",
+        "region": "South Asia",
+        "tagline": "Cross-border onion & spice supply"
+      },
+      "sriLanka": {
+        "label": "Sri Lanka",
+        "region": "South Asia",
+        "tagline": "Connecting with island markets"
+      },
+      "vietnam": {
+        "label": "Vietnam",
+        "region": "Southeast Asia",
+        "tagline": "Expanding agricultural trade in Asia"
+      },
+      "europe": {
+        "label": "Europe",
+        "region": "Europe",
+        "tagline": "Connecting with European markets"
+      }
     }
   },
   "contact": {
@@ -192,16 +268,36 @@
         "description": "Cultivated across India's fertile river basins under ideal tropical sunlight, our G9 (Grand Nain) Cavendish green bananas are internationally acclaimed for their thick protective peel, uniform finger length, and rich creamy taste upon ripening. Procured directly from GlobalGAP certified orchards, each hand is gently washed, sanitized, calibrated, and packed in pristine food-grade vacuum bags to guarantee optimum shelf life during marine voyage.",
         "specs": [
           { "label": "Variety", "value": "Grand Nain (Cavendish G9)" },
-          { "label": "Finger Length", "value": "Min 18 cm - 25 cm (7 - 9 inches)" },
+          {
+            "label": "Finger Length",
+            "value": "Min 18 cm - 25 cm (7 - 9 inches)"
+          },
           { "label": "Caliber / Diameter", "value": "39 mm to 47 mm" },
-          { "label": "Hands per Box", "value": "4, 5, 6 & 7 hands (Cluster / Hand)" },
-          { "label": "Packaging", "value": "7 kg / 13 kg Box, as per your requirement" },
-          { "label": "Cold Storage Temp", "value": "13.2°C – 13.5°C Controlled Atmosphere" },
+          {
+            "label": "Hands per Box",
+            "value": "4, 5, 6 & 7 hands (Cluster / Hand)"
+          },
+          {
+            "label": "Packaging",
+            "value": "7 kg / 13 kg Box, as per your requirement"
+          },
+          {
+            "label": "Cold Storage Temp",
+            "value": "13.2°C – 13.5°C Controlled Atmosphere"
+          },
           { "label": "Shelf Life", "value": "35 – 45 Days in Reefer Transit" },
           { "label": "Availability", "value": "Year-Round Continuous Supply" }
         ],
-        "certifications": ["GlobalGAP", "APEDA Approved", "Phytosanitary Certified"],
-        "highlights": ["Uniform Green Tone", "Zero Chemical Ripening", "Export Caliber Foam-Padded"]
+        "certifications": [
+          "GlobalGAP",
+          "APEDA Approved",
+          "Phytosanitary Certified"
+        ],
+        "highlights": [
+          "Uniform Green Tone",
+          "Zero Chemical Ripening",
+          "Export Caliber Foam-Padded"
+        ]
       },
       "chilli": {
         "category": "Fresh Vegetables",
@@ -213,15 +309,35 @@
         "specs": [
           { "label": "Variety", "value": "G4 Green Chilli (Export Standard)" },
           { "label": "Pod Length", "value": "8 cm to 14 cm" },
-          { "label": "Skin & Texture", "value": "Glossy Dark Green, Firm & Crunchy" },
-          { "label": "Pungency Level", "value": "High (Capsaicin Rich: 45,000–60,000 SHU)" },
-          { "label": "Packaging", "value": "3.5 kg / 4 kg / 5 kg Box, as per your requirement" },
-          { "label": "Transit Temp", "value": "7°C – 9°C (85–90% Relative Humidity)" },
+          {
+            "label": "Skin & Texture",
+            "value": "Glossy Dark Green, Firm & Crunchy"
+          },
+          {
+            "label": "Pungency Level",
+            "value": "High (Capsaicin Rich: 45,000–60,000 SHU)"
+          },
+          {
+            "label": "Packaging",
+            "value": "3.5 kg / 4 kg / 5 kg Box, as per your requirement"
+          },
+          {
+            "label": "Transit Temp",
+            "value": "7°C – 9°C (85–90% Relative Humidity)"
+          },
           { "label": "Shelf Life", "value": "21 – 25 Days under Cold-Chain" },
           { "label": "Availability", "value": "Round the Year Harvest" }
         ],
-        "certifications": ["FSSAI Compliant", "SPICES Board Certified", "APEDA Regulated"],
-        "highlights": ["Hand-Picked Daily", "Intense Fresh Aroma", "Ventilated Moisture-Guard Boxes"]
+        "certifications": [
+          "FSSAI Compliant",
+          "SPICES Board Certified",
+          "APEDA Regulated"
+        ],
+        "highlights": [
+          "Hand-Picked Daily",
+          "Intense Fresh Aroma",
+          "Ventilated Moisture-Guard Boxes"
+        ]
       },
       "pom": {
         "category": "Fresh Fruits",
@@ -232,16 +348,39 @@
         "description": "Renowned as the crown jewel of Indian horticulture, the Bhagwa pomegranate is globally coveted for its glowing saffron-red rind and tender, seedless ruby-red arils dripping with sweet, antioxidant-dense juice. Sourced straight from Solapur—India's pomegranate capital—every fruit is carefully weighed, foam-sleeved, and nested to guard its delicate crown and ruby luster across thousands of nautical miles.",
         "specs": [
           { "label": "Variety", "value": "Bhagwa (Kesar Red Standard)" },
-          { "label": "Fruit Weight", "value": "200g – 450g+ (Small to Jumbo Grade)" },
-          { "label": "Color Profile", "value": "Deep Glossy Red Rind with Ruby Arils" },
-          { "label": "Total Soluble Solids", "value": "15° to 16.5° Brix (Super Sweet)" },
-          { "label": "Packaging", "value": "3.5 kg / 4 kg Tray Pack (9 / 10 / 12 / 14 counts), as per your requirement" },
+          {
+            "label": "Fruit Weight",
+            "value": "200g – 450g+ (Small to Jumbo Grade)"
+          },
+          {
+            "label": "Color Profile",
+            "value": "Deep Glossy Red Rind with Ruby Arils"
+          },
+          {
+            "label": "Total Soluble Solids",
+            "value": "15° to 16.5° Brix (Super Sweet)"
+          },
+          {
+            "label": "Packaging",
+            "value": "3.5 kg / 4 kg Tray Pack (9 / 10 / 12 / 14 counts), as per your requirement"
+          },
           { "label": "Transit Temp", "value": "5°C – 7°C Controlled Reefer" },
-          { "label": "Shelf Life", "value": "60 – 75 Days under Refrigerated Storage" },
+          {
+            "label": "Shelf Life",
+            "value": "60 – 75 Days under Refrigerated Storage"
+          },
           { "label": "Availability", "value": "Round the Year Harvest" }
         ],
-        "certifications": ["GlobalGAP Certified", "Phytosanitary Clean", "PomeNet Registered"],
-        "highlights": ["Soft Seedless Arils", "Individually Net-Sleeved", "High Juice Content (48%+)"]
+        "certifications": [
+          "GlobalGAP Certified",
+          "Phytosanitary Clean",
+          "PomeNet Registered"
+        ],
+        "highlights": [
+          "Soft Seedless Arils",
+          "Individually Net-Sleeved",
+          "High Juice Content (48%+)"
+        ]
       },
       "onion": {
         "category": "Root Vegetables",
@@ -251,17 +390,49 @@
         "origin": "Nashik & Pune, Maharashtra",
         "description": "Sourced from the mineral-dense soils of Nashik, our fresh onions boast firm, solid globes shielded by multiple intact, papery crimson skins that lock in pungent aroma and moisture. Dried thoroughly in specialized curing sheds, they resist sprouting and moisture decay, ensuring supreme resilience across open-container and reefer maritime shipments to ports worldwide.",
         "specs": [
-          { "label": "Varieties", "value": "Nashik Red Onion / Light Red / White Onion" },
-          { "label": "Caliber / Size", "value": "40 mm – 50 mm / 55 mm+ / 60 mm+ Jumbo" },
-          { "label": "Shape & Moisture", "value": "Round Globe, Moisture Dried < 14%" },
-          { "label": "Pungency", "value": "Strong Sharp Aroma & High Dry Matter" },
-          { "label": "Packaging", "value": "10 kg / 20 kg / 25 kg / 50 kg Red Lenomesh Bag" },
-          { "label": "Storage Temp", "value": "Well-Ventilated Ambient / 0°C–2°C Reefer" },
-          { "label": "Shelf Life", "value": "45 – 90 Days under Dry Ventilation" },
-          { "label": "Availability", "value": "Year-Round (Kharif, Late Kharif & Rabi)" }
+          {
+            "label": "Varieties",
+            "value": "Nashik Red Onion / Light Red / White Onion"
+          },
+          {
+            "label": "Caliber / Size",
+            "value": "40 mm – 50 mm / 55 mm+ / 60 mm+ Jumbo"
+          },
+          {
+            "label": "Shape & Moisture",
+            "value": "Round Globe, Moisture Dried < 14%"
+          },
+          {
+            "label": "Pungency",
+            "value": "Strong Sharp Aroma & High Dry Matter"
+          },
+          {
+            "label": "Packaging",
+            "value": "10 kg / 20 kg / 25 kg / 50 kg Red Lenomesh Bag"
+          },
+          {
+            "label": "Storage Temp",
+            "value": "Well-Ventilated Ambient / 0°C–2°C Reefer"
+          },
+          {
+            "label": "Shelf Life",
+            "value": "45 – 90 Days under Dry Ventilation"
+          },
+          {
+            "label": "Availability",
+            "value": "Year-Round (Kharif, Late Kharif & Rabi)"
+          }
         ],
-        "certifications": ["APEDA Export Verified", "AGMARK Grade 1", "Phytosanitary Inspected"],
-        "highlights": ["Cured Outer Skin", "Sprout-Inhibited", "Heavy-Duty Mesh Bags"]
+        "certifications": [
+          "APEDA Export Verified",
+          "AGMARK Grade 1",
+          "Phytosanitary Inspected"
+        ],
+        "highlights": [
+          "Cured Outer Skin",
+          "Sprout-Inhibited",
+          "Heavy-Duty Mesh Bags"
+        ]
       },
       "turmeric": {
         "category": "Spices & Botanicals",
@@ -271,17 +442,78 @@
         "origin": "Salem (Tamil Nadu) & Nizamabad (Telangana)",
         "description": "Revered across culinary and nutraceutical industries, our Indian turmeric fingers and whole dried rhizomes offer deep saffron-gold pigmentation and naturally elevated curcumin concentrations (up to 7%). Cured by ancient boiling and sun-basking traditions before mechanical polishing, our turmeric delivers unmatched earthy warmth, antibacterial potency, and pure export grade consistency.",
         "specs": [
-          { "label": "Types Available", "value": "Single Polished Fingers, also Double Polished Fingers, Bulbs & Powder" },
-          { "label": "Curcumin Content", "value": "3.5% to 7% High Bio-Active Potency" },
-          { "label": "Moisture Content", "value": "Max 9.5% – 10% (Strictly Dried)" },
-          { "label": "Extraneous Matter", "value": "< 0.5% (Mechanically Cleaned & Sorted)" },
-          { "label": "Packaging", "value": "25 kg / 50 kg Jute Bag or Poly-Lined PP Bags" },
-          { "label": "Storage Condition", "value": "Cool, Dry & Dark Moisture-Free Warehouse" },
-          { "label": "Shelf Life", "value": "24 Months under Standard Storage" },
+          {
+            "label": "Types Available",
+            "value": "Single Polished Fingers, also Double Polished Fingers, Bulbs & Powder"
+          },
+          {
+            "label": "Curcumin Content",
+            "value": "3.5% to 7% High Bio-Active Potency"
+          },
+          {
+            "label": "Moisture Content",
+            "value": "Max 9.5% – 10% (Strictly Dried)"
+          },
+          {
+            "label": "Extraneous Matter",
+            "value": "< 0.5% (Mechanically Cleaned & Sorted)"
+          },
+          {
+            "label": "Packaging",
+            "value": "25 kg / 50 kg Jute Bag or Poly-Lined PP Bags"
+          },
+          {
+            "label": "Storage Condition",
+            "value": "Cool, Dry & Dark Moisture-Free Warehouse"
+          },
+          {
+            "label": "Shelf Life",
+            "value": "24 Months under Standard Storage"
+          },
           { "label": "Availability", "value": "Round the Year Harvest" }
         ],
-        "certifications": ["SPICES Board of India", "FSSAI Grade A", "Laboratory Tested"],
-        "highlights": ["Deep Golden Color", "Zero Adulteration", "High Natural Curcumin"]
+        "certifications": [
+          "SPICES Board of India",
+          "FSSAI Grade A",
+          "Laboratory Tested"
+        ],
+        "highlights": [
+          "Deep Golden Color",
+          "Zero Adulteration",
+          "High Natural Curcumin"
+        ]
+      },
+
+      "coconut": {
+        "category": "Fresh Produce",
+        "name": "Semi-Husked Coconut",
+        "short": "Coconut",
+        "subtitle": "Semi-Husked | Export Quality",
+        "origin": "India",
+        "description": "Fresh semi-husked coconuts carefully selected for quality, freshness, and international export requirements.",
+        "specs": [
+          { "label": "Product", "value": "Semi-Husked Coconut" },
+          { "label": "Origin", "value": "India" },
+          { "label": "Packaging", "value": "Export-Ready Packaging" }
+        ],
+        "certifications": ["Quality Checked"],
+        "highlights": ["Semi-Husked", "Fresh Produce", "Export Quality"]
+      },
+      "drumstick": {
+        "category": "Fresh Vegetables",
+        "name": "Fresh Drumstick",
+        "short": "Drumstick",
+        "subtitle": "Fresh | Carefully Selected",
+        "origin": "India",
+        "description": "Fresh drumsticks selected and packed for quality and freshness, suitable for domestic and international markets.",
+        "specs": [
+          { "label": "Product", "value": "Fresh Drumstick" },
+          { "label": "Length", "value": "1.5–2 Feet and Above" },
+          { "label": "Origin", "value": "India" },
+          { "label": "Packaging", "value": "Export-Ready Packaging" }
+        ],
+        "certifications": ["Quality Checked"],
+        "highlights": ["Fresh Produce", "Carefully Selected", "Export Quality"]
       }
     }
   },
@@ -299,10 +531,22 @@
       "Our promise is simple: to build trust through transparency, focus on quality at every stage, and develop lasting relationships with customers across global markets."
     ],
     "highlights": [
-      { "title": "Farm-Focused Sourcing", "text": "Building relationships around agricultural produce and seasonal availability." },
-      { "title": "Quality Commitment", "text": "Working towards buyer specifications and appropriate handling standards." },
-      { "title": "Global Connections", "text": "Connecting Indian agricultural products with international opportunities." },
-      { "title": "Long-Term Partnerships", "text": "Prioritising clear communication, transparency and mutual growth." }
+      {
+        "title": "Farm-Focused Sourcing",
+        "text": "Building relationships around agricultural produce and seasonal availability."
+      },
+      {
+        "title": "Quality Commitment",
+        "text": "Working towards buyer specifications and appropriate handling standards."
+      },
+      {
+        "title": "Global Connections",
+        "text": "Connecting Indian agricultural products with international opportunities."
+      },
+      {
+        "title": "Long-Term Partnerships",
+        "text": "Prioritising clear communication, transparency and mutual growth."
+      }
     ],
     "promiseEyebrow": "Our Promise",
     "promiseLine1": "From Indian Farms",
