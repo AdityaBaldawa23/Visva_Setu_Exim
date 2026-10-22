@@ -261,7 +261,7 @@ const Products = () => {
                 transition={{ duration: 0.1, ease: "easeOut" }}
               />
             </div>
-            <span>05</span>
+            <span>07</span>
           </div>
         </div>
       </div>

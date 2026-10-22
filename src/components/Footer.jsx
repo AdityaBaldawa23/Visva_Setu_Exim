@@ -8,7 +8,7 @@ import { FaWhatsapp, FaPhoneAlt, FaInstagram, FaLinkedinIn, FaEnvelope } from "r
   so no tailwind.config changes are needed.
 */
 
-const LOGO_SRC = "/logo.png"; // <- change to your logo path
+const LOGO_SRC = "/Logo.png"; // <- change to your logo path
 
 const QUICK_LINKS = [
   { label: "About Us", href: "#about" },
