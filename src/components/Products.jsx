@@ -14,6 +14,8 @@ const products = [
   { id: "pom", img: "/pom.png" },
   { id: "onion", img: "/onion.png" },
   { id: "turmeric", img: "/turmeric.png" },
+  { id: "coconut", img: "/coconut.jpeg" },
+  { id: "drumstick", img: "/drumstick.jpeg" },
 ];
 
 const Products = () => {
@@ -114,12 +116,18 @@ const Products = () => {
 
           {/* Main Title */}
           <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.12] mb-4 sm:mb-6 font-medium tracking-tight">
-            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">{t("products.titleLine1")}</span>
-            <span className="text-[#a68a56] block">{t("products.titleLine2")}</span>
+            <span className="text-[#0e3b2c] block mb-1 sm:mb-2">
+              {t("products.titleLine1")}
+            </span>
+            <span className="text-[#a68a56] block">
+              {t("products.titleLine2")}
+            </span>
           </h2>
 
           {/* Description */}
-          <p className={`font-body text-sm sm:text-base md:text-lg text-[#3a3f3a] max-w-2xl leading-relaxed`}>
+          <p
+            className={`font-body text-sm sm:text-base md:text-lg text-[#3a3f3a] max-w-2xl leading-relaxed`}
+          >
             {t("products.description")}
           </p>
         </motion.div>
@@ -129,9 +137,13 @@ const Products = () => {
           {/* Left Arrow (Desktop / Tablet) */}
           <button
             onClick={scrollLeft}
-            aria-label={isRTL ? t("products.scrollRight") : t("products.scrollLeft")}
+            aria-label={
+              isRTL ? t("products.scrollRight") : t("products.scrollLeft")
+            }
             className={`hidden md:flex absolute -start-4 lg:-start-12 z-20 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full border border-[#8d7c5d] text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-all duration-300 bg-[#f4f2e9]/80 backdrop-blur-sm ${
-              scrollProgress <= 0.01 ? "opacity-30 cursor-not-allowed" : "opacity-100 cursor-pointer"
+              scrollProgress <= 0.01
+                ? "opacity-30 cursor-not-allowed"
+                : "opacity-100 cursor-pointer"
             }`}
             disabled={scrollProgress <= 0.01}
           >
@@ -170,15 +182,22 @@ const Products = () => {
                     </h3>
 
                     <div className="flex items-center justify-between gap-3 w-full mt-2">
-                      <span className={`font-body text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-[#8d7c5d] uppercase`}>
+                      <span
+                        className={`font-body text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-[#8d7c5d] uppercase`}
+                      >
                         {product.subtitle}
                       </span>
                       <Link
                         href={`/products#${product.id}`}
-                        aria-label={t("products.viewDetails", { name: product.name })}
+                        aria-label={t("products.viewDetails", {
+                          name: product.name,
+                        })}
                         className="shrink-0 w-8 h-8 rounded-full border border-[#8d7c5d] flex items-center justify-center text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-colors"
                       >
-                        <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" strokeWidth={2} />
+                        <ArrowRight
+                          className="w-3.5 h-3.5 rtl:-scale-x-100"
+                          strokeWidth={2}
+                        />
                       </Link>
                     </div>
                   </div>
@@ -190,13 +209,20 @@ const Products = () => {
           {/* Right Arrow (Desktop / Tablet) */}
           <button
             onClick={scrollRight}
-            aria-label={isRTL ? t("products.scrollLeft") : t("products.scrollRight")}
+            aria-label={
+              isRTL ? t("products.scrollLeft") : t("products.scrollRight")
+            }
             className={`hidden md:flex absolute -end-4 lg:-end-12 z-20 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full border border-[#8d7c5d] text-[#0e3b2c] hover:bg-[#0e3b2c] hover:text-white transition-all duration-300 bg-[#f4f2e9]/80 backdrop-blur-sm ${
-              scrollProgress >= 0.99 ? "opacity-30 cursor-not-allowed" : "opacity-100 cursor-pointer"
+              scrollProgress >= 0.99
+                ? "opacity-30 cursor-not-allowed"
+                : "opacity-100 cursor-pointer"
             }`}
             disabled={scrollProgress >= 0.99}
           >
-            <ArrowRight className="w-5 h-5 rtl:-scale-x-100" strokeWidth={1.5} />
+            <ArrowRight
+              className="w-5 h-5 rtl:-scale-x-100"
+              strokeWidth={1.5}
+            />
           </button>
         </div>
 
@@ -211,7 +237,9 @@ const Products = () => {
             >
               <ArrowLeft size={16} className="rtl:-scale-x-100" />
             </button>
-            <span className={`font-body text-xs text-[#5a6259]`}>{t("products.swipe")}</span>
+            <span className={`font-body text-xs text-[#5a6259]`}>
+              {t("products.swipe")}
+            </span>
             <button
               onClick={scrollRight}
               aria-label={t("products.next")}
@@ -222,7 +250,9 @@ const Products = () => {
           </div>
 
           {/* Pagination Progress */}
-          <div className={`flex items-center gap-4 sm:gap-6 font-body text-xs sm:text-sm font-semibold text-[#3a3f3a]`}>
+          <div
+            className={`flex items-center gap-4 sm:gap-6 font-body text-xs sm:text-sm font-semibold text-[#3a3f3a]`}
+          >
             <span>01</span>
             <div className="w-24 sm:w-32 h-[2px] bg-[#e5dfc9] relative rounded-full overflow-hidden">
               <motion.div

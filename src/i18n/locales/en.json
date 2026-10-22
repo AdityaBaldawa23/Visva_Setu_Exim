@@ -60,7 +60,7 @@
       },
       "chilli": { "name": "G4 Green Chilli", "subtitle": "FARM FRESH QUALITY" },
       "pom": { "name": "Pomegranate", "subtitle": "RICH IN NATURAL GOODNESS" },
-      "onion": { "name": "Fresh Onion", "subtitle": "GOLDEN HARVEST" },
+      "onion": { "name": "Red Onion", "subtitle": "GOLDEN HARVEST" },
       "turmeric": {
         "name": "Turmeric",
         "subtitle": "RICH IN NATURAL GOODNESS"
@@ -180,6 +180,11 @@
         "label": "Europe",
         "region": "Europe",
         "tagline": "Connecting with European markets"
+      },
+      "russia": {
+        "label": "Russia",
+        "region": "Eastern Europe & Asia",
+        "tagline": "Connecting markets across Eurasia"
       }
     }
   },

@@ -231,6 +231,7 @@ export function WorldMap({
                           "🇱🇰": "lk",
                           "🇻🇳": "vn",
                           "🇪🇺": "eu",
+                          "🇷🇺": "ru",
                         }[dot.flag]
                       }.svg`}
                       alt={`${dot.label} flag`}

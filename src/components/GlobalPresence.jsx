@@ -53,6 +53,10 @@ const destinations = [
     key: "europe",
     flag: "🇪🇺",
   },
+  {
+    key: "russia",
+    flag: "🇷🇺",
+  },
 ];
 const GlobalPresence = () => {
   const { t } = useTranslation();
@@ -178,6 +182,12 @@ const GlobalPresence = () => {
                 end: { lat: 50.1109, lng: 10.0 }, // Central Europe
                 label: "europe",
                 flag: "🇪🇺",
+              },
+              {
+                start: { lat: 20.5937, lng: 78.9629 }, // India
+                end: { lat: 61.524, lng: 105.3188 }, // Russia
+                label: "russia",
+                flag: "🇷🇺",
               },
             ]}
           />
