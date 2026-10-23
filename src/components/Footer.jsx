@@ -20,9 +20,11 @@ const QUICK_LINKS = [
 const PRODUCTS = [
   { label: "Green Banana", href: "/products#banana" },
   { label: "Green Chilli", href: "/products#chilli" },
-  { label: "White Onions", href: "/products#onion" },
+  { label: "Red Onions", href: "/products#onion" },
   { label: "Pomogranate", href: "/products#pom" },
   { label: "Turmeric", href: "/products#turmeric" },
+  { label: "Semi Husked Coconut", href: "/products#coconut" },
+  { label: "Drumstick", href: "/products#drumstick" },``
 ];
 
 const SOCIALS = [
